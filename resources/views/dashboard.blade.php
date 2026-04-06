@@ -1,22 +1,37 @@
 <x-app-layout>
-    <div class="flex flex-col items-center justify-center h-[80vh] text-center">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12 text-center">
 
-        <!-- MENSAJE DINÁMICO -->
-        <h1 class="text-3xl font-bold mb-6">
+        <h1 class="text-3xl font-bold mb-10">
             @if(auth()->user()->role === 'admin')
-                Bienvenido Admin 
+                Bienvenido Admin 👑
             @elseif(auth()->user()->role === 'monitor')
-                Bienvenido Monitor 
+                Bienvenido Monitor 🏋️‍♂️
             @else
-                Bienvenido Usuario 
+                Bienvenido a tu zona de entrenamiento 💪
             @endif
         </h1>
 
-        <!-- BOTÓN LOGOUT -->
-        <form method="POST" action="{{ route('logout') }}">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <div class="bg-blue-50 p-6 rounded-lg shadow border border-blue-200">
+                <h3 class="text-xl font-bold text-blue-900 mb-2">Actividades y Clases</h3>
+                <p class="text-gray-700 mb-4">Descubre nuestro catálogo y apúntate a tus clases favoritas.</p>
+                <a href="{{ route('actividades') }}" class="inline-block bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 font-semibold">
+                    Ver Calendario
+                </a>
+            </div>
+
+            <div class="bg-green-50 p-6 rounded-lg shadow border border-green-200">
+                <h3 class="text-xl font-bold text-green-900 mb-2">Reserva de Pistas</h3>
+                <p class="text-gray-700 mb-4">Reserva tu pista de pádel o tenis para jugar con amigos.</p>
+                <a href="#" class="inline-block bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 font-semibold">
+                    Gestionar Pistas
+                </a>
+            </div>
+        </div>
+
+        <form method="POST" action="{{ route('logout') }}" class="inline-block">
             @csrf
-            <button type="submit"
-                class="px-4 py-2 bg-red-600 rounded-md text-white hover:bg-red-700 transition">
+            <button type="submit" class="px-6 py-2 bg-red-600 rounded-md text-white font-semibold hover:bg-red-700 transition">
                 Cerrar sesión
             </button>
         </form>

@@ -8,7 +8,7 @@
 <body class="bg-gray-100 flex items-center justify-center h-screen">
 
     <div class="bg-white p-8 rounded shadow text-center">
-        <h1 class="text-2xl font-bold mb-4">Bienvenido al Gimnasio</h1>
+        <h1 class="text-2xl font-bold mb-4">BIENVENIDO</h1>
 
         <p class="mb-6">Inicia sesión o crea una cuenta para continuar</p>
 
