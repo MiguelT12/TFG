@@ -6,7 +6,6 @@ services:
         uid: 1000
       context: ./
       dockerfile: Dockerfile
-    image: dawapp
     container_name: dawapp-app
     restart: unless-stopped
     working_dir: /var/www/

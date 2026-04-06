@@ -1,17 +1,25 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+    <div class="flex flex-col items-center justify-center h-[80vh] text-center">
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div>
+        <!-- MENSAJE DINÁMICO -->
+        <h1 class="text-3xl font-bold mb-6">
+            @if(auth()->user()->role === 'admin')
+                Bienvenido Admin 
+            @elseif(auth()->user()->role === 'monitor')
+                Bienvenido Monitor 
+            @else
+                Bienvenido Usuario 
+            @endif
+        </h1>
+
+        <!-- BOTÓN LOGOUT -->
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit"
+                class="px-4 py-2 bg-red-600 rounded-md text-white hover:bg-red-700 transition">
+                Cerrar sesión
+            </button>
+        </form>
+
     </div>
 </x-app-layout>

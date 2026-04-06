@@ -11,29 +11,41 @@ use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
 {
-    /**
-     * Display the login view.
-     */
+    
+    // Mostrar formulario de login
+    
     public function create(): View
     {
         return view('auth.login');
     }
 
-    /**
-     * Handle an incoming authentication request.
-     */
+    
+    // Procesar login
+    
     public function store(LoginRequest $request): RedirectResponse
     {
         $request->authenticate();
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        $user = auth()->user();
+
+        //  REDIRECCIÓN SEGÚN ROL
+        if ($user->role === 'admin') {
+            return redirect()->route('admin');
+        }
+
+        if ($user->role === 'monitor') {
+            return redirect()->route('monitor');
+        }
+
+        // 👤 Usuario normal
+        return redirect()->route('dashboard');
     }
 
-    /**
-     * Destroy an authenticated session.
-     */
+    
+    // Logout
+    
     public function destroy(Request $request): RedirectResponse
     {
         Auth::guard('web')->logout();
@@ -42,6 +54,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
+        //  Redirige a tu página personalizada
         return redirect('/');
     }
 }
