@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CuotaController;
 
 Route::get('/', function () {
     return view('home');
@@ -30,8 +31,7 @@ Route::middleware(['auth'])->group(function () {
         return "Panel Usuario";
     })->middleware('role:usuario')->name('usuario');
 
-
-    // PERFIL (común para todos)
+    // PERFIL 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -39,6 +39,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/actividades', function () {
         return view('actividades');
     })->middleware(['auth', 'verified'])->name('actividades');
+
+    // Para las cuotas
+    Route::get('/tarifas', [CuotaController::class, 'index'])->name('tarifas');
 });
 
 require __DIR__.'/auth.php';
