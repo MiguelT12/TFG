@@ -3,14 +3,19 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CuotaController;
+use App\Models\Cuota;
 
 Route::get('/', function () {
     return view('home');
 });
 
-// Dashboard general (usuario normal)
+// Dashboard 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    // Recogemos las cuotas de la BBDD
+    $cuotas = \App\Models\Cuota::all(); 
+    
+    // Se las enviamos a la vista
+    return view('dashboard', compact('cuotas'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // RUTAS PROTEGIDAS POR ROL

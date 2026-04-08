@@ -1,0 +1,134 @@
+/* --- public/css/estilos.css --- */
+
+/* Reset básico para asegurar consistencia */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000115; /* Fondo azul galáctico profundo */
+    color: #e0e0e0; /* Texto general claro/plateado */
+    font-family: 'Montserrat', 'Arial', sans-serif; /* Fuente moderna y limpia, añade Montserrat si puedes, si no Arial */
+    line-height: 1.6;
+}
+
+.contenedor-principal {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.titulo-bienvenida {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #FFE81F; /* Amarillo Star Wars vibrante */
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 232, 31, 0.7); /* Brillo amarillo sutil */
+}
+
+.subtitulo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #f0f0f0;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 5px rgba(240, 240, 240, 0.5); /* Brillo blanco sutil */
+}
+
+/* El grid de 3 columnas - responsivo */
+.grid-tarifas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Columnas responsivas */
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Tarjetas (Estilo oscuro espacial con sutil brillo azul) */
+.tarjeta-tarifa {
+    background-color: #0a0e20; /* Azul muy oscuro para las tarjetas */
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(58, 108, 253, 0.1); /* Brillo azul sutil por defecto */
+    border: 1px solid #1a2a4a; /* Borde azul oscuro discreto */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Efecto hover: Brillo intenso de sable de luz azul y elevación */
+.tarjeta-tarifa:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(58, 108, 253, 0.5); /* Brillo azul intenso */
+    border-color: #3a6cfd; /* Borde azul vibrante */
+}
+
+.tarjeta-titulo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tarjeta-precio {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #FFE81F; /* Precio amarillo vibrante */
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 15px rgba(255, 232, 31, 0.8); /* Brillo precio */
+}
+
+.tarjeta-precio span {
+    font-size: 0.9rem;
+    font-weight: normal;
+    color: #9ca3af; /* /mes más tenue */
+    text-shadow: none; /* Sin brillo para el /mes */
+}
+
+/* Botones */
+.btn-primario, .btn-peligro {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    width: 100%; /* Botones de plan ocupan ancho completo */
+}
+
+/* Botón Primario: Sable Jedi (Azul vibrante) */
+.btn-primario {
+    background-color: #3a6cfd; /* Azul Jedi vibrante */
+    color: white;
+}
+
+.btn-primario:hover {
+    background-color: #2552d1;
+    box-shadow: 0 0 20px rgba(58, 108, 253, 0.8); /* Brillo azul botón */
+}
+
+/* Botón Peligro: Sable Sith (Rojo vibrante) */
+.btn-peligro {
+    background-color: #f03a3a; /* Rojo Sith vibrante */
+    color: white;
+}
+
+.btn-peligro:hover {
+    background-color: #d12525;
+    box-shadow: 0 0 20px rgba(240, 58, 58, 0.8); /* Brillo rojo botón */
+}
+
+/* Centrar el botón de logout */
+.seccion-logout {
+    margin-top: 2rem;
+}
+
+.seccion-logout .btn-peligro {
+    width: auto; /* Botón de logout no ocupa ancho completo */
+    display: inline-block;
+}

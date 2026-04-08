@@ -21,31 +21,32 @@ class AuthenticatedSessionController extends Controller
 
     
     // Procesar login
-    
     public function store(LoginRequest $request): RedirectResponse
     {
         $request->authenticate();
 
         $request->session()->regenerate();
 
-        $user = auth()->user();
+        $user = $request->user();
 
-        //  REDIRECCIÓN SEGÚN ROL
+        // 1. Redirección para Administradores
         if ($user->role === 'admin') {
-            return redirect()->route('admin');
+            return redirect()->route('admin'); 
         }
 
+        // 2. Redirección para Monitores
         if ($user->role === 'monitor') {
-            return redirect()->route('monitor');
+            return redirect('/monitor'); 
         }
 
-        // 👤 Usuario normal
+        // 3. Redirección por defecto (Clientes)
+        // Por ahora va al dashboard general con las tarjetas.
+        // Más adelante, si detectamos que es su primera vez, lo mandaremos a route('tarifas')
         return redirect()->route('dashboard');
     }
 
     
     // Logout
-    
     public function destroy(Request $request): RedirectResponse
     {
         Auth::guard('web')->logout();
