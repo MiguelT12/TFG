@@ -29,13 +29,14 @@
             </div>
         </div>
 
-        <div class="seccion-logout">
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <button type="submit" class="btn-peligro">
-                    Cerrar sesión
-                </button>
-            </form>
+        <div class="seccion-carrusel">
+            <h2 class="subtitulo">Nuestras Instalaciones</h2>
+            
+            <div class="carrusel">
+                <img src="{{ asset('img/pesas.jpg') }}" alt="Zona de pesas" class="carrusel-img">
+                <img src="{{ asset('img/cardio.jpg') }}" alt="Zona cardio" class="carrusel-img">
+                <img src="{{ asset('img/maquinas.jpg') }}" alt="Máquinas" class="carrusel-img">
+            </div>
         </div>
 
     </div>

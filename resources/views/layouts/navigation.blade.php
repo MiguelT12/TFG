@@ -32,19 +32,20 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <div class="dropdown-sw">
-                            <x-dropdown-link :href="route('profile.edit')" class="dropdown-link-sw">
-                                {{ __('Profile') }}
-                            </x-dropdown-link>
-
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <x-dropdown-link :href="route('logout')"
-                                        onclick="event.preventDefault();
-                                                    this.closest('form').submit();" class="dropdown-link-sw">
-                                    {{ __('Log Out') }}
-                                </x-dropdown-link>
-                            </form>
+                        <div class="usuario-dropdown">
+                            <button class="usuario-btn">
+                                {{ Auth::user()->name }} 
+                                <span style="font-size: 0.8rem; margin-left: 5px;">▼</span>
+                            </button>
+                            
+                            <div class="usuario-menu">
+                                <a href="{{ route('profile.edit') }}">Account Settings</a>
+                                
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit">Cerrar sesión</button>
+                                </form>
+                            </div>
                         </div>
                     </x-slot>
                 </x-dropdown>

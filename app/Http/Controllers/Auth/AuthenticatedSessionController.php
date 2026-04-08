@@ -36,7 +36,7 @@ class AuthenticatedSessionController extends Controller
 
         // 2. Redirección para Monitores
         if ($user->role === 'monitor') {
-            return redirect('/monitor'); 
+            return redirect('/dashboard'); 
         }
 
         // 3. Redirección por defecto (Clientes)

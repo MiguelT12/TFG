@@ -132,3 +132,151 @@ body {
     width: auto; /* Botón de logout no ocupa ancho completo */
     display: inline-block;
 }
+
+/* --- NAVEGACIÓN PROFESIONAL OSCURA --- */
+
+/* Fondo de la barra de navegación */
+nav.bg-white {
+    background-color: #0f172a !important; /* Mismo fondo oscuro de la página */
+    border-bottom: 1px solid #1e293b !important; /* Borde separador sutil */
+}
+
+/* Color de los enlaces inactivos (Calendario, Reserva...) */
+nav a {
+    color: #94a3b8 !important; /* Gris claro/azulado */
+    font-weight: 500 !important;
+    transition: color 0.2s ease !important;
+}
+
+/* Color al pasar el ratón y del enlace activo (Inicio) */
+/* Laravel usa border-indigo-400 para marcar la página actual */
+nav a:hover, 
+nav a.border-indigo-400, 
+nav a.text-indigo-700 {
+    color: #3b82f6 !important; /* Azul corporativo brillante */
+    border-bottom-color: #3b82f6 !important; /* Cambia el subrayado morado a azul */
+}
+
+/* Color del nombre de usuario y el icono de la derecha */
+nav button,
+nav button div, 
+nav button svg {
+    color: #e2e8f0 !important;
+}
+
+/* Fondo del menú desplegable al hacer clic en el usuario */
+nav .relative > div > div {
+    background-color: #1e293b !important;
+    border: 1px solid #334155 !important;
+}
+
+/* --- DESPLEGABLE DE USUARIO --- */
+.usuario-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.usuario-btn {
+    background: none;
+    border: none;
+    color: #e2e8f0;
+    font-size: 1rem;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    transition: color 0.2s;
+}
+
+.usuario-btn:hover {
+    color: #ffffff;
+}
+
+.usuario-menu {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    top: 60px; /* Separación desde arriba */
+    right: 0;
+    background-color: #1e293b;
+    min-width: 200px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    border-radius: 8px;
+    border: 1px solid #334155;
+    overflow: hidden;
+    z-index: 50;
+}
+
+/* Mostrar al pasar el ratón */
+.usuario-dropdown:hover .usuario-menu {
+    display: block;
+}
+
+.usuario-menu a, 
+.usuario-menu button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 12px 20px;
+    background: none;
+    border: none;
+    color: #f8fafc;
+    font-size: 0.95rem;
+    font-family: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.usuario-menu a:hover, 
+.usuario-menu button:hover {
+    background-color: #334155;
+    color: #3b82f6; /* Azul corporativo */
+}
+
+/* --- CARRUSEL DE FOTOS --- */
+.seccion-carrusel {
+    margin-top: 5rem;
+    padding-bottom: 3rem;
+}
+
+.carrusel {
+    display: flex;
+    overflow-x: auto;
+    gap: 1.5rem;
+    padding: 1rem 0 2rem 0;
+    scroll-snap-type: x mandatory; /* Efecto imán al hacer scroll */
+}
+
+/* Estilizar la barra de desplazamiento del carrusel */
+.carrusel::-webkit-scrollbar {
+    height: 10px;
+}
+.carrusel::-webkit-scrollbar-track {
+    background: #0f172a; 
+    border-radius: 5px;
+}
+.carrusel::-webkit-scrollbar-thumb {
+    background: #334155; 
+    border-radius: 5px;
+}
+.carrusel::-webkit-scrollbar-thumb:hover {
+    background: #3b82f6; 
+}
+
+.carrusel-img {
+    flex: 0 0 85%; /* Las fotos ocupan el 85% del ancho para que se vea un trozo de la siguiente */
+    max-width: 700px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 16px;
+    scroll-snap-align: center; /* Aquí aplica el efecto imán */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    border: 1px solid #1e293b;
+    transition: transform 0.3s;
+}
+
+.carrusel-img:hover {
+    transform: scale(1.02);
+}
