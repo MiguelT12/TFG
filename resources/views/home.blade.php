@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Gimnasio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ asset('css/inicio.css') }}">
 </head>
-<body class="bg-gray-100 flex items-center justify-center h-screen">
+<body>
 
-    <div class="bg-white p-8 rounded shadow text-center">
-        <h1 class="text-2xl font-bold mb-4">BIENVENIDO</h1>
+    <div class="pantalla-login">
+        <div class="tarjeta-login">
+            <h1 class="titulo-login">BIENVENIDO</h1>
+            
+            <p class="texto-login">Inicia sesión o crea una cuenta para continuar</p>
 
-        <p class="mb-6">Inicia sesión o crea una cuenta para continuar</p>
+            <div class="botones-login">
+                <a href="{{ route('login') }}" class="btn-primario">
+                    Iniciar sesión
+                </a>
 
-        <div class="space-x-4">
-            <a href="{{ route('login') }}"
-               class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
-                Iniciar sesión
-            </a>
-
-            <a href="{{ route('register') }}"
-               class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
-                Crear cuenta
-            </a>
+                <a href="{{ route('register') }}" class="btn-secundario">
+                    Crear cuenta
+                </a>
+            </div>
         </div>
     </div>
 
