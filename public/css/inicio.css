@@ -1,6 +1,8 @@
 /* --- public/css/inicio.css --- */
 
-/* 1. Fondo de la web y tipografía base */
+/* =========================================
+   1. BASE Y FONDO GALÁCTICO
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +15,9 @@ body {
     line-height: 1.6;
 }
 
-/* 2. Maquetación para centrar la tarjeta en la pantalla */
+/* =========================================
+   2. MAQUETACIÓN Y TARJETA CENTRAL
+   ========================================= */
 .pantalla-login {
     display: flex;
     align-items: center;
@@ -22,9 +26,8 @@ body {
     padding: 1rem;
 }
 
-/* 3. Diseño de la Tarjeta */
 .tarjeta-login {
-    background-color: #1e293b; 
+    background-color: #1e293b; /* Azul marino un poco más claro para la tarjeta */
     padding: 3rem 2.5rem;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
@@ -34,16 +37,17 @@ body {
     max-width: 450px;
 }
 
-/* --- TÍTULO ESTILO STAR WARS --- */
+/* =========================================
+   3. TEXTOS Y TÍTULOS (ESTILO STAR WARS)
+   ========================================= */
 .titulo-login {
     font-size: 2.8rem;
-    font-family: 'Arial Black', 'Impact', sans-serif; /* Fuente pesada y en bloque */
+    font-family: 'Arial Black', 'Impact', sans-serif; 
     font-weight: 900;
     color: #FFE81F; /* Amarillo Star Wars */
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 3px;
-    /* Sombra oscura para dar profundidad y un ligero brillo amarillo */
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 232, 31, 0.3); 
 }
 
@@ -53,7 +57,9 @@ body {
     font-size: 1.1rem;
 }
 
-/* 4. Contenedor de Botones (Flexbox) */
+/* =========================================
+   4. BOTONES PRINCIPALES
+   ========================================= */
 .botones-login {
     display: flex;
     flex-direction: column;
@@ -61,7 +67,6 @@ body {
     width: 100%;
 }
 
-/* 5. Diseño de los Botones */
 .btn-primario,
 .btn-secundario {
     padding: 0.75rem 1.5rem;
@@ -77,7 +82,7 @@ body {
     display: block;
 }
 
-/* Botón Iniciar Sesión */
+/* Botón Iniciar Sesión/Entrar (Azul sólido) */
 .btn-primario {
     background-color: #2563eb;
     color: white;
@@ -89,7 +94,7 @@ body {
     box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
 }
 
-/* Botón Crear Cuenta */
+/* Botón Crear Cuenta (Transparente con borde azul) */
 .btn-secundario {
     background-color: transparent;
     color: #3b82f6;
@@ -102,15 +107,80 @@ body {
     box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
 }
 
-/* 6. Comportamiento en pantallas de ordenador */
+/* En PC los botones de la página principal se ponen uno al lado del otro */
 @media (min-width: 480px) {
-    .botones-login {
+    .pantalla-login > .tarjeta-login > .botones-login {
         flex-direction: row; 
     }
-    
-    .btn-primario,
-    .btn-secundario {
+    .pantalla-login > .tarjeta-login > .botones-login > a {
         flex: 1; 
         width: auto;
     }
+}
+
+/* =========================================
+   5. FORMULARIOS (LOGIN Y REGISTRO)
+   ========================================= */
+.formulario-auth {
+    width: 100%;
+    text-align: left;
+}
+
+.grupo-input {
+    margin-bottom: 1.2rem;
+    display: flex;
+    flex-direction: column; /* Obliga a que la etiqueta esté arriba y el input abajo */
+}
+
+.grupo-input label {
+    color: #cbd5e1; /* Gris claro para que resalte bien sobre el fondo oscuro */
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.5px;
+}
+
+/* Diseño moderno para inputs y el selector de Rol */
+.grupo-input input,
+.grupo-input select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background-color: #0f172a; /* Fondo muy oscuro, más que la tarjeta */
+    border: 1px solid #334155; /* Borde sutil */
+    border-radius: 8px; /* Bordes redondeados más suaves */
+    color: #f8fafc; /* Texto blanco cuando escribes */
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Efecto visual al hacer clic para escribir (Focus) */
+.grupo-input input:focus,
+.grupo-input select:focus {
+    border-color: #3b82f6; /* Borde azul vibrante */
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25); /* Halo de luz moderno exterior */
+}
+
+/* =========================================
+   6. ENLACES INFERIORES
+   ========================================= */
+.enlace-inferior {
+    text-align: center;
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.enlace-inferior a {
+    color: #94a3b8; /* Gris claro para los enlaces inactivos */
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.enlace-inferior a:hover {
+    color: #FFE81F; /* Se iluminan en el amarillo Star Wars al pasar el ratón */
+    text-shadow: 0 0 10px rgba(255, 232, 31, 0.4); /* Pequeño brillo */
 }

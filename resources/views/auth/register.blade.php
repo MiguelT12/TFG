@@ -1,65 +1,52 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+    <h1 class="titulo-login" style="font-size: 2.2rem;">REGISTRO</h1>
+    
+    <p class="texto-login">Únete a la academia para comenzar tu entrenamiento</p>
+
+    <form method="POST" action="{{ route('register') }}" class="formulario-auth">
         @csrf
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+        <div class="grupo-input">
+            <label for="name">Nombre</label>
+            <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus autocomplete="name">
+            @error('name') <span class="mensaje-error">{{ $message }}</span> @enderror
         </div>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        <div class="grupo-input">
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="username">
+            @error('email') <span class="mensaje-error">{{ $message }}</span> @enderror
         </div>
 
-        <!-- Role -->
-        <div class="mt-4">
-            <x-input-label for="role" :value="__('Role')" />
-
-            <select name="role" id="role" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm">
+        <div class="grupo-input">
+            <label for="role">Rol</label>
+            <select name="role" id="role" required>
                 <option value="usuario">Usuario</option>
                 <option value="monitor">Monitor</option>
             </select>
-
-            <x-input-error :messages="$errors->get('role')" class="mt-2" />
+            @error('role') <span class="mensaje-error">{{ $message }}</span> @enderror
         </div>
 
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        <div class="grupo-input">
+            <label for="password">Contraseña</label>
+            <input id="password" type="password" name="password" required autocomplete="new-password">
+            @error('password') <span class="mensaje-error">{{ $message }}</span> @enderror
         </div>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+        <div class="grupo-input">
+            <label for="password_confirmation">Confirmar Contraseña</label>
+            <input id="password_confirmation" type="password" name="password_confirmation" required autocomplete="new-password">
+            @error('password_confirmation') <span class="mensaje-error">{{ $message }}</span> @enderror
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
+        <div class="botones-login" style="margin-top: 2rem;">
+            <button type="submit" class="btn-primario">
+                Registrarse
+            </button>
+        </div>
 
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
+        <div class="enlace-inferior">
+            <a href="{{ route('login') }}">¿Ya tienes una cuenta? Inicia sesión</a>
         </div>
     </form>
 </x-guest-layout>
