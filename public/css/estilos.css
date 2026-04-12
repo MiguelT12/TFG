@@ -280,3 +280,86 @@ nav .relative > div > div {
 .carrusel-img:hover {
     transform: scale(1.02);
 }
+
+/* =========================================
+   7. MENÚ DESPLEGABLE USUARIO (NAVBAR)
+   ========================================= */
+
+/* El contenedor actúa como ancla */
+.menu-usuario-nav {
+    position: relative;
+    display: inline-block;
+}
+
+/* El nombre en la barra */
+.boton-nombre {
+    background: none;
+    border: none;
+    color: #f8fafc;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    font-family: inherit;
+}
+
+.boton-nombre span {
+    font-size: 0.6rem; /* Flecha pequeñita */
+    transition: transform 0.3s ease; /* Animación suave */
+}
+
+/* El cajón del menú oculto */
+.desplegable-contenido {
+    display: none; 
+    position: absolute;
+    right: 0; 
+    top: 100%; /* Pega el menú justo debajo del botón, sin huecos */
+    background-color: #1e293b; 
+    min-width: 180px;
+    border-radius: 8px;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    overflow: hidden; 
+    border: 1px solid #334155;
+}
+
+/* LA MAGIA: Mostrar el menú y girar la flecha al pasar el ratón */
+.menu-usuario-nav:hover .desplegable-contenido {
+    display: block;
+}
+.menu-usuario-nav:hover .boton-nombre span {
+    transform: rotate(180deg);
+}
+
+/* Estilo de los botones/enlaces por dentro */
+.item-desplegable {
+    display: block;
+    width: calc(100% - 1rem); /* Le restamos el margen a los lados */
+    margin: 0.5rem auto; /* Lo centramos y separamos un poco de los otros enlaces */
+    text-align: left;
+    padding: 0.6rem 1rem;
+    color: #cbd5e1;
+    text-decoration: none;
+    background: none;
+    border: none;
+    font-size: 0.95rem;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.2s, color 0.2s;
+    border-radius: 6px; /* Bordes redondeados en estado normal también */
+}
+
+.item-desplegable:hover {
+    background-color: #334155; 
+    color: #f8fafc; 
+    font-weight: 600;
+}
+
+.texto-rojo:hover {
+    background-color: #ef4444; 
+    color: #ffffff;
+    font-weight: 600; 
+}

@@ -18,37 +18,22 @@
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ms-6">
-                <x-dropdown align="right" width="48">
-                    <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md nav-text-sw hover:text-yellow-300 focus:outline-none transition ease-in-out duration-150 bg-transparent">
-                            <div>{{ Auth::user()->name }}</div>
+                <div class="menu-usuario-nav">
+                    <button class="boton-nombre">
+                        {{ Auth::user()->name }} <span>▼</span>
+                    </button>
 
-                            <div class="ms-1">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                        </button>
-                    </x-slot>
+                    <div class="desplegable-contenido">
+                        <a href="#" class="item-desplegable">Cuenta</a>
 
-                    <x-slot name="content">
-                        <div class="usuario-dropdown">
-                            <button class="usuario-btn">
-                                {{ Auth::user()->name }} 
-                                <span style="font-size: 0.8rem; margin-left: 5px;">▼</span>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="item-desplegable texto-rojo">
+                                Cerrar sesión
                             </button>
-                            
-                            <div class="usuario-menu">
-                                <a href="{{ route('profile.edit') }}">Account Settings</a>
-                                
-                                <form method="POST" action="{{ route('logout') }}">
-                                    @csrf
-                                    <button type="submit">Cerrar sesión</button>
-                                </form>
-                            </div>
-                        </div>
-                    </x-slot>
-                </x-dropdown>
+                        </form>
+                    </div>
+                </div>
             </div>
 
             <div class="-me-2 flex items-center sm:hidden">
@@ -79,21 +64,20 @@
 
         <div class="pt-4 pb-1 border-t border-gray-800">
             <div class="px-4">
-                <div class="font-medium text-base text-yellow-400">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-400">{{ Auth::user()->email }}</div>
+                <div class="font-medium text-base nav-text-sw" style="color: #cbd5e1;">{{ Auth::user()->name }}</div>
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')" class="responsive-link-sw">
-                    {{ __('Profile') }}
+                <x-responsive-nav-link href="#" class="responsive-link-sw">
+                    Cuenta
                 </x-responsive-nav-link>
 
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault();
-                                        this.closest('form').submit();" class="responsive-link-sw">
-                        {{ __('Log Out') }}
+                                        this.closest('form').submit();" class="responsive-link-sw" style="color: #ef4444;">
+                        Cerrar sesión
                     </x-responsive-nav-link>
                 </form>
             </div>
