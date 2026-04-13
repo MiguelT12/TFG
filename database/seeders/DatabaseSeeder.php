@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
-// No olvides importar tus seeders si tu editor no lo hace solo
 use Database\Seeders\CuotaSeeder;
 use Database\Seeders\PistaSeeder;
 
