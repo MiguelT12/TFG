@@ -1,40 +1,34 @@
 <x-app-layout>
+    <div class="contenedor-plan-detallado">
+        
+        <a href="{{ route('dashboard') }}" class="enlace-volver">← Volver al Dashboard</a>
 
-    <div class="max-w-3xl mx-auto text-white text-center mt-10">
+        @foreach($planes as $plan)
+            <div class="tarjeta-plan-unica">
+                <div class="info-principal">
+                    <h1 class="plan-nombre">PLAN {{ $plan['nombre'] }}</h1>
+                    <p class="plan-lema">{{ $plan['lema'] }}</p>
+                    <div class="plan-precio">{{ $plan['precio'] }}€ <span>/ mes</span></div>
+                    <p class="plan-resumen">{{ $plan['descripcion'] }}</p>
+                </div>
 
-        <h1 class="text-4xl font-bold text-yellow-400">
-            {{ $plan['nombre'] }}
-        </h1>
+                <div class="plan-detalles-lista">
+                    <h3>¿Qué incluye?</h3>
+                    <div class="grid-checks">
+                        @foreach($plan['caracteristicas'] as $item)
+                            <div class="check-item">
+                                <span class="check-icon">✔</span>
+                                {{ $item }}
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
 
-        <p class="mt-4 text-lg text-gray-300">
-            {{ $plan['descripcion'] }}
-        </p>
-
-        <p class="mt-6 text-3xl font-bold">
-            {{ $plan['precio'] }}
-        </p>
-
-        <div class="mt-10">
-            <h2 class="text-xl font-semibold mb-4">
-                ¿Qué incluye este plan?
-            </h2>
-
-            <ul class="space-y-3">
-                @foreach($plan['incluye'] as $item)
-                    <li class="bg-gray-800 p-3 rounded">
-                        ✔ {{ $item }}
-                    </li>
-                @endforeach
-            </ul>
-        </div>
-
-        <div class="mt-10">
-            <a href="{{ route('dashboard') }}" 
-               class="bg-yellow-500 text-black px-6 py-3 rounded hover:bg-yellow-400">
-                ← Volver
-            </a>
-        </div>
+                <div class="plan-boton-footer">
+                    <button class="btn-primario">CONTRATAR AHORA</button>
+                </div>
+            </div>
+        @endforeach
 
     </div>
-
 </x-app-layout>
