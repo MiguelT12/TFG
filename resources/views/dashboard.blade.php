@@ -35,9 +35,9 @@
             <h2 class="subtitulo">Nuestras Instalaciones</h2>
             
             <div class="carrusel">
-                <img src="{{ asset('img/pesas.jpg') }}" alt="Zona de pesas" class="carrusel-img">
+                <img src="{{ asset('img/stormtrooperPR.png') }}" alt="Zona de pesas" class="carrusel-img">
                 <img src="{{ asset('img/cardio.jpg') }}" alt="Zona cardio" class="carrusel-img">
-                <img src="{{ asset('img/maquinas.jpg') }}" alt="Máquinas" class="carrusel-img">
+                <img src="{{ asset('img/pesas.jpg') }}" alt="Máquinas" class="carrusel-img">
             </div>
         </div>
 

@@ -1,7 +1,7 @@
 /* =========================================
    8. VISTA PLANES SIMPLIFICADA (3 RECTÁNGULOS)
    ========================================= */
-
+   
 .contenedor-plan-detallado {
     max-width: 850px;
     margin: 40px auto;
@@ -9,6 +9,10 @@
     display: flex;
     flex-direction: column;
     gap: 40px; /* Espacio entre los 3 planes */
+}
+
+.enlace-volver:hover{
+    color: #FFE81F;
 }
 
 .tarjeta-plan-unica {

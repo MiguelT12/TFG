@@ -10,35 +10,35 @@ Route::get('/', function () {
 });
 
 // Dashboard 
-Route::get('/dashboard', function () {
-    $cuotas = Cuota::all(); 
+Route::get('/dashboard', function (\Illuminate\Http\Request $request) {
+    /** @var \App\Models\User $user */
+    $user = $request->user();
+
+    // Administrador
+    if ($user->role === 'admin') {
+        // 1. Buscamos todos los usuarios en la base de datos
+        $usuarios = \App\Models\User::all(); 
+
+        // 2. Pasamos la variable 'usuarios' a la vista usando compact()
+        return view('admin.dashboard', compact('usuarios'));
+    }
     
+    // Monitor
+    if ($user->role === 'monitor') return view('monitor.dashboard');
+
+    // Usuario  
+    $cuotas = \App\Models\Cuota::all(); 
     return view('dashboard', compact('cuotas'));
+
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
-
-    // ADMIN
-    Route::get('/admin', function () {
-        return "Panel Admin";
-    })->middleware('role:admin')->name('admin');
-
-    // MONITOR
-    Route::get('/monitor', function () {
-        return "Panel Monitor";
-    })->middleware('role:monitor')->name('monitor');
-
-    // USUARIO
-    Route::get('/usuario', function () {
-        return "Panel Usuario";
-    })->middleware('role:usuario')->name('usuario');
-
     // PERFIL 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    // ACTIVIDADES (Se elimina 'auth' porque ya está dentro del grupo protegido)
+    // ACTIVIDADES
     Route::get('/actividades', function () {
         return view('actividades');
     })->middleware('verified')->name('actividades');

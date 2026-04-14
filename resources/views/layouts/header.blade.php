@@ -2,24 +2,32 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             
-            <div class="flex">
-                <div class="space-x-8 sm:-my-px sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="nav-link-sw">
-                        Inicio
-                    </x-nav-link>
-                    
-                    <x-nav-link :href="route('planes.todos')" :active="request()->routeIs('planes.todos')" class="nav-link-sw">
-                        Planes
+            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    {{ __('Dashboard') }}
+                </x-nav-link>
+
+                @if(auth()->user()->role === 'admin')
+                    <x-nav-link href="#">
+                        Ajustes del Gimnasio
                     </x-nav-link>
 
-                    <x-nav-link :href="route('actividades')" :active="request()->routeIs('actividades')" class="nav-link-sw">
-                        Calendario y Clases
+                @elseif(auth()->user()->role === 'monitor')
+                    <x-nav-link href="#">
+                        Mi Calendario
                     </x-nav-link>
-                    
-                    <x-nav-link href="#" :active="false" class="nav-link-sw">
-                        Reserva de Pistas
+                    <x-nav-link href="#">
+                        Alumnos Inscritos
                     </x-nav-link>
-                </div>
+
+                @else
+                    <x-nav-link :href="route('planes.todos')" :active="request()->routeIs('planes.todos')">
+                        Nuestras Tarifas
+                    </x-nav-link>
+                    <x-nav-link :href="route('actividades')" :active="request()->routeIs('actividades')">
+                        Actividades y Clases
+                    </x-nav-link>
+                @endif
             </div>
 
             <div class="flex items-center">

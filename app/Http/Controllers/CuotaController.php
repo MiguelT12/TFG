@@ -1,11 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Cuota;
 use Illuminate\Http\Request;
 
 class CuotaController extends Controller
 {
+    public function index()
+    {
+        // Buscamos todas las cuotas en la base de datos
+        $cuotas = Cuota::all();
+        
+        // Devolvemos la vista pasándole las cuotas
+        // Nota: Si pasaste el diseño HTML de las tarifas a un archivo nuevo llamado 'tarifas.blade.php', 
+        // cambia 'dashboard' por 'tarifas' en la línea de abajo.
+        return view('dashboard', compact('cuotas')); 
+    }
     public function mostrarTodos()
     {
         $planes = [

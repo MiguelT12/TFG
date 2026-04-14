@@ -19,15 +19,6 @@
         </div>
 
         <div class="grupo-input">
-            <label for="role">Rol</label>
-            <select name="role" id="role" required>
-                <option value="usuario">Usuario</option>
-                <option value="monitor">Monitor</option>
-            </select>
-            @error('role') <span class="mensaje-error">{{ $message }}</span> @enderror
-        </div>
-
-        <div class="grupo-input">
             <label for="password">Contraseña</label>
             <input id="password" type="password" name="password" required autocomplete="new-password">
             @error('password') <span class="mensaje-error">{{ $message }}</span> @enderror

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use Database\Seeders\CuotaSeeder;
 use Database\Seeders\PistaSeeder;
 
@@ -14,19 +15,33 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Si no existe un usuario, lo crea
-        if (!User::where('email', 'test@ejemplo.com')->exists()) {
-            User::factory()->create([
-                'name' => 'Test',
-                'email' => 'test@ejemplo.com',
-                'role' => 'cliente', 
-            ]);
-        }
+        // Administrador
+        User::factory()->create([
+            'name' => 'Miguel Tejero',
+            'email' => 'admin@email.com',
+            'password' => Hash::make('12345678'),
+            'role' => 'admin',
+        ]);
 
-        // Llamamos a los seeders
+        // Monitor
+        User::factory()->create([
+            'name' => 'Monitor',
+            'email' => 'monitor@email.com',
+            'password' => Hash::make('12345678'),
+            'role' => 'monitor',
+        ]);
+
+        // Usuario
+        User::factory()->create([
+            'name' => 'Test Cliente',
+            'email' => 'test@ejemplo.com',
+            'password' => Hash::make('12345678'),
+            'role' => 'usuario',
+        ]);
+
+        // Llamamos a los seeders 
         $this->call([
             CuotaSeeder::class,
-            //PistaSeeder::class,
         ]);
     }
 }
