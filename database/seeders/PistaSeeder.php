@@ -2,16 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Pista;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class PistaSeeder extends Seeder
 {
     public function run(): void
     {
-        Pista::create(['nombre' => 'Pista de Pádel 1']);
-        Pista::create(['nombre' => 'Pista de Pádel 2']);
-        Pista::create(['nombre' => 'Pista de Tenis']);
+        DB::table('pistas')->insert([
+            ['nombre' => 'Pista Pádel 1', 'created_at' => now(), 'updated_at' => now()],
+            ['nombre' => 'Pista Pádel 2', 'created_at' => now(), 'updated_at' => now()],
+            ['nombre' => 'Pista Tenis', 'created_at' => now(), 'updated_at' => now()],
+        ]);
     }
 }

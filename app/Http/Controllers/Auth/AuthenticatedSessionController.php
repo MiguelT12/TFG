@@ -27,21 +27,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        $user = $request->user();
-
-        // 1. Redirección para Administradores
-        if ($user->role === 'admin') {
-            return redirect()->route('admin'); 
-        }
-
-        // 2. Redirección para Monitores
-        if ($user->role === 'monitor') {
-            return redirect('/dashboard'); 
-        }
-
-        // 3. Redirección por defecto (Clientes)
-        // Por ahora va al dashboard general con las tarjetas.
-        // Más adelante, si detectamos que es su primera vez, lo mandaremos a route('tarifas')
+        // Redirección unificada: La ruta /dashboard en web.php se encarga de mostrar la vista correcta según el rol
         return redirect()->route('dashboard');
     }
 

@@ -42,6 +42,9 @@ class DatabaseSeeder extends Seeder
         // Llamamos a los seeders 
         $this->call([
             CuotaSeeder::class,
+            ActividadSeeder::class,
+            PistaSeeder::class,
+            ClaseSeeder::class,
         ]);
     }
 }

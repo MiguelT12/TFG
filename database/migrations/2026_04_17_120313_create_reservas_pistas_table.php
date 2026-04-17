@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('clases', function (Blueprint $table) {
+        Schema::create('reservas_pistas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_cliente')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('pista_id')->constrained('pistas')->cascadeOnDelete();
+            $table->time('hora_inicio');
+            $table->time('hora_fin');
+            $table->date('fecha');
             $table->timestamps();
         });
     }
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('clases');
+        Schema::dropIfExists('reservas_pistas');
     }
 };

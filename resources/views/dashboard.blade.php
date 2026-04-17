@@ -1,16 +1,6 @@
 <x-app-layout>
     <div class="contenedor-principal">
 
-        <h1 class="titulo-bienvenida">
-            @if(auth()->user()->role === 'admin')
-                Bienvenido Admin 
-            @elseif(auth()->user()->role === 'monitor')
-                Bienvenido Monitor 
-            @else
-                Bienvenido a tu zona de entrenamiento
-            @endif
-        </h1>
-
         <div class="seccion-planes">
             <h2 class="subtitulo">Nuestros Planes y Cuotas</h2>
             
@@ -40,6 +30,5 @@
                 <img src="{{ asset('img/pesas.jpg') }}" alt="Máquinas" class="carrusel-img">
             </div>
         </div>
-
     </div>
 </x-app-layout>
