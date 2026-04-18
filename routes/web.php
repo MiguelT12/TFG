@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CuotaController;
 use App\Models\Cuota;
+use App\Http\Controllers\ActividadController;
 
 Route::get('/', function () {
     return view('home');
@@ -24,7 +25,10 @@ Route::get('/dashboard', function (\Illuminate\Http\Request $request) {
     }
     
     // Monitor
-    if ($user->role === 'monitor') return view('monitor.dashboard');
+    if ($user->role === 'monitor') {
+        $clases = \App\Models\Clase::where('id_monitor', $user->id)->get();
+        return view('monitor.dashboard', compact('clases'));
+    }
 
     // Usuario  
     $cuotas = \App\Models\Cuota::all(); 
@@ -38,10 +42,12 @@ Route::middleware(['auth'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::get('/cuenta', function () {
+        return view('cuenta');
+    })->middleware(['auth'])->name('cuenta');
+
     // ACTIVIDADES
-    Route::get('/actividades', function () {
-        return view('actividades');
-    })->middleware('verified')->name('actividades');
+    Route::get('/actividades', [ActividadController::class, 'index'])->middleware('verified')->name('actividades');
 
     // Para las cuotas
     Route::get('/tarifas', [CuotaController::class, 'index'])->name('tarifas');

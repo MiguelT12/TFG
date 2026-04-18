@@ -28,4 +28,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function clasesImpartidas()
+    {
+        return $this->hasMany(Clase::class, 'id_monitor');
+    }
+    
+    public function cuota()
+    {
+        return $this->belongsTo(Cuota::class, 'id_cuota');
+    }
 }

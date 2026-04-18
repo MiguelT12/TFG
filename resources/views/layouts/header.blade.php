@@ -37,7 +37,7 @@
                     </button>
 
                     <div class="desplegable-contenido">
-                        <a href="#" class="item-desplegable">Cuenta</a>
+                        <a href="{{ route('cuenta') }}" class="item-desplegable">Cuenta</a>
 
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf

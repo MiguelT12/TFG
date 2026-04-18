@@ -363,3 +363,387 @@ nav .relative > div > div {
     color: #ffffff;
     font-weight: 600; 
 }
+
+/* Añadir a tu archivo CSS principal (ej. resources/css/app.css) */
+
+.contenedor-admin {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.titulo-admin {
+    color: #FFE81F;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.tarjeta-admin {
+    background-color: #1e293b;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #334155;
+}
+
+.subtitulo-admin {
+    color: #f8fafc;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 10px;
+}
+
+.tabla-responsive {
+    overflow-x: auto;
+}
+
+.tabla-usuarios {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.tabla-cabecera {
+    background-color: #0f172a;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.tabla-celda-cabecera {
+    padding: 15px;
+    border-bottom: 2px solid #334155;
+}
+
+.tabla-fila {
+    border-bottom: 1px solid #334155;
+    color: #cbd5e1;
+    transition: background 0.2s;
+}
+
+.tabla-fila:hover {
+    background-color: #334155;
+}
+
+.tabla-celda {
+    padding: 15px;
+}
+
+.centrado {
+    text-align: center;
+}
+
+.etiqueta-rol {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.etiqueta-admin {
+    background-color: #fef08a;
+    color: #854d0e;
+}
+
+.etiqueta-monitor {
+    background-color: #bfdbfe;
+    color: #1e40af;
+}
+
+.etiqueta-usuario {
+    background-color: #e2e8f0;
+    color: #475569;
+}
+
+.btn-cambiar-rol {
+    background-color: #FFE81F;
+    color: #000;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    transition: filter 0.2s;
+}
+
+.btn-cambiar-rol:hover {
+    filter: brightness(0.9);
+}
+
+/* 3. resources/css/app.css (Añadir al final) */
+
+.contenedor-monitor {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.titulo-monitor {
+    color: #3b82f6;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.tarjeta-monitor {
+    background-color: #1e293b;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #334155;
+}
+
+.subtitulo-monitor {
+    color: #f8fafc;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 10px;
+}
+
+.tabla-principal {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.btn-ver-alumnos {
+    background-color: #3b82f6;
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    transition: filter 0.2s;
+}
+
+.btn-ver-alumnos:hover {
+    filter: brightness(0.9);
+}
+
+.celda-vacia {
+    padding: 20px;
+    color: #94a3b8;
+}
+
+.contenedor-actividades {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.titulo-actividades {
+    color: #FFE81F;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.grid-actividades {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.tarjeta-actividad {
+    background-color: #1e293b;
+    border-radius: 12px;
+    border: 1px solid #334155;
+    overflow: hidden;
+}
+
+.cabecera-actividad {
+    padding: 25px;
+    border-bottom: 1px solid #334155;
+}
+
+.nombre-actividad {
+    color: #f8fafc;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.desc-actividad {
+    color: #94a3b8;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.cuerpo-actividad {
+    padding: 25px;
+}
+
+.titulo-horarios {
+    color: #cbd5e1;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.lista-horarios {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.item-horario {
+    background-color: #0f172a;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-horario {
+    display: flex;
+    flex-direction: column;
+}
+
+.dia-hora {
+    color: #f8fafc;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.detalle-horario {
+    color: #94a3b8;
+    font-size: 0.85rem;
+}
+
+.btn-inscribirse {
+    background-color: #FFE81F;
+    color: #000;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    transition: filter 0.2s;
+}
+
+.btn-inscribirse:hover {
+    filter: brightness(0.9);
+}
+
+.sin-clases {
+    color: #64748b;
+    font-style: italic;
+}
+
+.contenedor-cuenta {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.titulo-cuenta {
+    color: #FFE81F;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.tarjeta-perfil {
+    background-color: #1e293b;
+    border-radius: 12px;
+    border: 1px solid #334155;
+    overflow: hidden;
+}
+
+.cabecera-perfil {
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    background-color: #0f172a;
+    border-bottom: 1px solid #334155;
+}
+
+.avatar-usuario {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #FFE81F;
+    color: #000;
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 25px;
+    text-transform: uppercase;
+}
+
+.nombre-perfil {
+    color: #f8fafc;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.rol-perfil {
+    color: #94a3b8;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.cuerpo-perfil {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.grupo-dato {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #334155;
+}
+
+.grupo-dato:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.etiqueta-dato {
+    color: #94a3b8;
+    font-weight: bold;
+}
+
+.valor-dato {
+    color: #f8fafc;
+    font-size: 1.1rem;
+}
+
+.tarifa-destacada {
+    color: #FFE81F;
+    font-weight: bold;
+}
+
+.pie-perfil {
+    padding: 20px 30px;
+    background-color: #0f172a;
+    border-top: 1px solid #334155;
+    text-align: right;
+}
+
+.btn-editar-perfil {
+    background-color: transparent;
+    color: #FFE81F;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1rem;
+    border: 1px solid #FFE81F;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-editar-perfil:hover {
+    background-color: #FFE81F;
+    color: #000;
+}
