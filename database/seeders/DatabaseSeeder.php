@@ -31,10 +31,24 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin',
         ]);
 
-        // Monitor
+        // Monitores
         User::factory()->create([
-            'name' => 'Monitor',
-            'email' => 'monitor@email.com',
+            'name' => 'David Cánovas',
+            'email' => 'davidc@email.com',
+            'password' => Hash::make('12345678'),
+            'role' => 'monitor',
+        ]);
+
+        User::factory()->create([
+            'name' => 'Samuel Deluque',
+            'email' => 'samuel@email.com',
+            'password' => Hash::make('12345678'),
+            'role' => 'monitor',
+        ]);
+
+        User::factory()->create([
+            'name' => 'Rubén Doblas',
+            'email' => 'ruben@email.com',
             'password' => Hash::make('12345678'),
             'role' => 'monitor',
         ]);

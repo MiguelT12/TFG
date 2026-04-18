@@ -8,8 +8,11 @@
                 </x-nav-link>
 
                 @if(auth()->user()->role === 'admin')
+                    <x-nav-link :href="route('clases-actividades')">
+                        Gestión de clases
+                    </x-nav-link>
                     <x-nav-link href="#">
-                        Ajustes del Gimnasio
+                        Gestión de Pistas
                     </x-nav-link>
 
                 @elseif(auth()->user()->role === 'monitor')

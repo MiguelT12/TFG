@@ -4,6 +4,21 @@
             NUESTRAS ACTIVIDADES Y CLASES
         </h1>
 
+        <div class="contenedor-filtro">
+            <form action="{{ route('actividades') }}" method="GET" class="formulario-filtro">
+                <label for="actividad_id" class="etiqueta-filtro">Filtrar por actividad:</label>
+                <select name="actividad_id" id="actividad_id" onchange="this.form.submit()" class="select-filtro">
+                    <option value="">Todas las actividades</option>
+                    @foreach($todasLasActividades as $actividadFiltro)
+                        <option value="{{ $actividadFiltro->id }}" 
+                            {{ request('actividad_id') == $actividadFiltro->id ? 'selected' : '' }}>
+                            {{ $actividadFiltro->nombre }}
+                        </option>
+                    @endforeach
+                </select>
+            </form>
+        </div>
+        
         <div class="grid-actividades">
             @foreach($actividades as $actividad)
                 <div class="tarjeta-actividad">

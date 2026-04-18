@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
         <link rel="stylesheet" href="{{ asset('css/inicio.css') }}">
         <link rel="stylesheet" href="{{ asset('css/tarifas.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 
         <!-- Scripts -->
         <script src="https://cdn.tailwindcss.com"></script>

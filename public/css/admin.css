@@ -1,0 +1,183 @@
+.contenedor-filtro {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.formulario-filtro {
+    background-color: #1e293b;
+    padding: 15px 25px;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.etiqueta-filtro {
+    color: #cbd5e1;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.select-filtro {
+    background-color: #0f172a;
+    color: #f8fafc;
+    border: 1px solid #475569;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s;
+    min-width: 250px;
+}
+
+.select-filtro:focus {
+    border-color: #FFE81F;
+}
+
+/* recursos/css/app.css */
+
+/* Estilos para el contenedor y tarjetas */
+.contenedor-admin {
+    padding: 30px;
+    background-color: #0f172a; /* Fondo muy oscuro */
+}
+
+.tarjeta-admin {
+    background-color: #1e293b; /* Fondo de la tarjeta */
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #334155;
+}
+
+.titulo-seccion-admin {
+    color: #e2e8f0;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Estilos para los botones superiores */
+.acciones-superiores {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.btn-admin {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+.btn-verde {
+    background-color: #2ecc71;
+    color: #ffffff;
+}
+
+.btn-verde:hover {
+    background-color: #27ae60;
+}
+
+.btn-morado {
+    background-color: #9b59b6;
+    color: #ffffff;
+}
+
+.btn-morado:hover {
+    background-color: #8e44ad;
+}
+
+/* Estilos de las tablas */
+.tabla-estilizada {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.tabla-cabecera th {
+    background-color: #334155;
+    color: #cbd5e1;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 12px;
+    border-bottom: 2px solid #475569;
+}
+
+.tabla-fila td {
+    color: #e2e8f0;
+    padding: 12px;
+    border-bottom: 1px solid #334155;
+}
+
+.tabla-fila:hover td {
+    background-color: #263449; /* Efecto hover */
+}
+
+/* Clases de utilidad */
+.text-bold {
+    font-weight: bold;
+}
+
+.text-capital {
+    text-transform: capitalize;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Ancho de columnas */
+.col-id {
+    width: 50px;
+}
+
+.col-nombre {
+    width: 150px;
+}
+
+.col-acciones {
+    width: 100px;
+}
+
+/* Estilos para los botones de acción */
+.acciones-celda {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+.btn-accion {
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+.btn-editar {
+    background-color: #f1c40f; /* Amarillo */
+    color: #333333;
+}
+
+.btn-editar:hover {
+    background-color: #f39c12;
+}
+
+.btn-eliminar {
+    background-color: #e74c3c; /* Rojo */
+    color: #ffffff;
+}
+
+.btn-eliminar:hover {
+    background-color: #c0392b;
+}
