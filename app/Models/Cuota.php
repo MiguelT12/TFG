@@ -6,5 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cuota extends Model
 {
-    protected $fillable = ['nombre', 'precio'];
+    protected $fillable = [
+        'nombre', 
+        'precio', 
+        'lema', 
+        'descripcion', 
+        'caracteristicas'
+    ];
+
+    protected $casts = [
+        'caracteristicas' => 'array',
+    ];
 }

@@ -1,35 +1,38 @@
-/* =========================================
-   8. VISTA PLANES SIMPLIFICADA (3 RECTÁNGULOS)
-   ========================================= */
-   
 .contenedor-plan-detallado {
-    max-width: 850px;
+    max-width: 1000px;
     margin: 40px auto;
     padding: 0 20px;
     display: flex;
     flex-direction: column;
-    gap: 40px; /* Espacio entre los 3 planes */
-}
-
-.enlace-volver:hover{
-    color: #FFE81F;
+    gap: 50px; /* Separación entre los cuadros */
 }
 
 .tarjeta-plan-unica {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    /* Estilos del cuadro */
     background-color: #1e293b;
     border: 1px solid #334155;
-    border-radius: 12px;
+    border-radius: 16px;
     padding: 40px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
 }
 
+.tarjeta-plan-unica.normal {
+    flex-direction: row;
+}
+
+.tarjeta-plan-unica.inversa {
+    flex-direction: row-reverse;
+}
+
+/* Estilos de los textos para que se vean bien dentro del cuadro */
 .info-principal {
     border-bottom: 1px solid #334155;
     padding-bottom: 25px;
     margin-bottom: 25px;
-    text-align: left;
 }
-
 .plan-nombre {
     color: #FFE81F;
     font-size: 2.5rem;
@@ -37,61 +40,43 @@
     text-transform: uppercase;
     margin: 0;
 }
-
 .plan-lema {
     color: #94a3b8;
     font-size: 1.1rem;
     margin: 5px 0 15px 0;
 }
-
 .plan-precio {
     color: #fff;
     font-size: 2.5rem;
     font-weight: 700;
 }
-
 .plan-precio span {
     font-size: 1rem;
     color: #64748b;
 }
-
 .plan-resumen {
     color: #cbd5e1;
     margin-top: 15px;
     font-size: 1.05rem;
     line-height: 1.5;
 }
-
 .plan-detalles-lista h3 {
     color: #f8fafc;
     font-size: 1.2rem;
     margin-bottom: 15px;
 }
-
 .grid-checks {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
 }
-
 .check-item {
     color: #cbd5e1;
     display: flex;
     align-items: center;
     gap: 10px;
 }
-
 .check-icon {
-    color: #FFE81F;
+    color: #8b5cf6;
     font-weight: bold;
-}
-
-.plan-boton-footer {
-    margin-top: 30px;
-}
-
-.plan-boton-footer .btn-primario {
-    width: 100%;
-    padding: 15px;
-    font-size: 1.1rem;
 }
