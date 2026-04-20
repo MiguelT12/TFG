@@ -18,11 +18,11 @@
                         <div class="grid-checks">
                             @if(is_array($cuota->caracteristicas))
                                 @foreach($cuota->caracteristicas as $caracteristica)
-                                    <div class="check-item"><span class="check-icon"><i class="fas fa-check"></i></span> {{ $caracteristica }}</div>
+                                    <div class="check-item"><span class="check-icon">✓</span> {{ $caracteristica }}</div>
                                 @endforeach
                             @else
-                                <div class="check-item"><span class="check-icon"><i class="fas fa-check"></i></span> Acceso 24/7 a la sala</div>
-                                <div class="check-item"><span class="check-icon"><i class="fas fa-check"></i></span> Uso de vestuarios</div>
+                                <div class="check-item"><span class="check-icon">✓</span> Acceso 24/7 a la sala</div>
+                                <div class="check-item"><span class="check-icon">✓</span> Uso de vestuarios</div>
                             @endif
                         </div>
                     </div>

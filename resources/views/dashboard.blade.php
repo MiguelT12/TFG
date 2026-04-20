@@ -24,10 +24,21 @@
         <div class="seccion-carrusel">
             <h2 class="subtitulo">Nuestras Instalaciones</h2>
             
-            <div class="carrusel">
-                <img src="{{ asset('img/stormtrooperPR.png') }}" alt="Zona de pesas" class="carrusel-img">
-                <img src="{{ asset('img/cardio.jpg') }}" alt="Zona cardio" class="carrusel-img">
-                <img src="{{ asset('img/pesas.jpg') }}" alt="Máquinas" class="carrusel-img">
+            <div class="carrusel-contenedor">
+                <button class="carrusel-btn btn-izq" onclick="document.getElementById('carrusel').scrollBy({left: -320})">
+                    &#10094;
+                </button>
+
+                <div id="carrusel" class="carrusel-imagenes">
+                    <img src="{{ asset('img/stormtrooperPR.png') }}" alt="Instalación 1">
+                    <img src="{{ asset('img/cardio.jpg') }}" alt="Instalación 2">
+                    <img src="{{ asset('img/pesas.jpg') }}" alt="Instalación 3">
+                    <img src="{{ asset('img/maquinas.jpg') }}" alt="Instalación 4">
+                </div>
+
+                <button class="carrusel-btn btn-der" onclick="document.getElementById('carrusel').scrollBy({left: 320})">
+                    &#10095;
+                </button>
             </div>
         </div>
     </div>

@@ -4,14 +4,13 @@
     padding: 0 20px;
     display: flex;
     flex-direction: column;
-    gap: 50px; /* Separación entre los cuadros */
+    gap: 50px;
 }
 
 .tarjeta-plan-unica {
     display: flex;
     align-items: center;
     gap: 40px;
-    /* Estilos del cuadro */
     background-color: #1e293b;
     border: 1px solid #334155;
     border-radius: 16px;
@@ -27,7 +26,6 @@
     flex-direction: row-reverse;
 }
 
-/* Estilos de los textos para que se vean bien dentro del cuadro */
 .info-principal {
     border-bottom: 1px solid #334155;
     padding-bottom: 25px;
@@ -65,18 +63,39 @@
     font-size: 1.2rem;
     margin-bottom: 15px;
 }
+
 .grid-checks {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 15px; 
+    align-items: start; 
+    margin-top: 15px;
 }
+
 .check-item {
     color: #cbd5e1;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
+
+.plan-boton-footer {
+    margin-top: 35px; 
+    width: 100%;
+}
+
 .check-icon {
-    color: #8b5cf6;
+    color: #3b82f6;
     font-weight: bold;
+    flex-shrink: 0;
+}
+
+.imagen-soldado {
+    display: flex;
+}
+
+.imagen-soldado img {
+    max-height: 500px;
 }

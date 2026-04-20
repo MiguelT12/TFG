@@ -1,6 +1,3 @@
-/* --- public/css/estilos.css --- */
-
-/* Reset básico para asegurar consistencia */
 * {
     margin: 0;
     padding: 0;
@@ -8,9 +5,9 @@
 }
 
 body {
-    background-color: #000115; /* Fondo azul galáctico profundo */
-    color: #e0e0e0; /* Texto general claro/plateado */
-    font-family: 'Montserrat', 'Arial', sans-serif; /* Fuente moderna y limpia, añade Montserrat si puedes, si no Arial */
+    background-color: #000115; 
+    color: #e0e0e0; 
+    font-family: 'Montserrat', 'Arial', sans-serif; 
     line-height: 1.6;
 }
 
@@ -24,11 +21,11 @@ body {
 .titulo-bienvenida {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #FFE81F; /* Amarillo Star Wars vibrante */
+    color: #FFE81F; 
     margin-bottom: 2.5rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    text-shadow: 0 0 10px rgba(255, 232, 31, 0.7); /* Brillo amarillo sutil */
+    text-shadow: 0 0 10px rgba(255, 232, 31, 0.7); 
 }
 
 .subtitulo {
@@ -36,32 +33,29 @@ body {
     font-weight: bold;
     color: #f0f0f0;
     margin-bottom: 2rem;
-    text-shadow: 0 0 5px rgba(240, 240, 240, 0.5); /* Brillo blanco sutil */
+    text-shadow: 0 0 5px rgba(240, 240, 240, 0.5); 
 }
 
-/* El grid de 3 columnas - responsivo */
 .grid-tarifas {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Columnas responsivas */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
     gap: 2rem;
     margin-bottom: 3rem;
 }
 
-/* Tarjetas (Estilo oscuro espacial con sutil brillo azul) */
 .tarjeta-tarifa {
-    background-color: #0a0e20; /* Azul muy oscuro para las tarjetas */
+    background-color: #0a0e20; 
     padding: 2rem;
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(58, 108, 253, 0.1); /* Brillo azul sutil por defecto */
-    border: 1px solid #1a2a4a; /* Borde azul oscuro discreto */
+    box-shadow: 0 4px 6px rgba(58, 108, 253, 0.1);
+    border: 1px solid #1a2a4a; 
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* Efecto hover: Brillo intenso de sable de luz azul y elevación */
 .tarjeta-tarifa:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(58, 108, 253, 0.5); /* Brillo azul intenso */
-    border-color: #3a6cfd; /* Borde azul vibrante */
+    box-shadow: 0 15px 30px rgba(58, 108, 253, 0.5); 
+    border-color: #3a6cfd;
 }
 
 .tarjeta-titulo {
@@ -76,19 +70,18 @@ body {
 .tarjeta-precio {
     font-size: 2.8rem;
     font-weight: 800;
-    color: #FFE81F; /* Precio amarillo vibrante */
+    color: #FFE81F; 
     margin-bottom: 1.5rem;
-    text-shadow: 0 0 15px rgba(255, 232, 31, 0.8); /* Brillo precio */
+    text-shadow: 0 0 15px rgba(255, 232, 31, 0.8); 
 }
 
 .tarjeta-precio span {
     font-size: 0.9rem;
     font-weight: normal;
-    color: #9ca3af; /* /mes más tenue */
-    text-shadow: none; /* Sin brillo para el /mes */
+    color: #9ca3af; 
+    text-shadow: none; 
 }
 
-/* Botones */
 .btn-primario, .btn-peligro {
     padding: 0.75rem 1.5rem;
     border: none;
@@ -98,79 +91,67 @@ body {
     letter-spacing: 1px;
     cursor: pointer;
     transition: background-color 0.2s ease, box-shadow 0.2s ease;
-    width: 100%; /* Botones de plan ocupan ancho completo */
+    width: 100%; 
 }
 
-/* Botón Primario: Sable Jedi (Azul vibrante) */
 .btn-primario {
-    background-color: #3a6cfd; /* Azul Jedi vibrante */
+    background-color: #3a6cfd; 
     color: white;
 }
 
 .btn-primario:hover {
     background-color: #2552d1;
-    box-shadow: 0 0 20px rgba(58, 108, 253, 0.8); /* Brillo azul botón */
+    box-shadow: 0 0 20px rgba(58, 108, 253, 0.8); 
 }
 
-/* Botón Peligro: Sable Sith (Rojo vibrante) */
 .btn-peligro {
-    background-color: #f03a3a; /* Rojo Sith vibrante */
+    background-color: #f03a3a;
     color: white;
 }
 
 .btn-peligro:hover {
     background-color: #d12525;
-    box-shadow: 0 0 20px rgba(240, 58, 58, 0.8); /* Brillo rojo botón */
+    box-shadow: 0 0 20px rgba(240, 58, 58, 0.8); 
 }
 
-/* Centrar el botón de logout */
 .seccion-logout {
     margin-top: 2rem;
 }
 
 .seccion-logout .btn-peligro {
-    width: auto; /* Botón de logout no ocupa ancho completo */
+    width: auto; 
     display: inline-block;
 }
 
-/* --- NAVEGACIÓN PROFESIONAL OSCURA --- */
-
-/* Fondo de la barra de navegación */
 nav.bg-white {
-    background-color: #0f172a !important; /* Mismo fondo oscuro de la página */
-    border-bottom: 1px solid #1e293b !important; /* Borde separador sutil */
+    background-color: #0f172a !important; 
+    border-bottom: 1px solid #1e293b !important; 
 }
 
-/* Color de los enlaces inactivos (Calendario, Reserva...) */
 nav a {
-    color: #94a3b8 !important; /* Gris claro/azulado */
+    color: #94a3b8 !important; 
     font-weight: 500 !important;
     transition: color 0.2s ease !important;
 }
 
-/* Color al pasar el ratón y del enlace activo (Inicio) */
-/* Laravel usa border-indigo-400 para marcar la página actual */
 nav a:hover, 
 nav a.border-indigo-400, 
 nav a.text-indigo-700 {
-    color: #3b82f6 !important; /* Azul corporativo brillante */
-    border-bottom-color: #3b82f6 !important; /* Cambia el subrayado morado a azul */
+    color: #3b82f6 !important; 
+    border-bottom-color: #3b82f6 !important; 
 }
 
-/* Color del nombre de usuario y el icono de la derecha */
 nav button,
 nav button div, 
 nav button svg {
     color: #e2e8f0 !important;
 }
 
-/* Fondo del menú desplegable al hacer clic en el usuario */
 nav .relative > div > div {
     background-color: #1e293b !important;
     border: 1px solid #334155 !important;
 }
 
-/* --- DESPLEGABLE DE USUARIO --- */
 .usuario-dropdown {
     position: relative;
     display: flex;
@@ -195,9 +176,9 @@ nav .relative > div > div {
 }
 
 .usuario-menu {
-    display: none; /* Oculto por defecto */
+    display: none;
     position: absolute;
-    top: 60px; /* Separación desde arriba */
+    top: 60px; 
     right: 0;
     background-color: #1e293b;
     min-width: 200px;
@@ -208,7 +189,6 @@ nav .relative > div > div {
     z-index: 50;
 }
 
-/* Mostrar al pasar el ratón */
 .usuario-dropdown:hover .usuario-menu {
     display: block;
 }
@@ -232,66 +212,58 @@ nav .relative > div > div {
 .usuario-menu a:hover, 
 .usuario-menu button:hover {
     background-color: #334155;
-    color: #3b82f6; /* Azul corporativo */
+    color: #3b82f6; 
 }
 
-/* --- CARRUSEL DE FOTOS --- */
-.seccion-carrusel {
-    margin-top: 5rem;
-    padding-bottom: 3rem;
-}
-
-.carrusel {
+.carrusel-contenedor {
+    position: relative;
+    max-width: 900px;
+    margin: 40px auto;
     display: flex;
+    align-items: center;
+}
+
+.carrusel-btn {
+    position: absolute;
+    z-index: 10;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.btn-izq { left: -20px; }
+.btn-der { right: -20px; }
+
+.carrusel-imagenes {
+    display: flex;
+    gap: 20px;
     overflow-x: auto;
-    gap: 1.5rem;
-    padding: 1rem 0 2rem 0;
-    scroll-snap-type: x mandatory; /* Efecto imán al hacer scroll */
+    scrollbar-width: none; /* Firefox */
+    width: 100%;
+    scroll-behavior: smooth;
 }
 
-/* Estilizar la barra de desplazamiento del carrusel */
-.carrusel::-webkit-scrollbar {
-    height: 10px;
-}
-.carrusel::-webkit-scrollbar-track {
-    background: #0f172a; 
-    border-radius: 5px;
-}
-.carrusel::-webkit-scrollbar-thumb {
-    background: #334155; 
-    border-radius: 5px;
-}
-.carrusel::-webkit-scrollbar-thumb:hover {
-    background: #3b82f6; 
+.carrusel-imagenes::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
 }
 
-.carrusel-img {
-    flex: 0 0 85%; /* Las fotos ocupan el 85% del ancho para que se vea un trozo de la siguiente */
-    max-width: 700px;
-    height: 400px;
+.carrusel-imagenes img {
+    min-width: 300px;
+    height: 200px;
     object-fit: cover;
-    border-radius: 16px;
-    scroll-snap-align: center; /* Aquí aplica el efecto imán */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-    border: 1px solid #1e293b;
-    transition: transform 0.3s;
+    border-radius: 12px;
 }
 
-.carrusel-img:hover {
-    transform: scale(1.02);
-}
-
-/* =========================================
-   7. MENÚ DESPLEGABLE USUARIO (NAVBAR)
-   ========================================= */
-
-/* El contenedor actúa como ancla */
 .menu-usuario-nav {
     position: relative;
     display: inline-block;
 }
 
-/* El nombre en la barra */
 .boton-nombre {
     background: none;
     border: none;
@@ -307,16 +279,15 @@ nav .relative > div > div {
 }
 
 .boton-nombre span {
-    font-size: 0.6rem; /* Flecha pequeñita */
-    transition: transform 0.3s ease; /* Animación suave */
+    font-size: 0.6rem;
+    transition: transform 0.3s ease; 
 }
 
-/* El cajón del menú oculto */
 .desplegable-contenido {
     display: none; 
     position: absolute;
     right: 0; 
-    top: 100%; /* Pega el menú justo debajo del botón, sin huecos */
+    top: 100%; 
     background-color: #1e293b; 
     min-width: 180px;
     border-radius: 8px;
@@ -326,7 +297,6 @@ nav .relative > div > div {
     border: 1px solid #334155;
 }
 
-/* LA MAGIA: Mostrar el menú y girar la flecha al pasar el ratón */
 .menu-usuario-nav:hover .desplegable-contenido {
     display: block;
 }
@@ -334,11 +304,10 @@ nav .relative > div > div {
     transform: rotate(180deg);
 }
 
-/* Estilo de los botones/enlaces por dentro */
 .item-desplegable {
     display: block;
-    width: calc(100% - 1rem); /* Le restamos el margen a los lados */
-    margin: 0.5rem auto; /* Lo centramos y separamos un poco de los otros enlaces */
+    width: calc(100% - 1rem); 
+    margin: 0.5rem auto; 
     text-align: left;
     padding: 0.6rem 1rem;
     color: #cbd5e1;
@@ -349,7 +318,7 @@ nav .relative > div > div {
     cursor: pointer;
     font-family: inherit;
     transition: background-color 0.2s, color 0.2s;
-    border-radius: 6px; /* Bordes redondeados en estado normal también */
+    border-radius: 6px; 
 }
 
 .item-desplegable:hover {
@@ -363,8 +332,6 @@ nav .relative > div > div {
     color: #ffffff;
     font-weight: 600; 
 }
-
-/* Añadir a tu archivo CSS principal (ej. resources/css/app.css) */
 
 .contenedor-admin {
     padding: 40px 20px;
@@ -471,8 +438,6 @@ nav .relative > div > div {
 .btn-cambiar-rol:hover {
     filter: brightness(0.9);
 }
-
-/* 3. resources/css/app.css (Añadir al final) */
 
 .contenedor-monitor {
     padding: 40px 20px;

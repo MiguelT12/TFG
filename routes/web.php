@@ -7,7 +7,7 @@ use App\Http\Controllers\ActividadController;
 use Illuminate\Http\Request;
 
 Route::get('/', function () {
-    return view('home');
+    return redirect()->route('dashboard');
 });
 
 // Dashboard 
@@ -30,12 +30,8 @@ Route::get('/dashboard', function (Request $request) {
         return view('monitor.dashboard', compact('clases'));
     }
 
-    // Usuario 
-    if (is_null($user->id_cuota)) {
-        return redirect()->route('tarifas'); 
-    }
-
-    return view('dashboard');
+    $cuotas = \App\Models\Cuota::all();
+    return view('dashboard', compact('cuotas'));
 
 })->middleware(['auth', 'verified'])->name('dashboard');
 

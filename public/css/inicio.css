@@ -1,8 +1,3 @@
-/* --- public/css/inicio.css --- */
-
-/* =========================================
-   1. BASE Y FONDO GALÁCTICO
-   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -10,14 +5,11 @@
 }
 
 body {
-    background-color: #0f172a; /* Fondo azul galáctico sólido */
+    background-color: #0f172a;
     font-family: 'Montserrat', 'Arial', sans-serif;
     line-height: 1.6;
 }
 
-/* =========================================
-   2. MAQUETACIÓN Y TARJETA CENTRAL
-   ========================================= */
 .pantalla-login {
     display: flex;
     align-items: center;
@@ -27,7 +19,7 @@ body {
 }
 
 .tarjeta-login {
-    background-color: #1e293b; /* Azul marino un poco más claro para la tarjeta */
+    background-color: #1e293b; 
     padding: 3rem 2.5rem;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
@@ -37,14 +29,11 @@ body {
     max-width: 450px;
 }
 
-/* =========================================
-   3. TEXTOS Y TÍTULOS (ESTILO STAR WARS)
-   ========================================= */
 .titulo-login {
     font-size: 2.8rem;
     font-family: 'Arial Black', 'Impact', sans-serif; 
     font-weight: 900;
-    color: #FFE81F; /* Amarillo Star Wars */
+    color: #FFE81F; 
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -57,9 +46,6 @@ body {
     font-size: 1.1rem;
 }
 
-/* =========================================
-   4. BOTONES PRINCIPALES
-   ========================================= */
 .botones-login {
     display: flex;
     flex-direction: column;
@@ -82,7 +68,6 @@ body {
     display: block;
 }
 
-/* Botón Iniciar Sesión/Entrar (Azul sólido) */
 .btn-primario {
     background-color: #2563eb;
     color: white;
@@ -94,7 +79,6 @@ body {
     box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
 }
 
-/* Botón Crear Cuenta (Transparente con borde azul) */
 .btn-secundario {
     background-color: transparent;
     color: #3b82f6;
@@ -107,7 +91,6 @@ body {
     box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
 }
 
-/* En PC los botones de la página principal se ponen uno al lado del otro */
 @media (min-width: 480px) {
     .pantalla-login > .tarjeta-login > .botones-login {
         flex-direction: row; 
@@ -118,9 +101,6 @@ body {
     }
 }
 
-/* =========================================
-   5. FORMULARIOS (LOGIN Y REGISTRO)
-   ========================================= */
 .formulario-auth {
     width: 100%;
     text-align: left;
@@ -129,42 +109,37 @@ body {
 .grupo-input {
     margin-bottom: 1.2rem;
     display: flex;
-    flex-direction: column; /* Obliga a que la etiqueta esté arriba y el input abajo */
+    flex-direction: column; 
 }
 
 .grupo-input label {
-    color: #cbd5e1; /* Gris claro para que resalte bien sobre el fondo oscuro */
+    color: #cbd5e1; 
     font-weight: 600;
     font-size: 0.9rem;
     margin-bottom: 0.4rem;
     letter-spacing: 0.5px;
 }
 
-/* Diseño moderno para inputs y el selector de Rol */
 .grupo-input input,
 .grupo-input select {
     width: 100%;
     padding: 0.8rem 1rem;
-    background-color: #0f172a; /* Fondo muy oscuro, más que la tarjeta */
-    border: 1px solid #334155; /* Borde sutil */
-    border-radius: 8px; /* Bordes redondeados más suaves */
-    color: #f8fafc; /* Texto blanco cuando escribes */
+    background-color: #0f172a; 
+    border: 1px solid #334155; 
+    border-radius: 8px; 
+    color: #f8fafc;
     font-family: inherit;
     font-size: 1rem;
     outline: none;
     transition: all 0.3s ease;
 }
 
-/* Efecto visual al hacer clic para escribir (Focus) */
 .grupo-input input:focus,
 .grupo-input select:focus {
-    border-color: #3b82f6; /* Borde azul vibrante */
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25); /* Halo de luz moderno exterior */
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25); 
 }
 
-/* =========================================
-   6. ENLACES INFERIORES
-   ========================================= */
 .enlace-inferior {
     text-align: center;
     margin-top: 1.5rem;
@@ -174,13 +149,13 @@ body {
 }
 
 .enlace-inferior a {
-    color: #94a3b8; /* Gris claro para los enlaces inactivos */
+    color: #94a3b8; 
     text-decoration: none;
     font-size: 0.95rem;
     transition: all 0.2s ease;
 }
 
 .enlace-inferior a:hover {
-    color: #FFE81F; /* Se iluminan en el amarillo Star Wars al pasar el ratón */
-    text-shadow: 0 0 10px rgba(255, 232, 31, 0.4); /* Pequeño brillo */
+    color: #FFE81F; 
+    text-shadow: 0 0 10px rgba(255, 232, 31, 0.4);
 }

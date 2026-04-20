@@ -37,16 +37,13 @@
     border-color: #FFE81F;
 }
 
-/* recursos/css/app.css */
-
-/* Estilos para el contenedor y tarjetas */
 .contenedor-admin {
     padding: 30px;
-    background-color: #0f172a; /* Fondo muy oscuro */
+    background-color: #0f172a; 
 }
 
 .tarjeta-admin {
-    background-color: #1e293b; /* Fondo de la tarjeta */
+    background-color: #1e293b; 
     padding: 20px;
     border-radius: 12px;
     border: 1px solid #334155;
@@ -59,7 +56,6 @@
     margin-bottom: 20px;
 }
 
-/* Estilos para los botones superiores */
 .acciones-superiores {
     display: flex;
     gap: 15px;
@@ -97,7 +93,6 @@
     background-color: #8e44ad;
 }
 
-/* Estilos de las tablas */
 .tabla-estilizada {
     width: 100%;
     border-collapse: separate;
@@ -120,10 +115,9 @@
 }
 
 .tabla-fila:hover td {
-    background-color: #263449; /* Efecto hover */
+    background-color: #263449; 
 }
 
-/* Clases de utilidad */
 .text-bold {
     font-weight: bold;
 }
@@ -136,7 +130,6 @@
     text-align: center;
 }
 
-/* Ancho de columnas */
 .col-id {
     width: 50px;
 }
@@ -149,7 +142,6 @@
     width: 100px;
 }
 
-/* Estilos para los botones de acción */
 .acciones-celda {
     display: flex;
     gap: 5px;
@@ -165,7 +157,7 @@
 }
 
 .btn-editar {
-    background-color: #f1c40f; /* Amarillo */
+    background-color: #f1c40f; 
     color: #333333;
 }
 
@@ -174,7 +166,7 @@
 }
 
 .btn-eliminar {
-    background-color: #e74c3c; /* Rojo */
+    background-color: #e74c3c; 
     color: #ffffff;
 }
 
