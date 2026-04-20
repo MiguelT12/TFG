@@ -39,12 +39,36 @@
                                                 {{ $clase->dia_semana }} - {{ \Carbon\Carbon::parse($clase->hora_inicio)->format('H:i') }}
                                             </p>
                                             <p class="detalle-horario">
-                                                Monitor: {{ $clase->monitor->name ?? 'Por asignar' }} | Capacidad: {{ $clase->capacidad }}
+                                                Monitor: {{ $clase->monitor->name ?? 'Por asignar' }} |
+                                                Plazas: {{ $clase->usuarios->count() }} / {{ $clase->capacidad }}
                                             </p>
                                         </div>
-                                        <button class="btn-inscribirse">
-                                            Inscribirse
-                                        </button>
+
+                                        @php
+                                            $yaApuntado = auth()->user()->clases()->where('clase_id', $clase->id)->exists();
+                                            $estaLlena = $clase->usuarios->count() >= $clase->capacidad;
+                                        @endphp
+                                        @if($yaApuntado)
+                                            <form action="{{ route('clases.desapuntarse', $clase->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn-inscribirse" style="background-color: #dc2626;">
+                                                    Desapuntarse
+                                                </button>
+                                            </form>
+                                        @elseif($estaLlena)
+                                            <button class="btn-inscribirse" disabled>
+                                                Completo
+                                            </button>
+                                        @else
+                                            <form action="{{ route('clases.apuntarse', $clase->id) }}" method="POST">
+                                                @csrf
+                                                <button class="btn-inscribirse">
+                                                    Inscribirse
+                                                </button>
+                                            </form>
+                                        @endif
+
                                     </div>
                                 @endforeach
                             </div>

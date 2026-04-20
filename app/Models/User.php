@@ -38,4 +38,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Cuota::class, 'id_cuota');
     }
+    
+    public function clases()
+{
+    return $this->belongsToMany(Clase::class, 'inscripciones');
+}
 }

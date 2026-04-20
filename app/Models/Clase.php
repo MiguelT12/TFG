@@ -19,4 +19,21 @@ class Clase extends Model
     {
         return $this->belongsTo(User::class, 'id_monitor');
     }
+
+    public function usuarios()
+    {
+        return $this->belongsToMany(User::class, 'inscripciones');
+    }
+
+    // 🔥 NUEVO: contar inscritos
+    public function plazasOcupadas()
+    {
+        return $this->usuarios()->count();
+    }
+
+    // 🔥 NUEVO: comprobar si está llena
+    public function estaLlena()
+    {
+        return $this->plazasOcupadas() >= $this->capacidad;
+    }
 }

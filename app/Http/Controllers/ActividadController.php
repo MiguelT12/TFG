@@ -12,11 +12,13 @@ class ActividadController extends Controller
         // Obtenemos todas las actividades 
         $todasLasActividades = Actividad::all();
 
-        // Preparamos la consulta para las tarjetas
-        $query = Actividad::with(['clases.monitor']);
+        // Se añaden los usuarios 
+        $query = Actividad::with(['clases.monitor', 'clases.usuarios']);
 
-        // Si el usuario elige una actividad en el filtro, hacemos un WHERE
-        if ($request->filled('actividad_id')) $query->where('id', $request->actividad_id);
+        // Si el usuario elige una actividad en el filtro, se hace un WHERE
+        if ($request->filled('actividad_id')) {
+            $query->where('id', $request->actividad_id);
+        }
 
         // Ejecutamos
         $actividades = $query->get();

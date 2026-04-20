@@ -27,8 +27,17 @@
                     <x-nav-link :href="route('planes.todos')" :active="request()->routeIs('planes.todos')">
                         Nuestras Tarifas
                     </x-nav-link>
+
                     <x-nav-link :href="route('actividades')" :active="request()->routeIs('actividades')">
                         Actividades y Clases
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('mis-clases')" :active="request()->routeIs('mis-clases')">
+                        Mis clases
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('calendario')" :active="request()->routeIs('calendario')">
+                        Calendario
                     </x-nav-link>
                 @endif
             </div>

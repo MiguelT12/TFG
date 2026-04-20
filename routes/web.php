@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CuotaController;
 use App\Http\Controllers\ActividadController;
 use Illuminate\Http\Request;
+use App\Http\Controllers\InscripcionController;
 
 Route::get('/', function () {
     return redirect()->route('dashboard');
@@ -36,7 +37,7 @@ Route::get('/dashboard', function (Request $request) {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
-    // PERFIL 
+    // Perfil
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -45,16 +46,17 @@ Route::middleware(['auth'])->group(function () {
         return view('cuenta');
     })->name('cuenta');
 
-    // ACTIVIDADES
-    Route::get('/actividades', [ActividadController::class, 'index'])->middleware('verified')->name('actividades');
+    // Activvidades
+    Route::get('/actividades', [ActividadController::class, 'index'])
+        ->middleware('verified')
+        ->name('actividades');
 
-    // Para las cuotas
+    // Cuotas
     Route::get('/tarifas', [CuotaController::class, 'index'])->name('tarifas');
     Route::post('/tarifas/contratar/{id}', [CuotaController::class, 'contratar'])->name('tarifas.contratar');
 
-    // Clases y Actividades Admin
+    // Admin
     Route::get('/admin/clases-actividades', function (Request $request) {
-        /** @var \App\Models\User $user */
         $user = $request->user();
 
         $actividades = \App\Models\Actividad::all();
@@ -62,8 +64,56 @@ Route::middleware(['auth'])->group(function () {
 
         return view('admin.clases-actividades', compact('actividades', 'clases'));
     })->name('clases-actividades');
+
+    // Inscripciones
+    Route::post('/clases/{id}/apuntarse', [InscripcionController::class, 'apuntarse'])
+        ->name('clases.apuntarse');
+
+    Route::delete('/clases/{id}/desapuntarse', [InscripcionController::class, 'desapuntarse'])
+        ->name('clases.desapuntarse');
+
+    // Mis clases
+    Route::get('/mis-clases', function () {
+        $clases = auth()->user()->clases()->with(['actividad', 'monitor'])->get();
+        return view('mis-clases', compact('clases'));
+    })->name('mis-clases');
+
+    // Calendario 
+    Route::get('/calendario', function () {
+
+        $clases = auth()->user()->clases()->with('actividad')->get();
+
+        $dias = [
+            'Lunes' => 'Monday',
+            'Martes' => 'Tuesday',
+            'Miercoles' => 'Wednesday',
+            'Miércoles' => 'Wednesday',
+            'Jueves' => 'Thursday',
+            'Viernes' => 'Friday',
+            'Sabado' => 'Saturday',
+            'Sábado' => 'Saturday',
+            'Domingo' => 'Sunday',
+        ];
+
+        $eventos = $clases->map(function ($clase) use ($dias) {
+
+            $diaIngles = $dias[$clase->dia_semana] ?? 'Monday';
+
+            return [
+                'title' => $clase->actividad->nombre,
+                'start' => now()
+                    ->next($diaIngles)
+                    ->setTimeFromTimeString($clase->hora_inicio),
+            ];
+        });
+
+        return view('calendario', compact('eventos'));
+
+    })->name('calendario');
+
 });
 
+// Planes
 Route::get('/planes/todos', [CuotaController::class, 'mostrarTodos'])->name('planes.todos');
 
 require __DIR__.'/auth.php';
