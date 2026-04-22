@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-#[Fillable(['name', 'email', 'password', 'role'])] 
+#[Fillable(['name', 'email', 'password', 'role', 'id_cuota'])] 
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
@@ -36,11 +36,11 @@ class User extends Authenticatable
     
     public function cuota()
     {
-        return $this->belongsTo(Cuota::class, 'id_cuota');
+        return $this->belongsTo(Cuota::class, 'id_cuota', 'id');
     }
     
     public function clases()
-{
-    return $this->belongsToMany(Clase::class, 'inscripciones');
-}
+    {
+        return $this->belongsToMany(Clase::class, 'inscripciones');
+    }
 }

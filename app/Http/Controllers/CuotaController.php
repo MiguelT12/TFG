@@ -19,4 +19,13 @@ class CuotaController extends Controller
 
         return view('plan', compact('cuotas'));
     }
+
+    public function contratar($id)
+    {
+        $user = \App\Models\User::find(auth()->id()); // Buscamos el usuario directamente a la BD
+        $user->id_cuota = $id;
+        $user->save();
+
+        return redirect()->route('dashboard')->with('success', '¡Tarifa contratada con éxito!');
+    }
 }

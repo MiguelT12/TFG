@@ -1,8 +1,6 @@
 <x-app-layout>
     <div class="contenedor-cuenta">
-        <h1 class="titulo-cuenta">
-            MI PERFIL
-        </h1>
+        <h1 class="titulo-cuenta">MI PERFIL</h1>
 
         <div class="tarjeta-perfil">
             <div class="cabecera-perfil">
@@ -29,7 +27,7 @@
                 <div class="grupo-dato">
                     <span class="etiqueta-dato">Tarifa Actual:</span>
                     <span class="valor-dato tarifa-destacada">
-                        @if(Auth::user()->cuota)
+                        @if(Auth::user()->id_cuota && Auth::user()->cuota)
                             {{ Auth::user()->cuota->nombre }}
                         @else
                             Ninguna tarifa contratada

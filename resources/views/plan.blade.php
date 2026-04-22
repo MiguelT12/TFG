@@ -28,9 +28,9 @@
                     </div>
 
                     <div class="plan-boton-footer">
-                        <form method="POST" action="{{ route('tarifas.contratar', $cuota->id) }}">
+                        <form action="{{ route('tarifas.contratar', $cuota->id) }}" method="POST" class="plan-boton-footer">
                             @csrf
-                            <button type="submit" class="btn-primario" style="width: 100%; background-color: #2563eb; color: white; border: none; border-radius: 6px; cursor: pointer; text-transform: uppercase; font-weight: bold;">
+                            <button type="submit" style="width: 100%; background-color: #3b82f6; color: white; padding: 12px 24px; border-radius: 6px; border: none; font-weight: bold; cursor: pointer;">
                                 CONTRATAR AHORA
                             </button>
                         </form>
