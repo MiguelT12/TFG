@@ -4,7 +4,7 @@
             NUESTRAS ACTIVIDADES Y CLASES
         </h1>
 
-        @if(auth()->user()->cuota_id)
+        @if(auth()->user()->id_cuota)
         <div class="contenedor-filtro">
             <form action="{{ route('actividades') }}" method="GET" class="formulario-filtro">
                 <label for="actividad_id" class="etiqueta-filtro">Filtrar por actividad:</label>

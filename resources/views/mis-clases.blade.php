@@ -4,7 +4,7 @@
             MIS CLASES
         </h1>
 
-        @if(auth()->user()->cuota_id)
+        @if(auth()->user()->id_cuota)
         @if($clases->count() > 0)
             <div class="grid-actividades">
                 @foreach($clases as $clase)

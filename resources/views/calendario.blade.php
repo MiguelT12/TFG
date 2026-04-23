@@ -4,7 +4,7 @@
             MI CALENDARIO DE CLASES
         </h1>
 
-        @if(auth()->user()->cuota_id)
+        @if(auth()->user()->id_cuota)
             <div style="max-width: 900px; margin: 0 auto;">
                 <div id="calendar"></div>
             </div>        
