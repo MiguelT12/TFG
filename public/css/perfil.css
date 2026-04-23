@@ -1,0 +1,63 @@
+/* --- Formulario de Perfil --- */
+.seccion-editar-perfil .titulo-seccion-perfil {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.seccion-editar-perfil .descripcion-seccion-perfil {
+    color: #cbd5e1;
+    margin-bottom: 20px;
+}
+
+.formulario-perfil {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.grupo-formulario .etiqueta-formulario {
+    color: white;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.grupo-formulario .input-formulario {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: black;
+}
+
+.grupo-formulario .error-formulario {
+    color: #ef4444;
+}
+
+.acciones-formulario {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-guardar-perfil {
+    background-color: #3b82f6;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-guardar-perfil:hover {
+    background-color: #2563eb;
+}
+
+.mensaje-exito {
+    color: #22c55e;
+    margin: 0;
+    font-weight: bold;
+}

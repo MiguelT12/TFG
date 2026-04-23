@@ -37,7 +37,9 @@
             </div>
 
             <div class="pie-perfil">
-                <button class="btn-editar-perfil">Editar Datos</button>
+                <a href="{{ route('profile.edit') }}" class="btn-editar-perfil" style="display: inline-block; text-align: center; text-decoration: none;">
+                    Editar Datos
+                </a>
             </div>
         </div>
     </div>

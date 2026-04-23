@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="{{ asset('css/inicio.css') }}">
         <link rel="stylesheet" href="{{ asset('css/tarifas.css') }}">
         <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/perfil.css') }}">
 
         <!-- Scripts -->
         <script src="https://cdn.tailwindcss.com"></script>
