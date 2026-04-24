@@ -12,7 +12,7 @@ class PistaSeeder extends Seeder
         DB::table('pistas')->insert([
             ['nombre' => 'Pista Pádel 1', 'created_at' => now(), 'updated_at' => now()],
             ['nombre' => 'Pista Pádel 2', 'created_at' => now(), 'updated_at' => now()],
-            ['nombre' => 'Pista Tenis', 'created_at' => now(), 'updated_at' => now()],
+            ['nombre' => 'Pista Pádel 3', 'created_at' => now(), 'updated_at' => now()],
         ]);
     }
 }

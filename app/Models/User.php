@@ -43,4 +43,8 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Clase::class, 'inscripciones');
     }
+   public function reservasPistas()
+    {
+        return $this->hasMany(\App\Models\ReservaPista::class, 'id_cliente');
+    }
 }

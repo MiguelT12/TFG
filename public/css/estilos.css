@@ -712,3 +712,141 @@ nav .relative > div > div {
     background-color: #FFE81F;
     color: #000;
 }
+
+body .contenedor-pistas {
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+body .titulo-pistas {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #f8fafc;
+}
+
+body .grid-pistas {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+body .tarjeta-pista {
+    background-color: #1e293b !important;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #334155;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+body .nombre-pista {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #f8fafc;
+}
+
+body .input-pista {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #334155;
+    background-color: #0f172a;
+    color: #f8fafc;
+    margin-bottom: 10px;
+}
+
+/* HORAS */
+body .grid-horas {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+body .hora-btn {
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #3b82f6 !important;
+    color: white;
+    transition: 0.2s;
+    user-select: none;
+}
+
+body .hora-btn:hover {
+    background: #2563eb !important;
+}
+
+/* Hora seleccionada */
+body .hora-btn input:checked + span,
+body .hora-btn.seleccionada {
+    background: #22c55e !important;
+}
+
+/* Hora ocupada */
+body .hora-ocupada {
+    background: #1f2937 !important;
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* DURACIÓN */
+body .selector-duracion {
+    display: flex;
+    margin-top: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #334155;
+}
+
+body .opcion-duracion {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    background: #374151;
+    color: white;
+    transition: 0.2s;
+}
+
+body .opcion-duracion.activa {
+    background: #3b82f6 !important;
+}
+
+/* BOTÓN */
+body .btn-reservar {
+    margin-top: 20px;
+    width: 100%;
+    background: #3b82f6 !important;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+body .btn-reservar:hover {
+    background: #2563eb !important;
+}
+
+/* RESERVAS */
+body .reserva-item {
+    background:#1f2937;
+    padding:15px;
+    margin-bottom:10px;
+    border-radius:8px;
+    color:white;
+}
+
+body .btn-cancelar {
+    margin-left:10px;
+    background:red;
+    color:white;
+    border:none;
+    padding:5px 10px;
+    border-radius:5px;
+    cursor:pointer;
+}

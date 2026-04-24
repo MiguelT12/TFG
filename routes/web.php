@@ -6,6 +6,7 @@ use App\Http\Controllers\CuotaController;
 use App\Http\Controllers\ActividadController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\InscripcionController;
+use App\Http\Controllers\PistaController;
 
 Route::get('/', function () {
     return redirect()->route('dashboard');
@@ -110,6 +111,13 @@ Route::middleware(['auth'])->group(function () {
         return view('calendario', compact('eventos'));
 
     })->name('calendario');
+
+
+    // Pistas
+    Route::get('/pistas', [PistaController::class, 'index'])->name('pistas.index');
+    Route::post('/pistas/reservar', [PistaController::class, 'reservar'])->name('pistas.reservar');
+    Route::delete('/pistas/cancelar/{id}', [PistaController::class, 'cancelar'])->name('pistas.cancelar');
+
 
 });
 

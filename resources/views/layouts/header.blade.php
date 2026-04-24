@@ -33,11 +33,15 @@
                     </x-nav-link>
 
                     <x-nav-link :href="route('mis-clases')" :active="request()->routeIs('mis-clases')">
-                        Mis clases
+                        Mis Clases
                     </x-nav-link>
 
                     <x-nav-link :href="route('calendario')" :active="request()->routeIs('calendario')">
                         Calendario
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('pistas.index')" :active="request()->routeIs('pistas.*')">
+                        Pistas de Pádel
                     </x-nav-link>
                 @endif
             </div>
