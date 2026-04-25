@@ -32,8 +32,8 @@
                         Actividades y Clases
                     </x-nav-link>
 
-                    <x-nav-link :href="route('mis-clases')" :active="request()->routeIs('mis-clases')">
-                        Mis Clases
+                    <x-nav-link :href="route('reservas')" :active="request()->routeIs('reservas')">
+                        Mis Reservas
                     </x-nav-link>
 
                     <x-nav-link :href="route('calendario')" :active="request()->routeIs('calendario')">
@@ -41,7 +41,7 @@
                     </x-nav-link>
 
                     <x-nav-link :href="route('pistas.index')" :active="request()->routeIs('pistas.*')">
-                        Pistas de Pádel
+                        Pistas
                     </x-nav-link>
                 @endif
             </div>

@@ -65,37 +65,16 @@
         </div>
 
         @if(session('error'))
-            <div class="reserva-item" style="background:#ef4444;">
+            <div class="reserva-item alerta-error">
                 {{ session('error') }}
             </div>
         @endif
 
         @if(session('success'))
-            <div class="reserva-item" style="background:#22c55e;">
+            <div class="reserva-item alerta-exito">
                 {{ session('success') }}
             </div>
         @endif
-
-        <div style="margin-top:50px;">
-            <h2 class="titulo-pistas">Mis reservas</h2>
-
-            @forelse(auth()->user()->reservasPistas as $reserva)
-                <div class="reserva-item">
-                    <strong>{{ $reserva->pista->nombre }}</strong> |
-                    {{ $reserva->fecha }} |
-                    {{ $reserva->hora_inicio }} - {{ $reserva->hora_fin }}
-
-                    <form action="{{ route('pistas.cancelar', $reserva->id) }}" method="POST" style="display:inline;">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn-cancelar">Cancelar</button>
-                    </form>
-                </div>
-            @empty
-                <p style="color: gray;">No tienes reservas todavía</p>
-            @endforelse
-        </div>
-
     </div>
 
     <script>

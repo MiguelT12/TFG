@@ -74,10 +74,10 @@ Route::middleware(['auth'])->group(function () {
         ->name('clases.desapuntarse');
 
     // Mis clases
-    Route::get('/mis-clases', function () {
+    Route::get('/reservas', function () {
         $clases = auth()->user()->clases()->with(['actividad', 'monitor'])->get();
-        return view('mis-clases', compact('clases'));
-    })->name('mis-clases');
+        return view('reservas', compact('clases'));
+    })->name('reservas');
 
     // Calendario 
     Route::get('/calendario', function () {
