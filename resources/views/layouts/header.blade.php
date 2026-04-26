@@ -8,10 +8,11 @@
                 </x-nav-link>
 
                 @if(auth()->user()->role === 'admin')
-                    <x-nav-link :href="route('clases-actividades')">
+                    <x-nav-link :href="url('admin/clases-actividades')" :active="request()->is('admin/clases-actividades*')">
                         Gestión de clases
                     </x-nav-link>
-                    <x-nav-link href="#">
+
+                    <x-nav-link :href="url('admin/gestion-pistas')" :active="request()->is('admin/pistas*')">
                         Gestión de Pistas
                     </x-nav-link>
 
@@ -53,7 +54,11 @@
                     </button>
 
                     <div class="desplegable-contenido">
-                        <a href="{{ route('cuenta') }}" class="item-desplegable">Cuenta</a>
+                        @if(auth()->user()->role !== 'admin')
+                            <a href="{{ route('cuenta') }}" class="item-desplegable">
+                                Cuenta
+                            </a>
+                        @endif
 
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf

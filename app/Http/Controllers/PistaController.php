@@ -8,11 +8,10 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 
 class PistaController extends Controller
-{
+{    
     public function index()
     {
         $pistas = Pista::all();
-
         $reservas = ReservaPista::all();
 
         return view('pistas', compact('pistas', 'reservas'));
@@ -52,8 +51,11 @@ class PistaController extends Controller
             return back()->with('error', 'Ese horario ya está ocupado');
         }
 
+        /** @var \App\Models\User $user */
+        $user = $request->user();
+
         ReservaPista::create([
-            'id_cliente' => auth()->id(),
+            'id_cliente' => $user->id,
             'pista_id' => $request->pista_id,
             'fecha' => $request->fecha,
             'hora_inicio' => $inicio,
@@ -63,16 +65,70 @@ class PistaController extends Controller
         return back()->with('success', 'Pista reservada correctamente');
     }
 
-    public function cancelar($id)
+    public function cancelar(\Illuminate\Http\Request $request, $id)
     {
         $reserva = ReservaPista::findOrFail($id);
 
-        if ($reserva->id_cliente !== auth()->id()) {
+        /** @var \App\Models\User $user */
+        $user = $request->user();
+
+        if ($reserva->id_cliente !== $user->id) {
             abort(403);
         }
 
         $reserva->delete();
 
         return back()->with('success', 'Reserva cancelada');
+    }
+
+    public function adminIndex()
+    {
+        $pistas = Pista::all();
+        return view('admin.gestion-pistas', compact('pistas'));
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'tipo' => 'required|string|max:255',
+        ]);
+
+        Pista::create([
+            'nombre' => $request->nombre,
+            'tipo' => $request->tipo,
+        ]);
+
+        return back()->with('success', 'Pista añadida correctamente.');
+    }
+
+    public function edit($id)
+    {
+        $pista = Pista::findOrFail($id);
+        return view('admin.pistas-edit', compact('pista'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'tipo' => 'required|string|max:255',
+        ]);
+
+        $pista = Pista::findOrFail($id);
+        $pista->update([
+            'nombre' => $request->nombre,
+            'tipo' => $request->tipo,
+        ]);
+
+        return redirect()->route('admin.pistas')->with('success', 'Pista actualizada correctamente.');
+    }
+
+    public function destroy($id)
+    {
+        $pista = Pista::findOrFail($id);
+        $pista->delete();
+
+        return back()->with('success', 'Pista eliminada correctamente.');
     }
 }
