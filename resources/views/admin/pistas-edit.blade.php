@@ -11,9 +11,7 @@
                     <label for="nombre" class="form-label">Nombre</label>
                     <input id="nombre" name="nombre" type="text" class="form-input" value="{{ $pista->nombre }}" required />
                 </div>
-                
-                <input type="hidden" name="tipo" value="{{ $pista->tipo ?? 'Estándar' }}">
-                
+                                
                 <div class="form-actions">
                     <a href="{{ route('admin.pistas') }}" class="btn-cancelar">Cancelar</a>
                     <button type="submit" class="btn-admin btn-verde">Actualizar</button>

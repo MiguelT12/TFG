@@ -91,37 +91,33 @@ class PistaController extends Controller
     {
         $request->validate([
             'nombre' => 'required|string|max:255',
-            'tipo' => 'required|string|max:255',
         ]);
 
         Pista::create([
             'nombre' => $request->nombre,
-            'tipo' => $request->tipo,
         ]);
 
         return back()->with('success', 'Pista añadida correctamente.');
-    }
-
-    public function edit($id)
-    {
-        $pista = Pista::findOrFail($id);
-        return view('admin.pistas-edit', compact('pista'));
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
             'nombre' => 'required|string|max:255',
-            'tipo' => 'required|string|max:255',
         ]);
 
         $pista = Pista::findOrFail($id);
         $pista->update([
             'nombre' => $request->nombre,
-            'tipo' => $request->tipo,
         ]);
 
         return redirect()->route('admin.pistas')->with('success', 'Pista actualizada correctamente.');
+    }
+
+    public function edit($id)
+    {
+        $pista = Pista::findOrFail($id);
+        return view('admin.pistas-edit', compact('pista'));
     }
 
     public function destroy($id)
