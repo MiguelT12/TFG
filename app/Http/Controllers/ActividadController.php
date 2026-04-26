@@ -22,8 +22,45 @@ class ActividadController extends Controller
 
         // Ejecutamos
         $actividades = $query->get();
+
+
+        // Eventos para el calendario de actividades 
+        $dias = [
+            'lunes' => 'Monday',
+            'martes' => 'Tuesday',
+            'miercoles' => 'Wednesday',
+            'miércoles' => 'Wednesday',
+            'jueves' => 'Thursday',
+            'viernes' => 'Friday',
+            'sabado' => 'Saturday',
+            'sábado' => 'Saturday',
+            'domingo' => 'Sunday',
+        ];
+
+        $eventos = [];
+
+        foreach ($actividades as $actividad) {
+            foreach ($actividad->clases as $clase) {
+
+                $dia = strtolower($clase->dia_semana);
+                $diaIngles = $dias[$dia] ?? 'Monday';
+
+                $eventos[] = [
+                    'title' => $actividad->nombre . ' - ' . \Carbon\Carbon::parse($clase->hora_inicio)->format('H:i'),
+
+                    'start' => now()
+                        ->next($diaIngles)
+                        ->setTimeFromTimeString($clase->hora_inicio),
+
+                    'extendedProps' => [
+                        'actividad_id' => $actividad->id,
+                    ],
+                ];
+            }
+        }
+
         
-        return view('actividades', compact('actividades', 'todasLasActividades'));
+        return view('actividades', compact('actividades', 'todasLasActividades', 'eventos'));
     }
 
     public function store(Request $request)

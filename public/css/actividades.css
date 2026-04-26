@@ -1,0 +1,27 @@
+.contenedor-calendario {
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+}
+
+.destacada {
+    box-shadow: 0 0 25px #3b82f6;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+}
+
+.btn-rojo {
+    background-color: #dc2626 !important;
+}
+
+.btn-rojo:hover {
+    background-color: #b91c1c !important;
+}
+
+.tarjeta-actividad {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta-actividad:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}

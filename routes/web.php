@@ -4,41 +4,48 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CuotaController;
 use App\Http\Controllers\ActividadController;
-use Illuminate\Http\Request;
 use App\Http\Controllers\InscripcionController;
 use App\Http\Controllers\PistaController;
+use App\Http\Controllers\ClaseController;
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return redirect()->route('dashboard');
 });
 
-// Dashboard 
+// Dashboard
 Route::get('/dashboard', function (Request $request) {
+
     /** @var \App\Models\User $user */
     $user = $request->user();
 
     // Administrador
     if ($user->role === 'admin') {
-        $usuarios = \App\Models\User::all(); 
+        $usuarios = \App\Models\User::all();
         $actividades = \App\Models\Actividad::all();
         $clases = \App\Models\Clase::with(['actividad', 'monitor'])->get();
 
         return view('admin.dashboard', compact('usuarios', 'actividades', 'clases'));
     }
-    
+
     // Monitor
     if ($user->role === 'monitor') {
-        $clases = \App\Models\Clase::with('actividad')->where('id_monitor', $user->id)->get();
+        $clases = \App\Models\Clase::with('actividad')
+            ->where('id_monitor', $user->id)
+            ->get();
+
         return view('monitor.dashboard', compact('clases'));
     }
 
+    // Usuario
     $cuotas = \App\Models\Cuota::all();
     return view('dashboard', compact('cuotas'));
 
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
-    // Perfil
+
+    // PERFIL
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -47,43 +54,41 @@ Route::middleware(['auth'])->group(function () {
         return view('cuenta');
     })->name('cuenta');
 
+
     // Actividades
     Route::get('/actividades', [ActividadController::class, 'index'])
         ->middleware('verified')
         ->name('actividades');
-    
-    // Actividades
-    Route::post('/admin/actividades', [App\Http\Controllers\ActividadController::class, 'store'])->name('admin.actividades.store');
-    Route::get('/admin/actividades/{id}/edit', [App\Http\Controllers\ActividadController::class, 'edit'])->name('admin.actividades.edit');
-    Route::put('/admin/actividades/{id}', [App\Http\Controllers\ActividadController::class, 'update'])->name('admin.actividades.update');
-    Route::delete('/admin/actividades/{id}', [App\Http\Controllers\ActividadController::class, 'destroy'])->name('admin.actividades.destroy');
+
+    Route::post('/admin/actividades', [ActividadController::class, 'store'])->name('admin.actividades.store');
+    Route::get('/admin/actividades/{id}/edit', [ActividadController::class, 'edit'])->name('admin.actividades.edit');
+    Route::put('/admin/actividades/{id}', [ActividadController::class, 'update'])->name('admin.actividades.update');
+    Route::delete('/admin/actividades/{id}', [ActividadController::class, 'destroy'])->name('admin.actividades.destroy');
+
 
     // Clases
-    Route::post('/admin/clases', [App\Http\Controllers\ClaseController::class, 'store'])->name('admin.clases.store');
-    Route::get('/admin/clases/{id}/edit', [App\Http\Controllers\ClaseController::class, 'edit'])->name('admin.clases.edit');
-    Route::put('/admin/clases/{id}', [App\Http\Controllers\ClaseController::class, 'update'])->name('admin.clases.update');
-    Route::delete('/admin/clases/{id}', [App\Http\Controllers\ClaseController::class, 'destroy'])->name('admin.clases.destroy');
+    Route::post('/admin/clases', [ClaseController::class, 'store'])->name('admin.clases.store');
+    Route::get('/admin/clases/{id}/edit', [ClaseController::class, 'edit'])->name('admin.clases.edit');
+    Route::put('/admin/clases/{id}', [ClaseController::class, 'update'])->name('admin.clases.update');
+    Route::delete('/admin/clases/{id}', [ClaseController::class, 'destroy'])->name('admin.clases.destroy');
 
-    // Clases
-    Route::post('/admin/clases', [App\Http\Controllers\ClaseController::class, 'store'])->name('admin.clases.store');
-    Route::delete('/admin/clases/{id}', [App\Http\Controllers\ClaseController::class, 'destroy'])->name('admin.clases.destroy');
-    Route::get('/admin/clases/{id}/edit', [App\Http\Controllers\ClaseController::class, 'edit'])->name('admin.clases.edit');
-    Route::put('/admin/clases/{id}', [App\Http\Controllers\ClaseController::class, 'update'])->name('admin.clases.update');
 
     // Cuotas
     Route::get('/tarifas', [CuotaController::class, 'index'])->name('tarifas');
     Route::post('/tarifas/contratar/{id}', [CuotaController::class, 'contratar'])->name('tarifas.contratar');
 
-    // Admin
+
+    // Panel de administración
     Route::get('/admin/clases-actividades', function (Request $request) {
-        $user = $request->user();
 
         $actividades = \App\Models\Actividad::all();
         $clases = \App\Models\Clase::with(['actividad', 'monitor'])->get();
-        $monitores = \App\Models\User::where('role', 'monitor')->get(); // Necesario para el modal
+        $monitores = \App\Models\User::where('role', 'monitor')->get();
 
         return view('admin.clases-actividades', compact('actividades', 'clases', 'monitores'));
+
     })->name('clases-actividades');
+
 
     // Inscripciones
     Route::post('/clases/{id}/apuntarse', [InscripcionController::class, 'apuntarse'])
@@ -92,17 +97,22 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/clases/{id}/desapuntarse', [InscripcionController::class, 'desapuntarse'])
         ->name('clases.desapuntarse');
 
-    // Mis clases
-    Route::get('/reservas', function (\Illuminate\Http\Request $request) {
+
+    // Reservas
+    Route::get('/reservas', function (Request $request) {
+
         /** @var \App\Models\User $user */
         $user = $request->user();
-        
+
         $clases = $user->clases()->with(['actividad', 'monitor'])->get();
+
         return view('reservas', compact('clases'));
+
     })->name('reservas');
 
-    // Calendario 
-    Route::get('/calendario', function (\Illuminate\Http\Request $request) {
+    // Calendario
+    Route::get('/calendario', function (Request $request) {
+
         /** @var \App\Models\User $user */
         $user = $request->user();
 
@@ -129,6 +139,10 @@ Route::middleware(['auth'])->group(function () {
                 'start' => now()
                     ->next($diaIngles)
                     ->setTimeFromTimeString($clase->hora_inicio),
+
+                'extendedProps' => [
+                    'actividad_id' => $clase->actividad->id,
+                ],
             ];
         });
 
@@ -137,17 +151,19 @@ Route::middleware(['auth'])->group(function () {
     })->name('calendario');
 
 
-    // Pistas
+    // Pistas 
     Route::get('/pistas', [PistaController::class, 'index'])->name('pistas.index');
     Route::post('/pistas/reservar', [PistaController::class, 'reservar'])->name('pistas.reservar');
     Route::delete('/pistas/cancelar/{id}', [PistaController::class, 'cancelar'])->name('pistas.cancelar');
 
-    Route::get('/admin/gestion-pistas', [App\Http\Controllers\PistaController::class, 'adminIndex'])->name('admin.pistas');
-    Route::post('/admin/pistas', [App\Http\Controllers\PistaController::class, 'store'])->name('admin.pistas.store');
-    Route::get('/admin/pistas/{id}/edit', [App\Http\Controllers\PistaController::class, 'edit'])->name('admin.pistas.edit');
-    Route::put('/admin/pistas/{id}', [App\Http\Controllers\PistaController::class, 'update'])->name('admin.pistas.update');
-    Route::delete('/admin/pistas/{id}', [App\Http\Controllers\PistaController::class, 'destroy'])->name('admin.pistas.destroy');
+    Route::get('/admin/gestion-pistas', [PistaController::class, 'adminIndex'])->name('admin.pistas');
+    Route::post('/admin/pistas', [PistaController::class, 'store'])->name('admin.pistas.store');
+    Route::get('/admin/pistas/{id}/edit', [PistaController::class, 'edit'])->name('admin.pistas.edit');
+    Route::put('/admin/pistas/{id}', [PistaController::class, 'update'])->name('admin.pistas.update');
+    Route::delete('/admin/pistas/{id}', [PistaController::class, 'destroy'])->name('admin.pistas.destroy');
+
 });
+
 
 // Planes
 Route::get('/planes/todos', [CuotaController::class, 'mostrarTodos'])->name('planes.todos');

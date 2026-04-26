@@ -1,14 +1,33 @@
 <x-app-layout>
+
+    @push('styles')
+        <link rel="stylesheet" href="{{ asset('css/actividades.css') }}">
+    @endpush
+
     <div class="contenedor-actividades">
+
         <h1 class="titulo-actividades">
             NUESTRAS ACTIVIDADES Y CLASES
         </h1>
 
         @if(auth()->user()->id_cuota)
+
+        {{-- Calendario --}}
+        <div class="contenedor-calendario">
+            <div id="calendar"></div>
+        </div>
+
+        {{-- FullCalendar --}}
+        <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/locales-all.global.min.js"></script>
+
+        {{-- Filtro de actividades --}}
         <div class="contenedor-filtro">
             <form action="{{ route('actividades') }}" method="GET" class="formulario-filtro">
-                <label for="actividad_id" class="etiqueta-filtro">Filtrar por actividad:</label>
-                <select name="actividad_id" id="actividad_id" onchange="this.form.submit()" class="select-filtro">
+                <label class="etiqueta-filtro">Filtrar por actividad:</label>
+
+                <select name="actividad_id" onchange="this.form.submit()" class="select-filtro">
                     <option value="">Todas las actividades</option>
                     @foreach($todasLasActividades as $actividadFiltro)
                         <option value="{{ $actividadFiltro->id }}" 
@@ -19,10 +38,12 @@
                 </select>
             </form>
         </div>
-        
+
+        {{-- Tarjetas --}}
         <div class="grid-actividades">
             @foreach($actividades as $actividad)
-                <div class="tarjeta-actividad">
+                <div class="tarjeta-actividad" id="actividad-{{ $actividad->id }}">
+
                     <div class="cabecera-actividad">
                         <h2 class="nombre-actividad">{{ $actividad->nombre }}</h2>
                         <p class="desc-actividad">{{ $actividad->descripcion }}</p>
@@ -35,9 +56,11 @@
                             <div class="lista-horarios">
                                 @foreach($actividad->clases as $clase)
                                     <div class="item-horario">
+
                                         <div class="info-horario">
                                             <p class="dia-hora">
-                                                {{ $clase->dia_semana }} - {{ \Carbon\Carbon::parse($clase->hora_inicio)->format('H:i') }}
+                                                {{ $clase->dia_semana }} - 
+                                                {{ \Carbon\Carbon::parse($clase->hora_inicio)->format('H:i') }}
                                             </p>
                                             <p class="detalle-horario">
                                                 Monitor: {{ $clase->monitor->name ?? 'Por asignar' }} |
@@ -49,18 +72,21 @@
                                             $yaApuntado = auth()->user()->clases()->where('clase_id', $clase->id)->exists();
                                             $estaLlena = $clase->usuarios->count() >= $clase->capacidad;
                                         @endphp
+
                                         @if($yaApuntado)
                                             <form action="{{ route('clases.desapuntarse', $clase->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button class="btn-inscribirse" style="background-color: #dc2626;">
+                                                <button class="btn-inscribirse btn-rojo">
                                                     Desapuntarse
                                                 </button>
                                             </form>
+
                                         @elseif($estaLlena)
                                             <button class="btn-inscribirse" disabled>
                                                 Completo
                                             </button>
+
                                         @else
                                             <form action="{{ route('clases.apuntarse', $clase->id) }}" method="POST">
                                                 @csrf
@@ -76,15 +102,58 @@
                         @else
                             <p class="sin-clases">No hay clases programadas actualmente.</p>
                         @endif
+
                     </div>
                 </div>
             @endforeach
         </div>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            let calendarEl = document.getElementById('calendar');
+
+            let calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                locale: 'es',
+
+                events: @json($eventos ?? []),
+
+                eventClick: function(info) {
+
+                    let actividadId = info.event.extendedProps.actividad_id;
+
+                    let elemento = document.getElementById('actividad-' + actividadId);
+
+                    if (elemento) {
+                        elemento.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'center'
+                        });
+
+                        elemento.classList.add('destacada');
+
+                        setTimeout(() => {
+                            elemento.classList.remove('destacada');
+                        }, 2000);
+                    }
+                }
+            });
+
+            calendar.render();
+        });
+        </script>
+
         @else
-            <div style="max-width: 900px; margin: 50px auto; text-align: center; color: white;">
-                <p style="font-size: 18px; margin-bottom: 20px;">Debes tener una cuota activa para ver el calendario y apuntarte a clases.</p>
-                <a href="{{ route('dashboard') }}" style="background-color: #2563eb; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold;">Volver al inicio</a>
+            <div class="mensaje-sin-cuota">
+                <p class="texto-sin-cuota">
+                    Debes tener una cuota activa para ver el calendario.
+                </p>
+                <a href="{{ route('dashboard') }}" class="btn-primario">
+                    Volver
+                </a>
             </div>
         @endif
+
     </div>
 </x-app-layout>
