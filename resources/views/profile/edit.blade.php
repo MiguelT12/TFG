@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="contenedor-cuenta">
-        <h1 class="titulo-cuenta" style="color: white; margin-bottom: 20px;">
+        <h1 class="titulo-pagina">
             EDITAR PERFIL
         </h1>
 

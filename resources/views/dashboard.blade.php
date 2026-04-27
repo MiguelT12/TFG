@@ -48,7 +48,7 @@
                 <div id="carrusel_fotos" class="carrusel-imagenes">
                     <img src="{{ asset('img/cardio_espacio.png') }}" alt="Instalación 2: Zona de cardio">
                     <img src="{{ asset('img/pesas_espacio.png') }}" alt="Instalación 3: Zona de pesas libres">
-                    <img src="{{ asset('img/maquinas.jpg') }}" alt="Instalación 4: Máquinas de musculación">
+                    <img src="{{ asset('img/fuerza_espacio.png') }}" alt="Instalación 4: Máquinas de musculación">
                 </div>
 
                 <button class="carrusel-btn btn-der" onclick="document.getElementById('carrusel_fotos').scrollBy({left: 800})">
@@ -116,7 +116,7 @@
                 <div id="carrusel_fotos" class="carrusel-imagenes">
                     <img src="{{ asset('img/cardio_espacio.png') }}" alt="Instalación 2: Zona de cardio">
                     <img src="{{ asset('img/pesas_espacio.png') }}" alt="Instalación 3: Zona de pesas libres">
-                    <img src="{{ asset('img/maquinas.jpg') }}" alt="Instalación 4: Máquinas de musculación">
+                    <img src="{{ asset('img/fuerza_espacio.png') }}" alt="Instalación 4: Zona de fuerza">
                 </div>
 
                 <button class="carrusel-btn btn-der" onclick="document.getElementById('carrusel_fotos').scrollBy({left: 800})">

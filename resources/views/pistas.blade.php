@@ -9,7 +9,7 @@
 
     <div class="contenedor-pistas">
 
-        <h1 class="titulo-pistas">Reservar pistas</h1>
+        <h1 class="titulo-pagina">Reservar pistas</h1>
 
         <div class="grid-pistas">
 

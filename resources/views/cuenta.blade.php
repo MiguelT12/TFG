@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="contenedor-cuenta">
-        <h1 class="titulo-cuenta">MI PERFIL</h1>
+        <h1 class="titulo-pagina">MI PERFIL</h1>
 
         <div class="tarjeta-perfil">
             <div class="cabecera-perfil">

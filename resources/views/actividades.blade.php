@@ -6,21 +6,11 @@
 
     <div class="contenedor-actividades">
 
-        <h1 class="titulo-actividades">
+        <h1 class="titulo-pagina">
             NUESTRAS ACTIVIDADES Y CLASES
         </h1>
 
         @if(auth()->user()->id_cuota)
-
-        {{-- Calendario --}}
-        <div class="contenedor-calendario">
-            <div id="calendar"></div>
-        </div>
-
-        {{-- FullCalendar --}}
-        <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/locales-all.global.min.js"></script>
 
         {{-- Filtro de actividades --}}
         <div class="contenedor-filtro">

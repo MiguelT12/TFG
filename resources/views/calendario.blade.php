@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="p-6">
-        <h1 class="titulo-actividades">
+        <h1 class="titulo-pagina">
             MI CALENDARIO DE CLASES
         </h1>
 
