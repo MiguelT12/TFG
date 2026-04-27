@@ -7,6 +7,7 @@ use App\Http\Controllers\ActividadController;
 use App\Http\Controllers\InscripcionController;
 use App\Http\Controllers\PistaController;
 use App\Http\Controllers\ClaseController;
+use App\Http\Controllers\MonitorController;
 use Illuminate\Http\Request;
 
 Route::get('/', function () {
@@ -45,7 +46,7 @@ Route::get('/dashboard', function (Request $request) {
 
 Route::middleware(['auth'])->group(function () {
 
-    // PERFIL
+    // Perfil
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -55,7 +56,7 @@ Route::middleware(['auth'])->group(function () {
     })->name('cuenta');
 
 
-    // Actividades
+    // Aactividades
     Route::get('/actividades', [ActividadController::class, 'index'])
         ->middleware('verified')
         ->name('actividades');
@@ -71,6 +72,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/clases/{id}/edit', [ClaseController::class, 'edit'])->name('admin.clases.edit');
     Route::put('/admin/clases/{id}', [ClaseController::class, 'update'])->name('admin.clases.update');
     Route::delete('/admin/clases/{id}', [ClaseController::class, 'destroy'])->name('admin.clases.destroy');
+
+
+    // Monitor, ver alumnos
+    Route::get('/monitor/clase/{id}/alumnos', [MonitorController::class, 'verAlumnos'])
+        ->name('monitor.alumnos');
+
+    // Monitor, eliminar alumnos
+    Route::delete('/monitor/clase/{clase}/usuario/{usuario}', [MonitorController::class, 'eliminarAlumno'])
+        ->name('monitor.eliminarAlumno');
+
 
 
     // Cuotas
@@ -110,7 +121,8 @@ Route::middleware(['auth'])->group(function () {
 
     })->name('reservas');
 
-    // Calendario
+
+    // Calendario 
     Route::get('/calendario', function (Request $request) {
 
         /** @var \App\Models\User $user */
@@ -151,7 +163,7 @@ Route::middleware(['auth'])->group(function () {
     })->name('calendario');
 
 
-    // Pistas 
+    // Pistas
     Route::get('/pistas', [PistaController::class, 'index'])->name('pistas.index');
     Route::post('/pistas/reservar', [PistaController::class, 'reservar'])->name('pistas.reservar');
     Route::delete('/pistas/cancelar/{id}', [PistaController::class, 'cancelar'])->name('pistas.cancelar');

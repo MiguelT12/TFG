@@ -22,23 +22,49 @@
                         </tr>
                     </thead>
                     <tbody>
+
+                        {{-- Se recorren todas las clases asignadas al monitor --}}
                         @forelse($clases as $clase)
                             <tr class="tabla-fila">
-                                <td class="tabla-celda">{{ $clase->actividad->nombre ?? 'Actividad ' . $clase->id_actividad }}</td>
-                                <td class="tabla-celda">{{ $clase->dia_semana }}</td>
-                                <td class="tabla-celda">{{ \Carbon\Carbon::parse($clase->hora_inicio)->format('H:i') }}</td>
-                                <td class="tabla-celda">{{ $clase->capacidad }} alumnos</td>
-                                <td class="tabla-celda centrado">
-                                    <button class="btn-ver-alumnos">
-                                        Ver Alumnos
-                                    </button>
+
+                                {{-- Nombre de la actividad --}}
+                                <td class="tabla-celda">
+                                    {{ $clase->actividad->nombre ?? 'Actividad' }}
                                 </td>
+
+                                {{-- Día de la semana --}}
+                                <td class="tabla-celda">
+                                    {{ $clase->dia_semana }}
+                                </td>
+
+                                {{-- Hora de inicio --}}
+                                <td class="tabla-celda">
+                                    {{ \Carbon\Carbon::parse($clase->hora_inicio)->format('H:i') }}
+                                </td>
+
+                                {{-- Número de alumnos inscritos de la capacidad total --}}
+                                <td class="tabla-celda">
+                                    {{ $clase->usuarios->count() }} / {{ $clase->capacidad }} alumnos
+                                </td>
+
+                                {{-- Botón para ver los alumnos inscritos en esa clase --}}
+                                <td class="tabla-celda centrado">
+                                    <a href="{{ route('monitor.alumnos', $clase->id) }}" class="btn-ver-alumnos">
+                                        Ver Alumnos
+                                    </a>
+                                </td>
+
                             </tr>
+
+                        {{-- Si no existen clases asignadas --}}
                         @empty
                             <tr class="tabla-fila">
-                                <td colspan="5" class="tabla-celda centrado celda-vacia">No tienes clases asignadas por el momento.</td>
+                                <td colspan="5" class="tabla-celda centrado celda-vacia">
+                                    No tienes clases asignadas por el momento.
+                                </td>
                             </tr>
                         @endforelse
+
                     </tbody>
                 </table>
             </div>
