@@ -20,12 +20,30 @@ class CuotaController extends Controller
         return view('plan', compact('cuotas'));
     }
 
-    public function contratar($id)
+    public function confirmar($id)
     {
-        $user = \App\Models\User::find(auth()->id()); // Buscamos el usuario directamente a la BD
-        $user->id_cuota = $id;
-        $user->save();
+        $cuota = \App\Models\Cuota::findOrFail($id);
+        return view('confirmar-tarifa', compact('cuota'));
+    }
 
-        return redirect()->route('dashboard')->with('success', '¡Tarifa contratada con éxito!');
+    public function contratar(Request $request, $id)
+    {
+        // Validar los datos del formulario
+        $request->validate([
+            'telefono' => 'required|string|max:15',
+            'metodo_pago' => 'required|string',
+        ]);
+
+        $cuota = \App\Models\Cuota::findOrFail($id);
+        
+        /** @var \App\Models\User $user */
+        $user = $request->user();
+
+        // Actualizar al usuario con la cuota y los nuevos datos
+        $user->update([
+            'id_cuota' => $cuota->id,
+        ]);
+
+        return redirect()->route('dashboard')->with('success', 'Has contratado la tarifa ' . $cuota->nombre . ' correctamente.');
     }
 }

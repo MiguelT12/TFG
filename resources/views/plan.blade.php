@@ -30,9 +30,15 @@
                     <div class="plan-boton-footer">
                         <form action="{{ route('tarifas.contratar', $cuota->id) }}" method="POST" class="plan-boton-footer">
                             @csrf
-                            <button type="submit" style="width: 100%; background-color: #3b82f6; color: white; padding: 12px 24px; border-radius: 6px; border: none; font-weight: bold; cursor: pointer;">
-                                CONTRATAR AHORA
-                            </button>
+                            @if(auth()->user() && auth()->user()->id_cuota)
+                                <a href="{{ route('tarifas.confirmar', $cuota->id) }}" class="btn-contratar require-confirmacion">
+                                    Contratar {{ $cuota->nombre }}
+                                </a>
+                            @else
+                                <a href="{{ route('tarifas.confirmar', $cuota->id) }}" class="btn-contratar">
+                                    Contratar {{ $cuota->nombre }}
+                                </a>
+                            @endif
                         </form>
                     </div>
                 </div>

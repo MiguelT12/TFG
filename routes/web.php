@@ -81,6 +81,7 @@ Route::middleware(['auth'])->group(function () {
 
     // Cuotas
     Route::get('/tarifas', [CuotaController::class, 'index'])->name('tarifas');
+    Route::get('/tarifas/confirmar/{id}', [CuotaController::class, 'confirmar'])->name('tarifas.confirmar');
     Route::post('/tarifas/contratar/{id}', [CuotaController::class, 'contratar'])->name('tarifas.contratar');
 
     // Panel de administración

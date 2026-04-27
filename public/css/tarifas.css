@@ -99,3 +99,21 @@
 .imagen-soldado img {
     max-height: 500px;
 }
+
+.btn-contratar {
+    display: inline-block;
+    background-color: #10B981; 
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-contratar:hover {
+    background-color: #059669; 
+    transform: translateY(-2px);
+    color: #ffffff;
+}
