@@ -55,7 +55,6 @@ Route::middleware(['auth'])->group(function () {
         return view('cuenta');
     })->name('cuenta');
 
-
     // Aactividades
     Route::get('/actividades', [ActividadController::class, 'index'])
         ->middleware('verified')
@@ -66,13 +65,11 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/admin/actividades/{id}', [ActividadController::class, 'update'])->name('admin.actividades.update');
     Route::delete('/admin/actividades/{id}', [ActividadController::class, 'destroy'])->name('admin.actividades.destroy');
 
-
     // Clases
     Route::post('/admin/clases', [ClaseController::class, 'store'])->name('admin.clases.store');
     Route::get('/admin/clases/{id}/edit', [ClaseController::class, 'edit'])->name('admin.clases.edit');
     Route::put('/admin/clases/{id}', [ClaseController::class, 'update'])->name('admin.clases.update');
     Route::delete('/admin/clases/{id}', [ClaseController::class, 'destroy'])->name('admin.clases.destroy');
-
 
     // Monitor, ver alumnos
     Route::get('/monitor/clase/{id}/alumnos', [MonitorController::class, 'verAlumnos'])
@@ -82,12 +79,9 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/monitor/clase/{clase}/usuario/{usuario}', [MonitorController::class, 'eliminarAlumno'])
         ->name('monitor.eliminarAlumno');
 
-
-
     // Cuotas
     Route::get('/tarifas', [CuotaController::class, 'index'])->name('tarifas');
     Route::post('/tarifas/contratar/{id}', [CuotaController::class, 'contratar'])->name('tarifas.contratar');
-
 
     // Panel de administración
     Route::get('/admin/clases-actividades', function (Request $request) {
@@ -100,14 +94,12 @@ Route::middleware(['auth'])->group(function () {
 
     })->name('clases-actividades');
 
-
     // Inscripciones
     Route::post('/clases/{id}/apuntarse', [InscripcionController::class, 'apuntarse'])
         ->name('clases.apuntarse');
 
     Route::delete('/clases/{id}/desapuntarse', [InscripcionController::class, 'desapuntarse'])
         ->name('clases.desapuntarse');
-
 
     // Reservas
     Route::get('/reservas', function (Request $request) {
@@ -120,7 +112,6 @@ Route::middleware(['auth'])->group(function () {
         return view('reservas', compact('clases'));
 
     })->name('reservas');
-
 
     // Calendario 
     Route::get('/calendario', function (Request $request) {
@@ -162,7 +153,6 @@ Route::middleware(['auth'])->group(function () {
 
     })->name('calendario');
 
-
     // Pistas
     Route::get('/pistas', [PistaController::class, 'index'])->name('pistas.index');
     Route::post('/pistas/reservar', [PistaController::class, 'reservar'])->name('pistas.reservar');
@@ -173,9 +163,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/pistas/{id}/edit', [PistaController::class, 'edit'])->name('admin.pistas.edit');
     Route::put('/admin/pistas/{id}', [PistaController::class, 'update'])->name('admin.pistas.update');
     Route::delete('/admin/pistas/{id}', [PistaController::class, 'destroy'])->name('admin.pistas.destroy');
-
 });
-
 
 // Planes
 Route::get('/planes/todos', [CuotaController::class, 'mostrarTodos'])->name('planes.todos');

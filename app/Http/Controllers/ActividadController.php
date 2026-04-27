@@ -23,7 +23,6 @@ class ActividadController extends Controller
         // Ejecutamos
         $actividades = $query->get();
 
-
         // Eventos para el calendario de actividades 
         $dias = [
             'lunes' => 'Monday',
