@@ -9,16 +9,15 @@
                 @foreach($cuotas as $cuota)
                     <div class="tarjeta-tarifa">
                         <h3 class="tarjeta-titulo">{{ $cuota->nombre }}</h3>
+                        
                         <p class="tarjeta-precio">
                             {{ $cuota->precio }}€ <span>/mes</span>
                         </p>
-                        <div style="margin-top: auto; padding-top: 2rem;">
-                            <form action="{{ route('tarifas.contratar', $cuota->id) }}" method="POST">
-                                @csrf
-                                <button type="submit" class="btn-primario" style="width: 100%;">
-                                    CONTRATAR AHORA
-                                </button>
-                            </form>
+                        
+                        <div class="tarjeta-footer">
+                            <a href="{{ route('planes.todos') }}" class="btn-primario btn-block">
+                                MÁS INFORMACIÓN
+                            </a>
                         </div>
                     </div>
                 @endforeach
