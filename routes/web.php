@@ -8,6 +8,7 @@ use App\Http\Controllers\InscripcionController;
 use App\Http\Controllers\PistaController;
 use App\Http\Controllers\ClaseController;
 use App\Http\Controllers\MonitorController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Http\Request;
 
 Route::get('/', function () {
@@ -94,6 +95,11 @@ Route::middleware(['auth'])->group(function () {
         return view('admin.clases-actividades', compact('actividades', 'clases', 'monitores'));
 
     })->name('clases-actividades');
+
+    // Gestión de usuarios desde Admin
+    Route::get('/admin/usuarios/nuevo', [AdminController::class, 'nuevoUsuario'])->name('admin.usuarios.nuevo');
+    Route::post('/admin/usuarios/guardar', [AdminController::class, 'guardarUsuario'])->name('admin.usuarios.guardar');
+    Route::delete('/admin/usuarios/{id}', [App\Http\Controllers\AdminController::class, 'eliminarUsuario'])->name('admin.usuarios.eliminar');
 
     // Inscripciones
     Route::post('/clases/{id}/apuntarse', [InscripcionController::class, 'apuntarse'])

@@ -30,7 +30,6 @@
                     </div>
 
                     <div class="plan-boton-footer">
-                        {{-- Formularios eliminados, los enlaces <a> funcionan solos --}}
                         @if(auth()->user() && auth()->user()->id_cuota)
                             <a href="{{ route('tarifas.confirmar', $cuota->id) }}" class="btn-contratar require-confirmacion">
                                 Contratar {{ $cuota->nombre }}

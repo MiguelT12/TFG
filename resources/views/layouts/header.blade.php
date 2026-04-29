@@ -20,10 +20,6 @@
                     <x-nav-link href="#">
                         Mi Calendario
                     </x-nav-link>
-                    <x-nav-link href="#">
-                        Alumnos Inscritos
-                    </x-nav-link>
-
                 @else
                     <x-nav-link :href="route('planes.todos')" :active="request()->routeIs('planes.todos')">
                         Nuestras Tarifas
@@ -54,7 +50,7 @@
                     </button>
 
                     <div class="desplegable-contenido">
-                        @if(auth()->user()->role !== 'admin')
+                        @if(auth()->user()->role !== 'admin' && auth()->user()->role !== 'monitor')
                             <a href="{{ route('cuenta') }}" class="item-desplegable">
                                 Cuenta
                             </a>

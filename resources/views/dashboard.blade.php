@@ -27,7 +27,7 @@
         <div class="seccion-sobre-nosotros">
             <div class="sobre-nosotros-contenido">
                 <h2 class="subtitulo-seccion">SOBRE NOSOTROS</h2>
-                <h3 class="subtitulo-nosotros">EL TEMPLO DE LA FUERZA</h2>
+                <h3 class="subtitulo-nosotros">EL TEMPLO DE LA FUERZA</h3>
                 <p>Bienvenido a la academia donde se forjan los guerreros más implacables de la galaxia. Ya sea que busques la agilidad de un maestro Jedi o la fuerza bruta del lado oscuro, nuestras instalaciones están preparadas para llevar tu resistencia al máximo nivel.</p>
                 <p>Equipados con tecnología de última generación y zonas de peso libre imperiales, aquí no hay excusas. Elige tu camino, domina tu cuerpo y que el entrenamiento te acompañe.</p>
             </div>
@@ -47,7 +47,7 @@
                 <div id="carrusel_fotos" class="carrusel-imagenes">
                     <img src="{{ asset('img/cardio_espacio.png') }}" alt="Instalación 2: Zona de cardio">
                     <img src="{{ asset('img/pesas_espacio.png') }}" alt="Instalación 3: Zona de pesas libres">
-                    <img src="{{ asset('img/fuerza_espacio.png') }}" alt="Instalación 4: Máquinas de musculación">
+                    <img src="{{ asset('img/fuerza_espacio.png') }}" alt="Instalación 4: Zona de fuerza">
                 </div>
 
                 <button class="carrusel-btn btn-der" onclick="document.getElementById('carrusel_fotos').scrollBy({left: 800})">
@@ -91,11 +91,10 @@
             </div>
         </div>
     @else
-
         <div class="seccion-sobre-nosotros">
             <div class="sobre-nosotros-contenido">
                 <h2 class="subtitulo-seccion">SOBRE NOSOTROS</h2>
-                <h3 class="subtitulo-nosotros">EL TEMPLO DE LA FUERZA</h2>
+                <h3 class="subtitulo-nosotros">EL TEMPLO DE LA FUERZA</h3>
                 <p>Bienvenido a la academia donde se forjan los guerreros más implacables de la galaxia. Ya sea que busques la agilidad de un maestro Jedi o la fuerza bruta del lado oscuro, nuestras instalaciones están preparadas para llevar tu resistencia al máximo nivel.</p>
                 <p>Equipados con tecnología de última generación y zonas de peso libre imperiales, aquí no hay excusas. Elige tu camino, domina tu cuerpo y que el entrenamiento te acompañe.</p>
             </div>
