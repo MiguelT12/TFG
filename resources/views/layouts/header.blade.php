@@ -8,14 +8,17 @@
                 </x-nav-link>
 
                 @if(auth()->user()->role === 'admin')
-                    <x-nav-link :href="url('admin/clases-actividades')" :active="request()->is('admin/clases-actividades*')">
+                    <x-nav-link :href="route('clases-actividades')" :active="request()->routeIs('clases-actividades')">
                         Gestión de clases
                     </x-nav-link>
 
-                    <x-nav-link :href="url('admin/gestion-pistas')" :active="request()->is('admin/pistas*')">
+                    <x-nav-link :href="route('admin.pistas')" :active="request()->routeIs('admin.pistas*')">
                         Gestión de Pistas
                     </x-nav-link>
 
+                    <x-nav-link :href="route('admin.reservas.pistas')" :active="request()->routeIs('admin.reservas.pistas')">
+                        Reservas Pistas
+                    </x-nav-link>
                 @elseif(auth()->user()->role === 'monitor')
                     <x-nav-link href="#">
                         Mi Calendario

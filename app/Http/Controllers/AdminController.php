@@ -41,4 +41,11 @@ class AdminController extends Controller
 
         return redirect()->route('dashboard')->with('success', 'Usuario eliminado correctamente.');
     }
+
+    public function reservasPistas()
+    {
+        $reservas = \App\Models\ReservaPista::with(['user', 'pista'])->latest()->get();
+        
+        return view('admin.reservas-pistas', compact('reservas'));
+    }
 }

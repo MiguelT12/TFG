@@ -26,7 +26,7 @@ Route::get('/dashboard', function (Request $request) {
         $usuarios = \App\Models\User::all();
         $actividades = \App\Models\Actividad::all();
         $clases = \App\Models\Clase::with(['actividad', 'monitor'])->get();
-
+        
         return view('admin.dashboard', compact('usuarios', 'actividades', 'clases'));
     }
 
@@ -100,6 +100,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/usuarios/nuevo', [AdminController::class, 'nuevoUsuario'])->name('admin.usuarios.nuevo');
     Route::post('/admin/usuarios/guardar', [AdminController::class, 'guardarUsuario'])->name('admin.usuarios.guardar');
     Route::delete('/admin/usuarios/{id}', [App\Http\Controllers\AdminController::class, 'eliminarUsuario'])->name('admin.usuarios.eliminar');
+
+    Route::get('/admin/reservas-pistas', [AdminController::class, 'reservasPistas'])->name('admin.reservas.pistas');
 
     // Inscripciones
     Route::post('/clases/{id}/apuntarse', [InscripcionController::class, 'apuntarse'])

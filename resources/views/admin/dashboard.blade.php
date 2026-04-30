@@ -6,7 +6,7 @@
         </h1>
         
         <div class="tarjeta-admin">
-            <h2 class="subtitulo-admin">
+            <h2 class="subtitulo-seccion">
                 Gestión de Usuarios
             </h2>
 
@@ -45,10 +45,8 @@
                 </table>
             </div>
 
-            <div style="margin-bottom: 20px;">
-                <a href="{{ route('admin.usuarios.nuevo') }}" class="btn-primario" style="text-decoration: none; display: inline-block; padding: 10px 20px;">
-                    + AÑADIR USUARIO
-                </a>
+            <div>
+                <a href="{{ route('admin.usuarios.nuevo') }}" class="btn-primario">AÑADIR USUARIO</a>
             </div>
         </div>
     </div>

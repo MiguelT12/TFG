@@ -12,7 +12,6 @@
 
         @if(auth()->user()->id_cuota)
 
-        {{-- Filtro de actividades --}}
         <div class="contenedor-filtro">
             <form action="{{ route('actividades') }}" method="GET" class="formulario-filtro">
                 <label class="etiqueta-filtro">Filtrar por actividad:</label>
@@ -29,7 +28,6 @@
             </form>
         </div>
 
-        {{-- Tarjetas --}}
         <div class="grid-actividades">
             @foreach($actividades as $actividad)
                 <div class="tarjeta-actividad" id="actividad-{{ $actividad->id }}">
