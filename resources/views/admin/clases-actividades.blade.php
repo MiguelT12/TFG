@@ -2,11 +2,11 @@
     <div class="contenedor-admin">
         
         <div class="acciones-superiores">
-            <button onclick="document.getElementById('modal-actividad').style.display='flex'" class="btn-admin btn-verde">
+            <button id="btn-abrir-actividad" class="btn-admin btn-verde">
                 <i class="fas fa-plus-circle"></i> Añadir Actividad
             </button>
             
-            <button onclick="document.getElementById('modal-clase').style.display='flex'" class="btn-admin btn-morado">
+            <button id="btn-abrir-clase" class="btn-admin btn-morado">
                 <i class="fas fa-calendar-plus"></i> Añadir Clase
             </button>
         </div>
@@ -105,7 +105,7 @@
                 </div>
                 
                 <div class="form-actions">
-                    <button type="button" onclick="document.getElementById('modal-actividad').style.display='none'" class="btn-cancelar">Cancelar</button>
+                    <button type="button" id="btn-cerrar-actividad" class="btn-cancelar">Cancelar</button>
                     <button type="submit" class="btn-admin btn-verde">Guardar</button>
                 </div>
             </form>
@@ -160,7 +160,7 @@
                 </div>
 
                 <div class="form-actions">
-                    <button type="button" onclick="document.getElementById('modal-clase').style.display='none'" class="btn-cancelar">Cancelar</button>
+                    <button type="button" id="btn-cerrar-clase" class="btn-cancelar">Cancelar</button>
                     <button type="submit" class="btn-admin btn-morado">Programar</button>
                 </div>
             </form>

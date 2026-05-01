@@ -18,8 +18,8 @@ class ClaseController extends Controller
         ]);
 
         Clase::create([
-            'id_actividad' => $request->actividad_id, // Cambiado aquí
-            'id_monitor' => $request->monitor_id,     // Cambiado aquí
+            'id_actividad' => $request->actividad_id, 
+            'id_monitor' => $request->monitor_id,     
             'dia_semana' => $request->dia_semana,
             'hora_inicio' => $request->hora_inicio,
             'capacidad' => $request->capacidad,

@@ -25,6 +25,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="{{ asset('js/tarifas.js') }}"></script>
     <script src="{{ asset('js/calendario.js') }}"></script>
+    <script src="{{ asset('js/admin.js') }}"></script>
+    <script src="{{ asset('js/pistas.js') }}"></script>
 </head>
 
 <body class="font-sans antialiased">

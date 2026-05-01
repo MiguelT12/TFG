@@ -23,7 +23,7 @@
                             </tr>
                         @empty
                             <tr class="tabla-fila">
-                                <td colspan="4" class="tabla-celda" style="text-align: center; color: #9ca3af; font-style: italic;">
+                                <td colspan="4" class="tabla-celda">
                                     No hay reservas de pistas registradas.
                                 </td>
                             </tr>

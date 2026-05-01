@@ -10,7 +10,6 @@ class CuotaSeeder extends Seeder
 {
     public function run(): void
     {
-        // Limpiamos la tabla para no duplicar datos si lo ejecutas varias veces
         Cuota::truncate();
 
         Cuota::create([
