@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
     <link rel="stylesheet" href="{{ asset('css/perfil.css') }}">
     <link rel="stylesheet" href="{{ asset('css/actividades.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/monitor.css') }}"> 
 
     @stack('styles')
 

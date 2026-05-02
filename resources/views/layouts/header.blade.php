@@ -20,7 +20,11 @@
                         Reservas Pistas
                     </x-nav-link>
                 @elseif(auth()->user()->role === 'monitor')
-                    <x-nav-link href="#">
+
+                    <x-nav-link 
+                        :href="route('monitor.calendario')" 
+                        :active="request()->routeIs('monitor.calendario')"
+                    >
                         Mi Calendario
                     </x-nav-link>
                 @else

@@ -1,0 +1,66 @@
+.calendario {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(160px, 1fr));
+    gap: 25px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+
+    max-width: 100%;
+}
+
+.tarjeta-monitor {
+    overflow-x: auto;
+}
+
+.columna-dia {
+    background-color: #0b1220;
+    border-radius: 12px;
+    padding: 15px;
+    min-height: 300px;
+}
+
+.dia-header {
+    text-align: center;
+    font-weight: bold;
+    color: #3b82f6;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.bloque-clase {
+    background-color: #1e293b;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 12px;
+    transition: transform 0.2s ease;
+}
+
+.bloque-clase:hover {
+    transform: translateY(-3px);
+}
+
+.nombre-actividad {
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hora-clase {
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.capacidad-clase {
+    color: #cbd5e1;
+    font-size: 0.85rem;
+}
+
+.btn-ver-alumnos {
+    display: block;
+    margin-top: 8px;
+    text-align: center;
+}

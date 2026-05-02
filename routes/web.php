@@ -172,6 +172,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/pistas/{id}/edit', [PistaController::class, 'edit'])->name('admin.pistas.edit');
     Route::put('/admin/pistas/{id}', [PistaController::class, 'update'])->name('admin.pistas.update');
     Route::delete('/admin/pistas/{id}', [PistaController::class, 'destroy'])->name('admin.pistas.destroy');
+
+    // Calendario de monitores
+    Route::get('/monitor/calendario', [MonitorController::class, 'calendario'])
+    ->name('monitor.calendario');
 });
 
 // Planes
