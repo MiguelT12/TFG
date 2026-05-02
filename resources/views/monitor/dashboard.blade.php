@@ -6,9 +6,19 @@
         </h1>
         
         <div class="tarjeta-monitor">
+
             <h2 class="subtitulo-monitor">
                 Mis Clases Asignadas
             </h2>
+
+            <div class="contenedor-buscador">
+                <input 
+                    type="text" 
+                    id="buscador" 
+                    placeholder="Buscar actividad, día o hora..." 
+                    class="input-buscador"
+                >
+            </div>
 
             <div class="tabla-responsive">
                 <table class="tabla-principal">
@@ -23,31 +33,26 @@
                     </thead>
                     <tbody>
 
-                        {{-- Se recorren todas las clases asignadas al monitor --}}
+                        {{-- Clases --}}
                         @forelse($clases as $clase)
                             <tr class="tabla-fila">
 
-                                {{-- Nombre de la actividad --}}
                                 <td class="tabla-celda">
                                     {{ $clase->actividad->nombre ?? 'Actividad' }}
                                 </td>
 
-                                {{-- Día de la semana --}}
                                 <td class="tabla-celda">
                                     {{ $clase->dia_semana }}
                                 </td>
 
-                                {{-- Hora de inicio --}}
                                 <td class="tabla-celda">
                                     {{ \Carbon\Carbon::parse($clase->hora_inicio)->format('H:i') }}
                                 </td>
 
-                                {{-- Número de alumnos inscritos de la capacidad total --}}
                                 <td class="tabla-celda">
                                     {{ $clase->usuarios->count() }} / {{ $clase->capacidad }} alumnos
                                 </td>
 
-                                {{-- Botón para ver los alumnos inscritos en esa clase --}}
                                 <td class="tabla-celda centrado">
                                     <a href="{{ route('monitor.alumnos', $clase->id) }}" class="btn-ver-alumnos">
                                         Ver Alumnos
@@ -55,8 +60,6 @@
                                 </td>
 
                             </tr>
-
-                        {{-- Si no existen clases asignadas --}}
                         @empty
                             <tr class="tabla-fila">
                                 <td colspan="5" class="tabla-celda centrado celda-vacia">
@@ -71,4 +74,32 @@
 
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const buscador = document.getElementById('buscador');
+
+            buscador.addEventListener('keyup', function () {
+
+                let texto = this.value.toLowerCase();
+                let filas = document.querySelectorAll('.tabla-fila');
+
+                filas.forEach(fila => {
+
+                    let contenido = fila.innerText.toLowerCase();
+
+                    if (contenido.includes(texto)) {
+                        fila.style.display = '';
+                    } else {
+                        fila.style.display = 'none';
+                    }
+
+                });
+
+            });
+
+        });
+    </script>
+
 </x-app-layout>

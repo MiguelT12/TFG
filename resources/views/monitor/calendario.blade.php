@@ -2,7 +2,7 @@
     <div class="contenedor-monitor">
 
         <h1 class="titulo-monitor">
-            CALENDARIO DE ESTA SEMANA
+            CALENDARIO 
         </h1>
 
         <div class="tarjeta-monitor">

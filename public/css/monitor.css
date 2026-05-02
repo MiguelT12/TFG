@@ -64,3 +64,23 @@
     margin-top: 8px;
     text-align: center;
 }
+
+.contenedor-buscador {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.input-buscador {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    background-color: #0f172a;
+    color: white;
+    width: 250px;
+    outline: none;
+}
+
+.input-buscador:focus {
+    border-color: #3b82f6;
+}
