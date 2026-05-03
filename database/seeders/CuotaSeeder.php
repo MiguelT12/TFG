@@ -30,9 +30,9 @@ class CuotaSeeder extends Seeder
             'descripcion' => 'Perfecto para quienes necesitan acceso a clases dirigidas y un seguimiento más estructurado.',
             'caracteristicas' => [
                 'Acceso 24/7 a la sala',
-                'Uso de vestuarios',
+                'Uso de vestuarios libres',
                 'Acceso a clases grupales (Spinning, BodyPump)',
-                '1 reserva de pista a la semana'
+                'Regalo de bienvenida (toalla y botella de agua)'
             ]
         ]);
 
@@ -43,10 +43,11 @@ class CuotaSeeder extends Seeder
             'descripcion' => 'El paquete definitivo. Acceso total a todas las instalaciones, pistas y asesoramiento personalizado.',
             'caracteristicas' => [
                 'Acceso 24/7 a la sala',
+                'Uso de vestuarios libres',
                 'Taquilla privada',
                 'Clases grupales ilimitadas',
-                'Reservas de pistas ilimitadas',
-                'Entrenador personal 1 vez al mes'
+                'Regalo de bienvenida (toalla, botella de agua y camiseta)',
+                'Acceso a piscina'
             ]
         ]);
     }
