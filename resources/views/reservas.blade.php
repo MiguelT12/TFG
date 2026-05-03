@@ -84,7 +84,7 @@
         @else
             <div class="mensaje-sin-cuota">
                 <p class="texto-sin-cuota">Debes tener una cuota activa para ver y gestionar tus reservas.</p>
-                <a href="{{ route('dashboard') }}" class="btn-primario">Volver al inicio</a>
+                <a href="{{ route('planes.todos') }}" class="btn-primario">Ver tarifas</a>
             </div>
         @endif
     </div>

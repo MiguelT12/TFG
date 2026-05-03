@@ -990,3 +990,21 @@ body .titulo-pagina {
     border-radius: 50%;
     box-shadow: 0 0 10px rgba(245, 158, 11, 0.6);
 }
+
+.tarjeta-restringida {
+    text-align: center;
+    padding: 3rem;
+}
+
+.titulo-restringido {
+    color: #FBBF24;
+}
+
+.texto-restringido {
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+.btn-enlace {
+    text-decoration: none;
+}

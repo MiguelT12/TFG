@@ -101,14 +101,9 @@
         </script>
         @else
             <div class="mensaje-sin-cuota">
-                <p class="texto-sin-cuota">
-                    Debes tener una cuota activa para ver el calendario.
-                </p>
-                <a href="{{ route('dashboard') }}" class="btn-primario">
-                    Volver
-                </a>
+                <p class="texto-sin-cuota">Debes tener una cuota activa para ver el calendario.</p>
+                <a href="{{ route('planes.todos') }}" class="btn-primario">Ver tarifas</a>
             </div>
         @endif
-
     </div>
 </x-app-layout>

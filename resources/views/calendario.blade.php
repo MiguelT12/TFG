@@ -33,9 +33,9 @@
             });
             </script>
         @else
-            <div style="max-width: 900px; margin: 50px auto; text-align: center; color: white;">
-                <p style="font-size: 18px; margin-bottom: 20px;">Debes tener una cuota activa para ver el calendario y apuntarte a clases.</p>
-                <a href="{{ route('dashboard') }}" style="background-color: #2563eb; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold;">Volver al inicio</a>
+            <div class="mensaje-sin-cuota">
+                <p class="texto-sin-cuota">Debes tener una cuota activa para ver el calendario y apuntarte a clases.</p>
+                <a href="{{ route('planes.todos') }}"class="btn-primario">Ver tarifas</a>
             </div>
         @endif
     </div>
