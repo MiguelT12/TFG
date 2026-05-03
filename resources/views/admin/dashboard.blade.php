@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="contenedor-admin">
         
-        <h1 class="titulo-admin">
+        <h1 class="titulo-pagina">
             PANEL DE ADMINISTRACIÓN
         </h1>
         

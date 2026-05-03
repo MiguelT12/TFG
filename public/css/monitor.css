@@ -84,3 +84,48 @@
 .input-buscador:focus {
     border-color: #3b82f6;
 }
+
+.contenedor-buscador-wrapper {
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.input-icono-contenedor {
+    position: relative;
+    width: 100%;
+    max-width: none;
+}
+
+.icono-buscador {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9CA3AF; 
+    width: 1.25rem; 
+    height: 1.25rem;
+    pointer-events: none; 
+}
+
+.input-buscador-estilizado {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.75rem; 
+    background-color: #1F2937; 
+    border: 1px solid #374151; 
+    border-radius: 8px; 
+    color: #F3F4F6; 
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.input-buscador-estilizado::placeholder {
+    color: #9CA3AF;
+}
+
+.input-buscador-estilizado:focus {
+    outline: none;
+    border-color: #FBBF24; 
+    box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.15); 
+    background-color: #111827; 
+}

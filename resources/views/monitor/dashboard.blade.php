@@ -1,23 +1,22 @@
 <x-app-layout>
     <div class="contenedor-monitor">
         
-        <h1 class="titulo-monitor">
+        <h1 class="titulo-pagina">
             ZONA DE MONITORES
         </h1>
         
         <div class="tarjeta-monitor">
 
-            <h2 class="subtitulo-monitor">
+            <h2 class="subtitulo-seccion">
                 Mis Clases Asignadas
             </h2>
 
-            <div class="contenedor-buscador">
-                <input 
-                    type="text" 
-                    id="buscador" 
-                    placeholder="Buscar actividad, día o hora..." 
-                    class="input-buscador"
-                >
+            <div class="contenedor-buscador-wrapper">
+                <div class="input-icono-contenedor">
+                    <svg class="icono-buscador" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>   
+
+                    <input type="text" id="buscador" placeholder="Buscar actividad" class="input-buscador-estilizado">
+                </div>
             </div>
 
             <div class="tabla-responsive">
@@ -74,32 +73,4 @@
 
         </div>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-
-            const buscador = document.getElementById('buscador');
-
-            buscador.addEventListener('keyup', function () {
-
-                let texto = this.value.toLowerCase();
-                let filas = document.querySelectorAll('.tabla-fila');
-
-                filas.forEach(fila => {
-
-                    let contenido = fila.innerText.toLowerCase();
-
-                    if (contenido.includes(texto)) {
-                        fila.style.display = '';
-                    } else {
-                        fila.style.display = 'none';
-                    }
-
-                });
-
-            });
-
-        });
-    </script>
-
 </x-app-layout>

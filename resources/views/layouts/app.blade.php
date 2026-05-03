@@ -28,6 +28,7 @@
     <script src="{{ asset('js/calendario.js') }}"></script>
     <script src="{{ asset('js/admin.js') }}"></script>
     <script src="{{ asset('js/pistas.js') }}"></script>
+    <script src="{{ asset('js/monitor.js') }}"></script>
 </head>
 
 <body class="font-sans antialiased">

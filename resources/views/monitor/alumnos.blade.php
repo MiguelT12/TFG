@@ -1,13 +1,13 @@
 <x-app-layout>
     <div class="contenedor-monitor">
 
-        <h1 class="titulo-monitor">
+        <h1 class="titulo-pagina">
             Alumnos inscritos en {{ $clase->actividad->nombre }}
         </h1>
 
         <div class="tarjeta-monitor">
 
-            <h2 class="subtitulo-monitor">
+            <h2 class="subtitulo-seccion">
                 Lista de alumnos
             </h2>
 

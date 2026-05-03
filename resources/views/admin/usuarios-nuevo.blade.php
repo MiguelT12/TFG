@@ -26,8 +26,8 @@
             <div class="grupo-formulario">
                 <label>Rol del Sistema:</label>
                 <select name="role" required class="input-perfil">
-                    <option value="usuario">Usuario / Cliente</option>
-                    <option value="monitor">Monitor / Entrenador</option>
+                    <option value="usuario">Cliente</option>
+                    <option value="monitor">Monitor </option>
                     <option value="admin">Administrador</option>
                 </select>
                 @error('role') <span class="texto-error">{{ $message }}</span> @enderror

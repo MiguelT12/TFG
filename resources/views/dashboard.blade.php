@@ -2,6 +2,7 @@
     <div class="contenedor-principal">
 
     @if(!auth()->user()->id_cuota)
+    <h1 class="titulo-galactico">GIMNASIO GALÁCTICO</h1>
         <div class="seccion-planes">
             <h2 class="titulo-planes">NUESTROS PLANES Y CUOTAS</h2>
             
@@ -91,6 +92,7 @@
             </div>
         </div>
     @else
+   <h1 class="titulo-galactico">GIMNASIO GALÁCTICO</h1>
         <div class="seccion-sobre-nosotros">
             <div class="sobre-nosotros-contenido">
                 <h2 class="subtitulo-seccion">SOBRE NOSOTROS</h2>

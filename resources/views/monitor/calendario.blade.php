@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="contenedor-monitor">
 
-        <h1 class="titulo-monitor">
+        <h1 class="titulo-pagina">
             CALENDARIO 
         </h1>
 

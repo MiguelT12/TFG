@@ -960,3 +960,33 @@ body .titulo-pagina {
     text-transform: uppercase; 
     font-weight: bold;
 }
+
+.titulo-galactico {
+    font-size: 3.8rem;
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-family: 'Montserrat', 'Segoe UI', sans-serif;
+    
+    background: linear-gradient(to bottom, #FEF08A 20%, #D97706 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #FBBF24; 
+    
+    filter: drop-shadow(0 4px 15px rgba(217, 119, 6, 0.4));
+    
+    margin-bottom: 3.5rem;
+    position: relative;
+}
+
+.titulo-galactico::after {
+    content: '';
+    display: block;
+    width: 180px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #F59E0B, transparent);
+    margin: 1.5rem auto 0;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.6);
+}
