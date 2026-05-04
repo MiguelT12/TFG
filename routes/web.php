@@ -179,6 +179,6 @@ Route::middleware(['auth'])->group(function () {
 });
 
 // Planes
-Route::get('/planes/todos', [CuotaController::class, 'mostrarTodos'])->name('planes.todos');
+Route::get('/tarifas', [CuotaController::class, 'mostrarTodos'])->name('planes.todos');
 
 require __DIR__.'/auth.php';

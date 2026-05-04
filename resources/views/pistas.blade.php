@@ -1,8 +1,6 @@
 <x-app-layout>
     @php
-        $horas = [
-            '10:00','12:00','14:00','16:00','18:00','20:00'
-        ];
+        $horas = ['10:00','12:00','14:00','16:00','18:00','20:00'];
         $acceso = auth()->user()->cuota && in_array(strtolower(auth()->user()->cuota->nombre), ['plata', 'oro']);
     @endphp
 
@@ -16,7 +14,7 @@
                 @foreach($pistas as $pista)
                     <div class="tarjeta-pista">
 
-                        <h2 class="nombre-pista">{{ $pista->nombre }}</h2>
+                        <h2 class="subtitulo-seccion-pistas">{{ $pista->nombre }}</h2>
 
                         <form action="{{ route('pistas.reservar') }}" method="POST">
                             @csrf

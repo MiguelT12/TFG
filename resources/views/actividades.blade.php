@@ -33,7 +33,7 @@
                 <div class="tarjeta-actividad" id="actividad-{{ $actividad->id }}">
 
                     <div class="cabecera-actividad">
-                        <h2 class="nombre-actividad">{{ $actividad->nombre }}</h2>
+                        <h2 class="subtitulo-seccion-pistas">{{ $actividad->nombre }}</h2>
                         <p class="desc-actividad">{{ $actividad->descripcion }}</p>
                     </div>
 
