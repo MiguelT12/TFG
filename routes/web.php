@@ -11,39 +11,36 @@ use App\Http\Controllers\MonitorController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Http\Request;
 
-Route::get('/', function () {
-    return redirect()->route('dashboard');
-});
-
-// Dashboard
-Route::get('/dashboard', function (Request $request) {
-
+Route::get('/', function (Illuminate\Http\Request $request) {
+    
     /** @var \App\Models\User $user */
     $user = $request->user();
 
-    // Administrador
-    if ($user->role === 'admin') {
-        $usuarios = \App\Models\User::all();
-        $actividades = \App\Models\Actividad::all();
-        $clases = \App\Models\Clase::with(['actividad', 'monitor'])->get();
-        
-        return view('admin.dashboard', compact('usuarios', 'actividades', 'clases'));
+    if ($user) {
+        // Administrador
+        if ($user->role === 'admin') {
+            $usuarios = \App\Models\User::all();
+            $actividades = \App\Models\Actividad::all();
+            $clases = \App\Models\Clase::with(['actividad', 'monitor'])->get();
+            
+            return view('admin.dashboard', compact('usuarios', 'actividades', 'clases'));
+        }
+
+        // Monitor
+        if ($user->role === 'monitor') {
+            $clases = \App\Models\Clase::with('actividad')
+                ->where('id_monitor', $user->id)
+                ->get();
+
+            return view('monitor.dashboard', compact('clases'));
+        }
     }
 
-    // Monitor
-    if ($user->role === 'monitor') {
-        $clases = \App\Models\Clase::with('actividad')
-            ->where('id_monitor', $user->id)
-            ->get();
-
-        return view('monitor.dashboard', compact('clases'));
-    }
-
-    // Usuario
+    // Usuario normal O Visitante sin cuenta
     $cuotas = \App\Models\Cuota::all();
     return view('dashboard', compact('cuotas'));
 
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->name('dashboard'); // Fíjate que le hemos quitado el ->middleware(['auth'])
 
 Route::middleware(['auth'])->group(function () {
 

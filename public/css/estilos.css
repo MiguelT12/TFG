@@ -45,7 +45,6 @@ body {
 }
 
 .tarjeta-tarifa:hover {
-    transform: translateY(-8px);
     box-shadow: 0 15px 30px rgba(58, 108, 253, 0.5); 
     border-color: #3a6cfd;
 }

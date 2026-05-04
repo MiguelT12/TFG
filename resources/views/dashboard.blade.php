@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="contenedor-principal">
 
-    @if(!auth()->user()->id_cuota)
+    @if(!auth()->user()?->id_cuota)
     <h1 class="titulo-galactico">GIMNASIO GALÁCTICO</h1>
         <div class="seccion-planes">
             <h2 class="titulo-planes">NUESTROS PLANES Y CUOTAS</h2>
