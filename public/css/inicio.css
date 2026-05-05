@@ -480,3 +480,12 @@ body {
     background-color: #3ab32f;
     color: black !important;
 }
+
+.mensaje-error {
+    color: #f87171; 
+    font-size: 0.875rem;
+    margin-top: 0.5rem; 
+    font-weight: 500;
+    display: block; 
+    text-align: left;
+}
