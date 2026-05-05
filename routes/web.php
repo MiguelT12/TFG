@@ -10,6 +10,8 @@ use App\Http\Controllers\ClaseController;
 use App\Http\Controllers\MonitorController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\App;
 
 Route::get('/', function (Illuminate\Http\Request $request) {
     
@@ -40,7 +42,14 @@ Route::get('/', function (Illuminate\Http\Request $request) {
     $cuotas = \App\Models\Cuota::all();
     return view('dashboard', compact('cuotas'));
 
-})->name('dashboard'); // Fíjate que le hemos quitado el ->middleware(['auth'])
+})->name('dashboard'); 
+
+Route::get('lang/{locale}', function ($locale) {
+    if (in_array($locale, ['es', 'en'])) {
+        Session::put('locale', $locale);
+    }
+    return redirect()->back();
+})->name('lang.switch');
 
 Route::middleware(['auth'])->group(function () {
 
@@ -96,7 +105,7 @@ Route::middleware(['auth'])->group(function () {
     // Gestión de usuarios desde Admin
     Route::get('/admin/usuarios/nuevo', [AdminController::class, 'nuevoUsuario'])->name('admin.usuarios.nuevo');
     Route::post('/admin/usuarios/guardar', [AdminController::class, 'guardarUsuario'])->name('admin.usuarios.guardar');
-    Route::delete('/admin/usuarios/{id}', [App\Http\Controllers\AdminController::class, 'eliminarUsuario'])->name('admin.usuarios.eliminar');
+    Route::delete('/admin/usuarios/{id}', [AdminController::class, 'eliminarUsuario'])->name('admin.usuarios.eliminar');
 
     Route::get('/admin/reservas-pistas', [AdminController::class, 'reservasPistas'])->name('admin.reservas.pistas');
 

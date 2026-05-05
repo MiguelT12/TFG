@@ -1,0 +1,23 @@
+{
+    "dashboard": {
+        "titulo_principal": "GIMNASIO GALÁCTICO",
+        "titulo_planes": "NUESTROS PLANES Y CUOTAS",
+        "mes": "/mes",
+        "btn_mas_info": "MÁS INFORMACIÓN",
+        "sobre_nosotros_titulo": "SOBRE NOSOTROS",
+        "sobre_nosotros_subtitulo": "EL TEMPLO DE LA FUERZA",
+        "sobre_nosotros_p1": "Bienvenido a la academia donde se forjan los guerreros más implacables de la galaxia. Ya sea que busques la agilidad de un maestro Jedi o la fuerza bruta del lado oscuro, nuestras instalaciones están preparadas para llevar tu resistencia al máximo nivel.",
+        "sobre_nosotros_p2": "Equipados con tecnología de última generación y zonas de peso libre imperiales, aquí no hay excusas. Elige tu camino, domina tu cuerpo y que el entrenamiento te acompañe.",
+        "titulo_instalaciones": "Nuestras Instalaciones",
+        "titulo_explora": "Explora nuestro Gimnasio",
+        "promo_ciclo_titulo": "Ciclo Indoor",
+        "promo_ciclo_desc": "Pon a prueba tu resistencia sobre la bici con nuestras sesiones de alta intensidad y la mejor música.",
+        "btn_apuntarme": "Apuntarme",
+        "promo_yoga_titulo": "Cuerpo y Mente",
+        "promo_yoga_desc": "Encuentra tu equilibrio y mejora tu flexibilidad en nuestras sesiones de Yoga y Pilates.",
+        "btn_saber_mas": "Saber más",
+        "promo_fuerza_titulo": "Zona de Fuerza",
+        "promo_fuerza_desc": "¿Quieres ganar músculo? Entrena con las mejores máquinas y asesoramiento personalizado.",
+        "btn_ver_planes": "Ver Planes"
+    }
+}

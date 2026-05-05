@@ -1,0 +1,23 @@
+{
+    "dashboard": {
+        "titulo_principal": "GALACTIC GYM",
+        "titulo_planes": "OUR PLANS AND RATES",
+        "mes": "/month",
+        "btn_mas_info": "MORE INFORMATION",
+        "sobre_nosotros_titulo": "ABOUT US",
+        "sobre_nosotros_subtitulo": "THE TEMPLE OF FORCE",
+        "sobre_nosotros_p1": "Welcome to the academy where the most relentless warriors in the galaxy are forged. Whether you seek the agility of a Jedi master or the brute strength of the dark side, our facilities are prepared to take your endurance to the highest level.",
+        "sobre_nosotros_p2": "Equipped with state-of-the-art technology and imperial free weight zones, there are no excuses here. Choose your path, master your body, and may the training be with you.",
+        "titulo_instalaciones": "Our Facilities",
+        "titulo_explora": "Explore our Gym",
+        "promo_ciclo_titulo": "Indoor Cycling",
+        "promo_ciclo_desc": "Test your endurance on the bike with our high-intensity sessions and the best music.",
+        "btn_apuntarme": "Sign up",
+        "promo_yoga_titulo": "Body and Mind",
+        "promo_yoga_desc": "Find your balance and improve your flexibility in our Yoga and Pilates sessions.",
+        "btn_saber_mas": "Learn more",
+        "promo_fuerza_titulo": "Strength Zone",
+        "promo_fuerza_desc": "Want to build muscle? Train with the best machines and personalized advice.",
+        "btn_ver_planes": "View Plans"
+    }
+}

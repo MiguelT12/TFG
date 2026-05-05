@@ -53,6 +53,10 @@
             </div>
 
             <div class="flex items-center">
+                <select onchange="window.location.href=this.value" class="bg-[#1a1a1a] text-white border border-gray-700 rounded px-3 py-1 cursor-pointer outline-none">
+                    <option value="{{ route('lang.switch', 'es') }}" {{ app()->getLocale() === 'es' ? 'selected' : '' }}>🇪🇸 Español</option>
+                    <option value="{{ route('lang.switch', 'en') }}" {{ app()->getLocale() === 'en' ? 'selected' : '' }}>🇬🇧 English</option>
+                </select>
                 @auth
                     <div class="menu-usuario-nav">
                         <button class="boton-nombre">

@@ -377,10 +377,6 @@ body {
     scroll-snap-align: center;
 }
 
-.carrusel-imagenes img:hover {
-    transform: scale(1.03);
-}
-
 .carrusel-btn {
     position: absolute;
     top: 50%;
