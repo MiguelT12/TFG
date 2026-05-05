@@ -31,10 +31,10 @@
                                     </span>
                                 </td>
                                 <td class="tabla-celda">
-                                    <form action="{{ route('admin.usuarios.eliminar', $usuario->id) }}" method="POST">
+                                    <form action="{{ route('admin.usuarios.eliminar', $usuario->id) }}" method="POST" class="formulario-eliminar">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn-eliminar" onclick="return confirm('¿Estás seguro de que deseas eliminar a este usuario permanentemente?')">
+                                        <button type="submit" class="btn-eliminar">
                                             Eliminar
                                         </button>
                                     </form>
@@ -47,6 +47,17 @@
 
             <div>
                 <a href="{{ route('admin.usuarios.nuevo') }}" class="btn-primario">AÑADIR USUARIO</a>
+            </div>
+        </div>
+
+        <div id="modal-confirmacion" class="modal-oculto">
+            <div class="modal-contenido">
+                <h2 class="modal-titulo">¿Estás seguro?</h2>
+                <p class="modal-texto">Vas a eliminar a este usuario permanentemente.</p>
+                <div class="modal-botones">
+                    <button id="btn-cancelar" type="button" class="btn-modal-cancelar">Cancelar</button>
+                    <button id="btn-confirmar" type="button" class="btn-modal-confirmar">Eliminar</button>
+                </div>
             </div>
         </div>
     </div>

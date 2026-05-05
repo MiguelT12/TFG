@@ -1,0 +1,143 @@
+/* Archivo CSS (ej. public/css/admin.css) */
+.modal-oculto {
+    display: none;
+}
+
+.modal-activo {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 50;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-contenido {
+    background-color: #1a1a1a;
+    border: 1px solid #374151;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    max-width: 24rem;
+    width: 100%;
+    text-align: center;
+}
+
+.modal-titulo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.modal-texto {
+    margin-bottom: 1.5rem;
+    color: #9ca3af;
+}
+
+.modal-botones {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn-modal-cancelar {
+    background-color: #4b5563;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-modal-cancelar:hover {
+    background-color: #6b7280;
+}
+
+.btn-modal-confirmar {
+    background-color: #dc2626;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-modal-confirmar:hover {
+    background-color: #b91c1c;
+}
+
+/* Archivo: public/css/tarifas.css (o tu CSS global) */
+.modal-oculto {
+    display: none;
+}
+
+.modal-activo {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 50;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-contenido {
+    background-color: #1a1a1a;
+    border: 1px solid #374151;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    max-width: 24rem;
+    width: 100%;
+    text-align: center;
+}
+
+.modal-titulo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.modal-texto {
+    margin-bottom: 1.5rem;
+    color: #9ca3af;
+}
+
+.modal-botones {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn-modal-cancelar {
+    background-color: #4b5563;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-modal-cancelar:hover {
+    background-color: #6b7280;
+}
+
+.btn-modal-aceptar {
+    background-color: #2563eb;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-modal-aceptar:hover {
+    background-color: #1d4ed8;
+}

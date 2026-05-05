@@ -1,13 +1,21 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const botonesConfirmacion = document.querySelectorAll('.require-confirmacion');
+$(document).ready(function() {
+    let enlaceTarifaActual = null;
 
-    botonesConfirmacion.forEach(function (boton) {
-        boton.addEventListener('click', function (event) {
-            const confirmacion = confirm('Ya tienes una tarifa contratada. ¿Quieres contratar otra y sustituir la actual?');
-            
-            if (!confirmacion) {
-                event.preventDefault();
-            }
-        });
+    $('.require-confirmacion').on('click', function(e) {
+        e.preventDefault(); 
+        enlaceTarifaActual = $(this).attr('href');
+        
+        $('#modal-confirmacion-tarifa').removeClass('modal-oculto').addClass('modal-activo'); 
+    });
+
+    $('#btn-cancelar-tarifa').on('click', function() {
+        enlaceTarifaActual = null;
+        $('#modal-confirmacion-tarifa').removeClass('modal-activo').addClass('modal-oculto'); 
+    });
+
+    $('#btn-confirmar-tarifa').on('click', function() {
+        if (enlaceTarifaActual) {
+            window.location.href = enlaceTarifaActual; 
+        }
     });
 });

@@ -829,7 +829,6 @@ body .btn-cancelar {
     font-style: italic;
 }
 
-/* --- Alertas --- */
 .alerta-error {
     background-color: #ef4444;
     color: white;
@@ -840,7 +839,6 @@ body .btn-cancelar {
     color: white;
 }
 
-/* --- Mis Reservas --- */
 .grid-mis-reservas {
     display: grid;
     grid-template-columns: 1fr;

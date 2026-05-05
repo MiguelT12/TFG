@@ -48,5 +48,20 @@
 
             </div>
         @endforeach
+        
+        <div id="modal-confirmacion-tarifa" class="modal-oculto">
+            <div class="modal-contenido">
+                <h2 class="modal-titulo">Confirmar tarifa</h2>
+                <p class="modal-texto">¿Estás seguro de que deseas contratar esta tarifa?</p>
+                <div class="modal-botones">
+                    <button id="btn-cancelar-tarifa" type="button" class="btn-modal-cancelar">
+                        Cancelar
+                    </button>
+                    <button id="btn-confirmar-tarifa" type="button" class="btn-modal-aceptar">
+                        Sí, contratar
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 </x-app-layout>
