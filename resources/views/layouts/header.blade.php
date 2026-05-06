@@ -4,56 +4,56 @@
             
             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                 <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                    {{ __('Dashboard') }}
+                    <span data-i18n="navbar.inicio">Inicio</span>
                 </x-nav-link>
 
                 @auth
                     @if(auth()->user()->role === 'admin')
                         <x-nav-link :href="route('clases-actividades')" :active="request()->routeIs('clases-actividades')">
-                            Gestión de clases
+                            <span data-i18n="navbar.gestion_clases">Gestión de clases</span>
                         </x-nav-link>
 
                         <x-nav-link :href="route('admin.pistas')" :active="request()->routeIs('admin.pistas*')">
-                            Gestión de Pistas
+                            <span data-i18n="navbar.gestion_pistas">Gestión de Pistas</span>
                         </x-nav-link>
 
                         <x-nav-link :href="route('admin.reservas.pistas')" :active="request()->routeIs('admin.reservas.pistas')">
-                            Reservas Pistas
+                            <span data-i18n="navbar.reservas_pistas">Reservas Pistas</span>
                         </x-nav-link>
                     @elseif(auth()->user()->role === 'monitor')
                         <x-nav-link :href="route('monitor.calendario')" :active="request()->routeIs('monitor.calendario')">
-                            Mi Calendario
+                            <span data-i18n="navbar.mi_calendario">Mi Calendario</span>
                         </x-nav-link>
                     @else
                         <x-nav-link :href="route('planes.todos')" :active="request()->routeIs('planes.todos')">
-                            Nuestras Tarifas
+                            <span data-i18n="navbar.nuestras_tarifas">Nuestras Tarifas</span>
                         </x-nav-link>
 
                         <x-nav-link :href="route('actividades')" :active="request()->routeIs('actividades')">
-                            Actividades y Clases
+                            <span data-i18n="navbar.actividades_clases">Actividades y Clases</span>
                         </x-nav-link>
 
                         <x-nav-link :href="route('reservas')" :active="request()->routeIs('reservas')">
-                            Mis Reservas
+                            <span data-i18n="navbar.mis_reservas">Mis Reservas</span>
                         </x-nav-link>
 
                         <x-nav-link :href="route('calendario')" :active="request()->routeIs('calendario')">
-                            Calendario
+                            <span data-i18n="navbar.calendario">Calendario</span>
                         </x-nav-link>
 
                         <x-nav-link :href="route('pistas.index')" :active="request()->routeIs('pistas.*')">
-                            Pistas
+                            <span data-i18n="navbar.pistas">Pistas</span>
                         </x-nav-link>
                     @endif
                 @else
                     <x-nav-link :href="route('planes.todos')" :active="request()->routeIs('planes.todos')">
-                        Nuestras Tarifas
+                        <span data-i18n="navbar.nuestras_tarifas">Nuestras Tarifas</span>
                     </x-nav-link>
                 @endauth
             </div>
 
             <div class="flex items-center">
-                <select onchange="window.location.href=this.value" class="bg-[#1a1a1a] text-white border border-gray-700 rounded px-3 py-1 cursor-pointer outline-none">
+                <select onchange="window.location.href=this.value" class="select-idioma">
                     <option value="{{ route('lang.switch', 'es') }}" {{ app()->getLocale() === 'es' ? 'selected' : '' }}>🇪🇸 Español</option>
                     <option value="{{ route('lang.switch', 'en') }}" {{ app()->getLocale() === 'en' ? 'selected' : '' }}>🇬🇧 English</option>
                 </select>
@@ -65,14 +65,14 @@
 
                         <div class="desplegable-contenido">
                             @if(auth()->user()->role !== 'admin' && auth()->user()->role !== 'monitor')
-                                <a href="{{ route('cuenta') }}" class="item-desplegable">
+                                <a href="{{ route('cuenta') }}" class="item-desplegable" data-i18n="navbar.cuenta">
                                     Cuenta
                                 </a>
                             @endif
 
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <button type="submit" class="item-desplegable texto-rojo">
+                                <button type="submit" class="item-desplegable texto-rojo" data-i18n="navbar.cerrar_sesion">
                                     Cerrar sesión
                                 </button>
                             </form>
@@ -82,8 +82,8 @@
                 
                 @guest
                     <div class="contenedor-auth">
-                        <a href="{{ route('login') }}" class="btn-login">Iniciar sesión</a>
-                        <a href="{{ route('register') }}" class="btn-registro">Crear cuenta</a>
+                        <a href="{{ route('login') }}" class="btn-login" data-i18n="navbar.iniciar_sesion">Iniciar sesión</a>
+                        <a href="{{ route('register') }}" class="btn-registro" data-i18n="navbar.crear_cuenta">Crear cuenta</a>
                     </div>
                 @endguest
             </div>

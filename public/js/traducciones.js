@@ -31,6 +31,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Ejecutar al iniciar
     cargarTraducciones();
 });

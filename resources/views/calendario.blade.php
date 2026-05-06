@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="p-6">
-        <h1 class="titulo-pagina">
+        <h1 class="titulo-pagina" data-i18n="calendario.titulo_pagina">
             MI CALENDARIO DE CLASES
         </h1>
 
@@ -34,8 +34,8 @@
             </script>
         @else
             <div class="mensaje-sin-cuota">
-                <p class="texto-sin-cuota">Debes tener una cuota activa para ver el calendario y apuntarte a clases.</p>
-                <a href="{{ route('planes.todos') }}"class="btn-primario">Ver tarifas</a>
+                <p class="texto-sin-cuota" data-i18n="calendario.error_cuota">Debes tener una cuota activa para ver el calendario y apuntarte a clases.</p>
+                <a href="{{ route('planes.todos') }}" class="btn-primario" data-i18n="calendario.btn_tarifas">Ver tarifas</a>
             </div>
         @endif
     </div>

@@ -19,5 +19,55 @@
         "promo_fuerza_titulo": "Strength Zone",
         "promo_fuerza_desc": "Want to build muscle? Train with the best machines and personalized advice.",
         "btn_ver_planes": "View Plans"
+    },
+    "actividades": {
+        "titulo_pagina": "OUR ACTIVITIES AND CLASSES",
+        "filtro_label": "Filter by activity:",
+        "todas_opcion": "All activities",
+        "horarios_titulo": "Available schedules:",
+        "monitor": "Trainer:",
+        "por_asignar": "To be assigned",
+        "plazas": "Spots:",
+        "btn_desapuntarse": "Unsubscribe",
+        "btn_completo": "Full",
+        "btn_inscribirse": "Sign up",
+        "sin_clases": "No classes currently scheduled.",
+        "error_cuota": "You must have an active subscription to view the calendar.",
+        "btn_tarifas": "View rates"
+    },
+    "calendario": {
+        "titulo_pagina": "MY CLASS CALENDAR",
+        "hoy": "Today",
+        "error_cuota": "You must have an active subscription to view the calendar and sign up for classes.",
+        "btn_tarifas": "View rates"
+    },
+    "contratar": {
+        "titulo": "Confirm Purchase",
+        "mensaje_confirmacion": "You are about to subscribe to the plan:",
+        "mes": "/month",
+        "telefono": "Contact phone",
+        "metodo_pago": "Payment method",
+        "selecciona_opcion": "Select an option",
+        "tarjeta": "Credit/Debit card",
+        "domiciliacion": "Direct debit",
+        "transferencia": "Bank transfer",
+        "cancelar": "Cancel",
+        "confirmar": "Confirm Subscription"
+    },
+    "navbar": {
+        "inicio": "Home",
+        "gestion_clases": "Class Management",
+        "gestion_pistas": "Court Management",
+        "reservas_pistas": "Court Bookings",
+        "mi_calendario": "My Calendar",
+        "nuestras_tarifas": "Our Rates",
+        "actividades_clases": "Activities and Classes",
+        "mis_reservas": "My Bookings",
+        "calendario": "Calendar",
+        "pistas": "Courts",
+        "cuenta": "Account",
+        "cerrar_sesion": "Log out",
+        "iniciar_sesion": "Log in",
+        "crear_cuenta": "Sign up"
     }
 }
