@@ -29,7 +29,7 @@ class PistaController extends Controller
         $inicio = Carbon::parse($request->hora_inicio);
         $fin = $inicio->copy()->addHours((int) $request->duracion);
         $horaMin = Carbon::createFromTime(10, 0);
-        $horaMax = Carbon::createFromTime(20, 0);
+        $horaMax = Carbon::createFromTime(22, 0);
 
         if ($inicio->lt($horaMin) || $fin->gt($horaMax)) {
             return back()->with('error', 'Solo puedes reservar entre las 10:00 y las 20:00');
