@@ -9,6 +9,15 @@
         <h1 class="titulo-pagina">Reservar pistas</h1>
 
         @if($acceso)
+
+            <div style="max-width:400px; margin: 0 auto 30px auto;">
+                <input type="date"
+                       id="fecha-global"
+                       value="{{ date('Y-m-d') }}"
+                       min="{{ date('Y-m-d') }}"
+                       class="input-pista">
+            </div>
+
             <div class="grid-pistas">
 
                 @foreach($pistas as $pista)
@@ -20,21 +29,16 @@
                             @csrf
                             <input type="hidden" name="pista_id" value="{{ $pista->id }}">
 
-                            <input type="date"
-                                   name="fecha"
-                                   min="{{ date('Y-m-d') }}"
-                                   required
-                                   class="input-pista fecha-input">
+                            <input type="hidden" name="fecha" class="fecha-hidden">
 
                             <div class="grid-horas">
                                 @foreach($horas as $hora)
                                     <label class="hora-btn">
                                         <input type="radio"
-                                               name="hora_inicio"
-                                               value="{{ $hora }}"
-                                               hidden
-                                               disabled
-                                               required>
+                                            name="hora_inicio"
+                                            value="{{ $hora }}"
+                                            class="input-hora"
+                                            required>
                                         <span>{{ $hora }}</span>
                                     </label>
                                 @endforeach
@@ -42,12 +46,12 @@
 
                             <div class="selector-duracion">
                                 <label class="opcion-duracion activa">
-                                    <input type="radio" name="duracion" value="1" checked hidden disabled>
+                                    <input type="radio" name="duracion" value="1" class="input-duracion" checked>
                                     1h
                                 </label>
 
                                 <label class="opcion-duracion">
-                                    <input type="radio" name="duracion" value="2" hidden disabled>
+                                    <input type="radio" name="duracion" value="2" class="input-duracion">
                                     2h
                                 </label>
                             </div>

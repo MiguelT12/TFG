@@ -1,27 +1,25 @@
 document.addEventListener('DOMContentLoaded', function() {
-    
+
     const reservas = window.reservasPistas || [];
+    const fechaGlobal = document.getElementById('fecha-global');
 
-    document.querySelectorAll('.tarjeta-pista').forEach(tarjeta => {
+    function actualizarPistas() {
 
-        const fechaInput = tarjeta.querySelector('.fecha-input');
-        const pistaId = tarjeta.querySelector('input[name="pista_id"]').value;
+        let fecha = fechaGlobal.value;
 
-        fechaInput.addEventListener('change', function () {
+        document.querySelectorAll('.tarjeta-pista').forEach(tarjeta => {
 
-            let fecha = this.value;
+            const pistaId = tarjeta.querySelector('input[name="pista_id"]').value;
+
+            tarjeta.querySelector('.fecha-hidden').value = fecha;
+
+            tarjeta.querySelectorAll('.hora-btn').forEach(btn => {
+                btn.classList.remove('hora-ocupada', 'seleccionada');
+            });
 
             tarjeta.querySelectorAll('input[name="hora_inicio"]').forEach(input => {
                 input.disabled = false;
                 input.checked = false;
-            });
-
-            tarjeta.querySelectorAll('input[name="duracion"]').forEach(input => {
-                input.disabled = false;
-            });
-
-            tarjeta.querySelectorAll('.hora-btn').forEach(btn => {
-                btn.classList.remove('hora-ocupada', 'seleccionada');
             });
 
             let reservasFiltradas = reservas.filter(r =>
@@ -44,49 +42,64 @@ document.addEventListener('DOMContentLoaded', function() {
                         ocupada = true;
                     }
 
+                    let siguienteHora = sumarHora(hora, 2);
+
+                    if (siguienteHora > fin && hora < fin) {
+                        ocupada = true;
+                    }
+
                 });
 
                 if (ocupada) {
                     input.disabled = true;
                     label.classList.add('hora-ocupada');
                 }
+
             });
 
         });
+    }
 
-        tarjeta.querySelectorAll('.hora-btn').forEach(boton => {
-            boton.addEventListener('click', (e) => {
-                if (!fechaInput.value) {
-                    e.preventDefault();
-                    alert('Primero debes seleccionar una fecha');
-                }
-            });
-        });
+    // Se suman las horas 
+    function sumarHora(hora, horasSumar) {
+        let [h, m] = hora.split(':');
+        let fecha = new Date();
+        fecha.setHours(parseInt(h) + horasSumar);
+        fecha.setMinutes(m);
+        return fecha.toTimeString().substring(0,5);
+    }
 
-        tarjeta.querySelectorAll('.opcion-duracion').forEach(boton => {
-            boton.addEventListener('click', (e) => {
-                if (!fechaInput.value) {
-                    e.preventDefault();
-                    alert('Primero debes seleccionar una fecha');
-                }
-            });
-        });
+    // Se cambia la fecha global
+    fechaGlobal.addEventListener('change', actualizarPistas);
 
-    });
+    actualizarPistas();
 
-    document.querySelectorAll('.hora-btn input').forEach(input => {
-        input.addEventListener('change', () => {
-            let grupo = input.closest('.grid-horas');
+    // Horas
+    document.querySelectorAll('.hora-btn').forEach(label => {
+        label.addEventListener('click', function () {
+
+            let input = this.querySelector('input');
+            if (input.disabled) return;
+
+            let grupo = this.closest('.grid-horas');
             grupo.querySelectorAll('.hora-btn').forEach(l => l.classList.remove('seleccionada'));
-            input.closest('.hora-btn').classList.add('seleccionada');
+
+            input.checked = true;
+            this.classList.add('seleccionada');
         });
     });
 
-    document.querySelectorAll('.opcion-duracion input').forEach(input => {
-        input.addEventListener('change', () => {
-            let grupo = input.closest('.selector-duracion');
+    // Duración
+    document.querySelectorAll('.opcion-duracion').forEach(label => {
+        label.addEventListener('click', function () {
+
+            let input = this.querySelector('input');
+
+            let grupo = this.closest('.selector-duracion');
             grupo.querySelectorAll('.opcion-duracion').forEach(l => l.classList.remove('activa'));
-            input.closest('.opcion-duracion').classList.add('activa');
+
+            input.checked = true;
+            this.classList.add('activa');
         });
     });
 

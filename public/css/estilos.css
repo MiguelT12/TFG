@@ -1005,3 +1005,8 @@ body .titulo-pagina {
 .btn-enlace {
     text-decoration: none;
 }
+
+.input-hora,
+.input-duracion {
+    display: none;
+}
