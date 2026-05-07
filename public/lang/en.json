@@ -225,5 +225,41 @@
         "modal_texto": "You are going to permanently delete this user.",
         "btn_cancelar": "Cancel",
         "btn_confirmar": "Delete"
+    },
+    "monitor": {
+        "titulo_pagina": "TRAINER ZONE",
+        "subtitulo": "My Assigned Classes",
+        "placeholder_buscar": "Search activity",
+        "tabla_actividad": "Activity",
+        "tabla_dia": "Day",
+        "tabla_hora": "Start time",
+        "tabla_capacidad": "Capacity",
+        "tabla_acciones": "Actions",
+        "alumnos": "students",
+        "btn_ver_alumnos": "View Students",
+        "sin_clases": "You have no classes assigned at the moment."
+    },
+    "monitor_calendario": {
+        "titulo_pagina": "CALENDAR",
+        "lunes": "Monday",
+        "martes": "Tuesday",
+        "miercoles": "Wednesday",
+        "jueves": "Thursday",
+        "viernes": "Friday",
+        "sabado": "Saturday",
+        "domingo": "Sunday",
+        "ver_alumnos": "View students"
+    },
+    "monitor_alumnos": {
+        "titulo": "Students enrolled in",
+        "subtitulo": "Student List",
+        "tabla_nombre": "Name",
+        "tabla_email": "Email",
+        "tabla_accion": "Action",
+        "btn_eliminar": "Remove",
+        "sin_alumnos": "There are no students enrolled in this class yet.",
+        "modal_titulo": "Remove student",
+        "btn_cancelar": "Cancel",
+        "btn_confirmar": "Remove"
     }
 }

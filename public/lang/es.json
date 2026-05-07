@@ -225,5 +225,41 @@
         "modal_texto": "Vas a eliminar a este usuario permanentemente.",
         "btn_cancelar": "Cancelar",
         "btn_confirmar": "Eliminar"
+    },
+    "monitor": {
+        "titulo_pagina": "ZONA DE MONITORES",
+        "subtitulo": "Mis Clases Asignadas",
+        "placeholder_buscar": "Buscar actividad",
+        "tabla_actividad": "Actividad",
+        "tabla_dia": "Día",
+        "tabla_hora": "Hora de inicio",
+        "tabla_capacidad": "Capacidad",
+        "tabla_acciones": "Acciones",
+        "alumnos": "alumnos",
+        "btn_ver_alumnos": "Ver Alumnos",
+        "sin_clases": "No tienes clases asignadas por el momento."
+    },
+    "monitor_calendario": {
+        "titulo_pagina": "CALENDARIO",
+        "lunes": "Lunes",
+        "martes": "Martes",
+        "miercoles": "Miércoles",
+        "jueves": "Jueves",
+        "viernes": "Viernes",
+        "sabado": "Sábado",
+        "domingo": "Domingo",
+        "ver_alumnos": "Ver alumnos"
+    },
+    "monitor_alumnos": {
+        "titulo": "Alumnos inscritos en",
+        "subtitulo": "Lista de alumnos",
+        "tabla_nombre": "Nombre",
+        "tabla_email": "Email",
+        "tabla_accion": "Acción",
+        "btn_eliminar": "Eliminar",
+        "sin_alumnos": "Todavía no hay alumnos inscritos en esta clase.",
+        "modal_titulo": "Eliminar alumno",
+        "btn_cancelar": "Cancelar",
+        "btn_confirmar": "Eliminar"
     }
 }

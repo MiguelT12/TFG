@@ -2,12 +2,12 @@
     <div class="contenedor-monitor">
 
         <h1 class="titulo-pagina">
-            Alumnos inscritos en {{ $clase->actividad->nombre }}
+            <span data-i18n="monitor_alumnos.titulo">Alumnos inscritos en</span> {{ $clase->actividad->nombre }}
         </h1>
 
         <div class="tarjeta-monitor">
 
-            <h2 class="subtitulo-seccion">
+            <h2 class="subtitulo-seccion" data-i18n="monitor_alumnos.subtitulo">
                 Lista de alumnos
             </h2>
 
@@ -19,9 +19,9 @@
 
                         <thead>
                             <tr class="tabla-cabecera">
-                                <th class="tabla-celda-cabecera">Nombre</th>
-                                <th class="tabla-celda-cabecera">Email</th>
-                                <th class="tabla-celda-cabecera centrado">Acción</th>
+                                <th class="tabla-celda-cabecera" data-i18n="monitor_alumnos.tabla_nombre">Nombre</th>
+                                <th class="tabla-celda-cabecera" data-i18n="monitor_alumnos.tabla_email">Email</th>
+                                <th class="tabla-celda-cabecera centrado" data-i18n="monitor_alumnos.tabla_accion">Acción</th>
                             </tr>
                         </thead>
 
@@ -43,6 +43,7 @@
                                             type="button" 
                                             class="btn-eliminar-alumno"
                                             onclick="abrirModal({{ $clase->id }}, {{ $usuario->id }}, '{{ $usuario->name }}')"
+                                            data-i18n="monitor_alumnos.btn_eliminar"
                                         >
                                             Eliminar
                                         </button>
@@ -57,7 +58,7 @@
 
             {{-- Si no existen alumnos inscritos --}}
             @else
-                <p class="celda-vacia centrado">
+                <p class="celda-vacia centrado" data-i18n="monitor_alumnos.sin_alumnos">
                     Todavía no hay alumnos inscritos en esta clase.
                 </p>
             @endif
@@ -71,7 +72,7 @@
         <div class="modal-contenido">
 
             {{-- titulo del modal --}}
-            <h2>Eliminar alumno</h2>
+            <h2 data-i18n="monitor_alumnos.modal_titulo">Eliminar alumno</h2>
 
             {{-- texto dinamico que se rellena con javascript --}}
             <p id="textoModal"></p>
@@ -79,7 +80,7 @@
             <div class="modal-botones">
 
                 {{-- boton cancelar que cierra el modal --}}
-                <button onclick="cerrarModal()" class="btn-cancelar">
+                <button onclick="cerrarModal()" class="btn-cancelar" data-i18n="monitor_alumnos.btn_cancelar">
                     Cancelar
                 </button>
 
@@ -89,7 +90,7 @@
                     @method('DELETE')
 
                     {{-- boton de confirmacion --}}
-                    <button type="submit" class="btn-confirmar">
+                    <button type="submit" class="btn-confirmar" data-i18n="monitor_alumnos.btn_confirmar">
                         Eliminar
                     </button>
                 </form>
@@ -97,28 +98,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-        // funcion que abre el modal y configura la accion del formulario
-        function abrirModal(claseId, usuarioId, nombre) {
-
-            let modal = document.getElementById('modalEliminar');
-            let form = document.getElementById('formEliminar');
-            let texto = document.getElementById('textoModal');
-
-            // construimos la ruta dinamica para eliminar
-            form.action = `/monitor/clase/${claseId}/usuario/${usuarioId}`;
-
-            // mensaje personalizado con el nombre del alumno
-            texto.innerText = `¿Eliminar a ${nombre} de la clase?`;
-
-            // mostramos el modal
-            modal.style.display = 'flex';
-        }
-
-        // funcion para cerrar el modal
-        function cerrarModal() {
-            document.getElementById('modalEliminar').style.display = 'none';
-        }
-    </script>
 </x-app-layout>

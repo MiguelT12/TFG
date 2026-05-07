@@ -21,12 +21,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function traducirDOM() {
+        // Traducir textos internos (etiquetas normales)
         document.querySelectorAll('[data-i18n]').forEach(elemento => {
             const rutaTraduccion = elemento.getAttribute('data-i18n');
             const textoTraducido = t(rutaTraduccion);
             
             if (textoTraducido) {
                 elemento.innerText = textoTraducido;
+            }
+        });
+
+        // Traducir placeholders de inputs
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(elemento => {
+            const rutaTraduccion = elemento.getAttribute('data-i18n-placeholder');
+            const textoTraducido = t(rutaTraduccion);
+            
+            if (textoTraducido) {
+                elemento.placeholder = textoTraducido;
             }
         });
     }

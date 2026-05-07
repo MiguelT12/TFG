@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="contenedor-monitor">
 
-        <h1 class="titulo-pagina">
+        <h1 class="titulo-pagina" data-i18n="monitor_calendario.titulo_pagina">
             CALENDARIO 
         </h1>
 
@@ -16,7 +16,7 @@
                 @foreach($dias as $dia)
                     <div class="columna-dia">
 
-                        <div class="dia-header">
+                        <div class="dia-header" data-i18n="monitor_calendario.{{ str_replace(['á', 'é'], ['a', 'e'], strtolower($dia)) }}">
                             {{ $dia }}
                         </div>
 
@@ -35,7 +35,7 @@
                                     {{ $clase->usuarios->count() }}/{{ $clase->capacidad }}
                                 </p>
 
-                                <a href="{{ route('monitor.alumnos', $clase->id) }}" class="btn-ver-alumnos">
+                                <a href="{{ route('monitor.alumnos', $clase->id) }}" class="btn-ver-alumnos" data-i18n="monitor_calendario.ver_alumnos">
                                     Ver alumnos
                                 </a>
                             </div>
