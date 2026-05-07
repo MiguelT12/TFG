@@ -3,9 +3,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const reservas = window.reservasPistas || [];
     const fechaGlobal = document.getElementById('fecha-global');
 
+    if (!fechaGlobal) return;
+
+    const hoyObj = new Date();
+    const hoy =
+        hoyObj.getFullYear() + '-' +
+        String(hoyObj.getMonth() + 1).padStart(2, '0') + '-' +
+        String(hoyObj.getDate()).padStart(2, '0');
+
+    fechaGlobal.value = hoy;
+    fechaGlobal.min = hoy;
+
     function actualizarPistas() {
 
         let fecha = fechaGlobal.value;
+
+        let ahora = new Date();
+        let horaActual = ahora.getHours();
 
         document.querySelectorAll('.tarjeta-pista').forEach(tarjeta => {
 
@@ -30,8 +44,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 let input = label.querySelector('input');
                 let hora = input.value;
+                let horaNumero = parseInt(hora.split(':')[0]);
 
                 let ocupada = false;
+
+                if (fecha === hoy && horaNumero <= horaActual) {
+                    ocupada = true;
+                }
 
                 reservasFiltradas.forEach(reserva => {
 
@@ -60,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Se suman las horas 
     function sumarHora(hora, horasSumar) {
         let [h, m] = hora.split(':');
         let fecha = new Date();
@@ -69,12 +87,10 @@ document.addEventListener('DOMContentLoaded', function() {
         return fecha.toTimeString().substring(0,5);
     }
 
-    // Se cambia la fecha global
     fechaGlobal.addEventListener('change', actualizarPistas);
 
     actualizarPistas();
 
-    // Horas
     document.querySelectorAll('.hora-btn').forEach(label => {
         label.addEventListener('click', function () {
 
@@ -89,7 +105,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Duración
     document.querySelectorAll('.opcion-duracion').forEach(label => {
         label.addEventListener('click', function () {
 
