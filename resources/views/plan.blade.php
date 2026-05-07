@@ -9,7 +9,7 @@
                         
                         <p class="plan-lema">{{ $cuota->lema }}</p>
                         
-                        <div class="plan-precio">{{ $cuota->precio }}€ <span>/ mes</span></div>
+                        <div class="plan-precio">{{ $cuota->precio }}€ <span data-i18n="tarifas.mes">/ mes</span></div>
                         
                         <p class="plan-resumen">
                             {{ $cuota->descripcion }}
@@ -17,14 +17,14 @@
                     </div>
 
                     <div class="plan-detalles-lista">
-                        <h3>¿Qué incluye?</h3>
+                        <h3 data-i18n="tarifas.que_incluye">¿Qué incluye?</h3>
                         <div class="grid-checks">
                             @if(is_array($cuota->caracteristicas) && count($cuota->caracteristicas) > 0)
                                 @foreach($cuota->caracteristicas as $caracteristica)
                                     <div class="check-item"><span class="check-icon">✓</span> {{ $caracteristica }}</div>
                                 @endforeach
                             @else
-                                <div class="check-item"><span class="check-icon">✓</span> No hay características en la base de datos</div>
+                                <div class="check-item"><span class="check-icon">✓</span>0</div>
                             @endif
                         </div>
                     </div>
@@ -32,11 +32,11 @@
                     <div class="plan-boton-footer">
                         @if(auth()->user() && auth()->user()->id_cuota)
                             <a href="{{ route('tarifas.confirmar', $cuota->id) }}" class="btn-contratar require-confirmacion">
-                                Contratar {{ $cuota->nombre }}
+                                <span data-i18n="tarifas.contratar">Contratar</span> {{ $cuota->nombre }}
                             </a>
                         @else
                             <a href="{{ route('tarifas.confirmar', $cuota->id) }}" class="btn-contratar">
-                                Contratar {{ $cuota->nombre }}
+                                <span data-i18n="tarifas.contratar">Contratar</span> {{ $cuota->nombre }}
                             </a>
                         @endif
                     </div>
@@ -51,13 +51,13 @@
         
         <div id="modal-confirmacion-tarifa" class="modal-oculto">
             <div class="modal-contenido">
-                <h2 class="modal-titulo">Confirmar tarifa</h2>
-                <p class="modal-texto">¿Estás seguro de que deseas contratar esta tarifa?</p>
+                <h2 class="modal-titulo" data-i18n="tarifas.modal_titulo">Confirmar tarifa</h2>
+                <p class="modal-texto" data-i18n="tarifas.modal_texto">¿Estás seguro de que deseas contratar esta tarifa?</p>
                 <div class="modal-botones">
-                    <button id="btn-cancelar-tarifa" type="button" class="btn-modal-cancelar">
+                    <button id="btn-cancelar-tarifa" type="button" class="btn-modal-cancelar" data-i18n="tarifas.cancelar">
                         Cancelar
                     </button>
-                    <button id="btn-confirmar-tarifa" type="button" class="btn-modal-aceptar">
+                    <button id="btn-confirmar-tarifa" type="button" class="btn-modal-aceptar" data-i18n="tarifas.confirmar_btn">
                         Sí, contratar
                     </button>
                 </div>

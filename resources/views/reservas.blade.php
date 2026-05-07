@@ -1,12 +1,12 @@
 <x-app-layout>
     <div class="contenedor-reservas">
-        <h1 class="titulo-pagina">MIS RESERVAS</h1>
+        <h1 class="titulo-pagina" data-i18n="reservas.titulo_pagina">MIS RESERVAS</h1>
 
         @if(auth()->user()->id_cuota)
             <div class="grid-columnas-reservas">
 
                 <div class="seccion-reservas">
-                    <h2 class="titulo-seccion-reserva">Mis Clases</h2>
+                    <h2 class="titulo-seccion-reserva" data-i18n="reservas.mis_clases">Mis Clases</h2>
 
                     @if($clases->count() > 0)
                         @foreach($clases as $clase)
@@ -27,7 +27,14 @@
                                     </div>
                                     <div class="info-item">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
-                                        <span>Monitor: {{ $clase->monitor->name ?? 'Por asignar' }}</span>
+                                        <span>
+                                            <span data-i18n="reservas.monitor">Monitor:</span> 
+                                            @if($clase->monitor)
+                                                {{ $clase->monitor->name }}
+                                            @else
+                                                <span data-i18n="reservas.por_asignar">Por asignar</span>
+                                            @endif
+                                        </span>
                                     </div>
                                 </div>
 
@@ -35,18 +42,18 @@
                                     <form action="{{ route('clases.desapuntarse', $clase->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn-cancelar-reserva">Desapuntarse</button>
+                                        <button class="btn-cancelar-reserva" data-i18n="reservas.desapuntarse">Desapuntarse</button>
                                     </form>
                                 </div>
                             </div>
                         @endforeach
                     @else
-                        <p class="mensaje-vacio">No estás apuntado a ninguna clase.</p>
+                        <p class="mensaje-vacio" data-i18n="reservas.sin_clases">No estás apuntado a ninguna clase.</p>
                     @endif
                 </div>
 
                 <div class="seccion-reservas">
-                    <h2 class="titulo-seccion-reserva">Mis Pistas</h2>
+                    <h2 class="titulo-seccion-reserva" data-i18n="reservas.mis_pistas">Mis Pistas</h2>
 
                     @if(auth()->user()->reservasPistas->count() > 0)
                         @foreach(auth()->user()->reservasPistas as $reserva)
@@ -70,21 +77,21 @@
                                     <form action="{{ route('pistas.cancelar', $reserva->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn-cancelar-reserva">Cancelar</button>
+                                        <button class="btn-cancelar-reserva" data-i18n="reservas.cancelar">Cancelar</button>
                                     </form>
                                 </div>
                             </div>
                         @endforeach
                     @else
-                        <p class="mensaje-vacio">No tienes reservas de pistas todavía.</p>
+                        <p class="mensaje-vacio" data-i18n="reservas.sin_pistas">No tienes reservas de pistas todavía.</p>
                     @endif
                 </div>
 
             </div>
         @else
             <div class="mensaje-sin-cuota">
-                <p class="texto-sin-cuota">Debes tener una cuota activa para ver y gestionar tus reservas.</p>
-                <a href="{{ route('planes.todos') }}" class="btn-primario">Ver tarifas</a>
+                <p class="texto-sin-cuota" data-i18n="reservas.error_cuota">Debes tener una cuota activa para ver y gestionar tus reservas.</p>
+                <a href="{{ route('planes.todos') }}" class="btn-primario" data-i18n="reservas.btn_tarifas">Ver tarifas</a>
             </div>
         @endif
     </div>

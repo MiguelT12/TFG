@@ -6,7 +6,7 @@
 
     <div class="contenedor-pistas">
 
-        <h1 class="titulo-pagina">Reservar pistas</h1>
+        <h1 class="titulo-pagina" data-i18n="pistas.titulo_pagina">Reservar pistas</h1>
 
         @if($acceso)
 
@@ -56,7 +56,7 @@
                                 </label>
                             </div>
 
-                            <button type="submit" class="btn-reservar">
+                            <button type="submit" class="btn-reservar" data-i18n="pistas.btn_reservar">
                                 Reservar
                             </button>
                         </form>
@@ -84,8 +84,8 @@
 
         @else
             <div class="mensaje-sin-cuota">
-                <p class="texto-sin-cuota">Debes tener la tarifa Plata u Oro para reservar pistas.</p>
-                <a href="{{ route('planes.todos') }}" class="btn-primario">Ver Tarifas</a>
+                <p class="texto-sin-cuota" data-i18n="pistas.error_cuota">Debes tener la tarifa Plata u Oro para reservar pistas.</p>
+                <a href="{{ route('planes.todos') }}" class="btn-primario" data-i18n="pistas.btn_tarifas">Ver Tarifas</a>
             </div>
         @endif
 

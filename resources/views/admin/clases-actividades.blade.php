@@ -3,11 +3,11 @@
         
         <div class="acciones-superiores">
             <button id="btn-abrir-actividad" class="btn-admin btn-verde">
-                <i class="fas fa-plus-circle"></i> Añadir Actividad
+                <i class="fas fa-plus-circle"></i> <span data-i18n="admin_gestion.btn_anadir_actividad">Añadir Actividad</span>
             </button>
             
             <button id="btn-abrir-clase" class="btn-admin btn-morado">
-                <i class="fas fa-calendar-plus"></i> Añadir Clase
+                <i class="fas fa-calendar-plus"></i> <span data-i18n="admin_gestion.btn_anadir_clase">Añadir Clase</span>
             </button>
         </div>
 
@@ -18,16 +18,16 @@
         @endif
 
         <div class="tarjeta-admin seccion-destacados">
-            <h2 class="subtitulo-seccion">Gestión de Actividades</h2>
+            <h2 class="subtitulo-seccion" data-i18n="admin_gestion.titulo_actividades">Gestión de Actividades</h2>
             
             <div class="tabla-responsive">
                 <table class="tabla-usuarios tabla-estilizada">
                     <thead>
                         <tr class="tabla-cabecera">
                             <th class="tabla-celda-cabecera col-id">ID</th>
-                            <th class="tabla-celda-cabecera col-nombre">NOMBRE</th>
-                            <th class="tabla-celda-cabecera col-descripcion">DESCRIPCIÓN</th>
-                            <th class="tabla-celda-cabecera col-acciones">ACCIONES</th>
+                            <th class="tabla-celda-cabecera col-nombre" data-i18n="admin_gestion.tabla_nombre">NOMBRE</th>
+                            <th class="tabla-celda-cabecera col-descripcion" data-i18n="admin_gestion.tabla_descripcion">DESCRIPCIÓN</th>
+                            <th class="tabla-celda-cabecera col-acciones" data-i18n="admin_gestion.tabla_acciones">ACCIONES</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,10 +37,10 @@
                                 <td class="tabla-celda">{{ $actividad->nombre }}</td>
                                 <td class="tabla-celda">{{ $actividad->descripcion }}</td>
                                 <td class="tabla-celda acciones-celda">
-                                    <a href="{{ route('admin.actividades.edit', $actividad->id) }}" class="btn-accion btn-editar btn-enlace">Editar</a>
+                                    <a href="{{ route('admin.actividades.edit', $actividad->id) }}" class="btn-accion btn-editar btn-enlace" data-i18n="admin_gestion.btn_editar">Editar</a>
                                     <form action="{{ route('admin.actividades.destroy', $actividad->id) }}" method="POST" onsubmit="return confirm('¿Eliminar esta actividad?')">
                                         @csrf @method('DELETE')
-                                        <button class="btn-accion btn-eliminar">Eliminar</button>
+                                        <button class="btn-accion btn-eliminar" data-i18n="admin_gestion.btn_eliminar">Eliminar</button>
                                     </form>
                                 </td>
                             </tr>
@@ -51,18 +51,18 @@
         </div>
 
         <div class="tarjeta-admin seccion-destacados mt-30">
-            <h2 class="subtitulo-seccion">Gestión de Clases</h2>
+            <h2 class="subtitulo-seccion" data-i18n="admin_gestion.titulo_clases">Gestión de Clases</h2>
             
             <div class="tabla-responsive">
                 <table class="tabla-usuarios tabla-estilizada">
                     <thead>
                         <tr class="tabla-cabecera">
-                            <th class="tabla-celda-cabecera">ACTIVIDAD</th>
-                            <th class="tabla-celda-cabecera">MONITOR</th>
-                            <th class="tabla-celda-cabecera">DÍA</th>
-                            <th class="tabla-celda-cabecera">HORA</th>
-                            <th class="tabla-celda-cabecera">CAPACIDAD</th>
-                            <th class="tabla-celda-cabecera col-acciones">ACCIONES</th>
+                            <th class="tabla-celda-cabecera" data-i18n="admin_gestion.tabla_actividad">ACTIVIDAD</th>
+                            <th class="tabla-celda-cabecera" data-i18n="admin_gestion.tabla_monitor">MONITOR</th>
+                            <th class="tabla-celda-cabecera" data-i18n="admin_gestion.tabla_dia">DÍA</th>
+                            <th class="tabla-celda-cabecera" data-i18n="admin_gestion.tabla_hora">HORA</th>
+                            <th class="tabla-celda-cabecera" data-i18n="admin_gestion.tabla_capacidad">CAPACIDAD</th>
+                            <th class="tabla-celda-cabecera col-acciones" data-i18n="admin_gestion.tabla_acciones">ACCIONES</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -74,10 +74,10 @@
                                 <td class="tabla-celda">{{ \Carbon\Carbon::parse($clase->hora_inicio)->format('H:i') }}</td>
                                 <td class="tabla-celda text-center">{{ $clase->capacidad }}</td>
                                 <td class="tabla-celda acciones-celda">
-                                    <a href="{{ route('admin.clases.edit', $clase->id) }}" class="btn-accion btn-editar btn-enlace">Editar</a>
+                                    <a href="{{ route('admin.clases.edit', $clase->id) }}" class="btn-accion btn-editar btn-enlace" data-i18n="admin_gestion.btn_editar">Editar</a>
                                     <form action="{{ route('admin.clases.destroy', $clase->id) }}" method="POST" onsubmit="return confirm('¿Eliminar esta clase?')">
                                         @csrf @method('DELETE')
-                                        <button class="btn-accion btn-eliminar">Eliminar</button>
+                                        <button class="btn-accion btn-eliminar" data-i18n="admin_gestion.btn_eliminar">Eliminar</button>
                                     </form>
                                 </td>
                             </tr>
@@ -92,21 +92,21 @@
         <div class="modal-content">
             <form method="post" action="{{ route('admin.actividades.store') }}">
                 @csrf
-                <h2 class="subtitulo-nosotros modal-title">Nueva Actividad</h2>
+                <h2 class="subtitulo-nosotros modal-title" data-i18n="admin_gestion.modal_actividad_titulo">Nueva Actividad</h2>
                 
                 <div class="form-group">
-                    <label for="nombre" class="form-label">Nombre</label>
+                    <label for="nombre" class="form-label" data-i18n="admin_gestion.label_nombre">Nombre</label>
                     <input id="nombre" name="nombre" type="text" class="form-input" required />
                 </div>
                 
                 <div class="form-group-lg">
-                    <label for="descripcion" class="form-label">Descripción</label>
+                    <label for="descripcion" class="form-label" data-i18n="admin_gestion.label_descripcion">Descripción</label>
                     <textarea name="descripcion" class="form-input" rows="3" required></textarea>
                 </div>
                 
                 <div class="form-actions">
-                    <button type="button" id="btn-cerrar-actividad" class="btn-cancelar">Cancelar</button>
-                    <button type="submit" class="btn-admin btn-verde">Guardar</button>
+                    <button type="button" id="btn-cerrar-actividad" class="btn-cancelar" data-i18n="admin_gestion.btn_cancelar">Cancelar</button>
+                    <button type="submit" class="btn-admin btn-verde" data-i18n="admin_gestion.btn_guardar">Guardar</button>
                 </div>
             </form>
         </div>
@@ -116,11 +116,11 @@
         <div class="modal-content modal-content-lg">
             <form method="post" action="{{ route('admin.clases.store') }}">
                 @csrf
-                <h2 class="subtitulo-nosotros modal-title">Programar Clase</h2>
+                <h2 class="subtitulo-nosotros modal-title" data-i18n="admin_gestion.modal_clase_titulo">Programar Clase</h2>
                 
                 <div class="grid-2-cols">
                     <div>
-                        <label for="actividad_id" class="form-label">Actividad</label>
+                        <label for="actividad_id" class="form-label" data-i18n="admin_gestion.label_actividad">Actividad</label>
                         <select name="actividad_id" class="form-input" required>
                             @foreach($actividades as $act)
                                 <option value="{{ $act->id }}">{{ $act->nombre }}</option>
@@ -128,7 +128,7 @@
                         </select>
                     </div>
                     <div>
-                        <label for="monitor_id" class="form-label">Monitor</label>
+                        <label for="monitor_id" class="form-label" data-i18n="admin_gestion.label_monitor">Monitor</label>
                         <select name="monitor_id" class="form-input" required>
                             @foreach($monitores as $monitor)
                                 <option value="{{ $monitor->id }}">{{ $monitor->name }}</option>
@@ -139,29 +139,29 @@
 
                 <div class="grid-3-cols">
                     <div>
-                        <label for="dia_semana" class="form-label">Día</label>
+                        <label for="dia_semana" class="form-label" data-i18n="admin_gestion.label_dia">Día</label>
                         <select name="dia_semana" class="form-input" required>
-                            <option value="lunes">Lunes</option>
-                            <option value="martes">Martes</option>
-                            <option value="miércoles">Miércoles</option>
-                            <option value="jueves">Jueves</option>
-                            <option value="viernes">Viernes</option>
-                            <option value="sábado">Sábado</option>
+                            <option value="lunes" data-i18n="admin_gestion.lunes">Lunes</option>
+                            <option value="martes" data-i18n="admin_gestion.martes">Martes</option>
+                            <option value="miércoles" data-i18n="admin_gestion.miercoles">Miércoles</option>
+                            <option value="jueves" data-i18n="admin_gestion.jueves">Jueves</option>
+                            <option value="viernes" data-i18n="admin_gestion.viernes">Viernes</option>
+                            <option value="sábado" data-i18n="admin_gestion.sabado">Sábado</option>
                         </select>
                     </div>
                     <div>
-                        <label for="hora_inicio" class="form-label">Hora Inicio</label>
+                        <label for="hora_inicio" class="form-label" data-i18n="admin_gestion.label_hora_inicio">Hora Inicio</label>
                         <input type="time" name="hora_inicio" class="form-input" required />
                     </div>
                     <div>
-                        <label for="capacidad" class="form-label">Capacidad</label>
+                        <label for="capacidad" class="form-label" data-i18n="admin_gestion.label_capacidad">Capacidad</label>
                         <input type="number" name="capacidad" value="20" class="form-input" required />
                     </div>
                 </div>
 
                 <div class="form-actions">
-                    <button type="button" id="btn-cerrar-clase" class="btn-cancelar">Cancelar</button>
-                    <button type="submit" class="btn-admin btn-morado">Programar</button>
+                    <button type="button" id="btn-cerrar-clase" class="btn-cancelar" data-i18n="admin_gestion.btn_cancelar">Cancelar</button>
+                    <button type="submit" class="btn-admin btn-morado" data-i18n="admin_gestion.btn_programar">Programar</button>
                 </div>
             </form>
         </div>
