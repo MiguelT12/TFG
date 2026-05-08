@@ -782,13 +782,13 @@ body .btn-reservar:hover {
     background: #2563eb !important;
 }
 
-/* RESERVAS */
 body .reserva-item {
     background:#1f2937;
     padding:15px;
     margin-bottom:10px;
     border-radius:8px;
     color:white;
+    margin-top: 10px;
 }
 
 body .btn-cancelar {
