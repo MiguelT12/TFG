@@ -765,21 +765,20 @@ body .opcion-duracion.activa {
     background: #3b82f6 !important;
 }
 
-/* BOTÓN */
 body .btn-reservar {
     margin-top: 20px;
     width: 100%;
-    background: #3b82f6 !important;
+    background: #FBBF24 !important;
     padding: 10px;
     border: none;
     border-radius: 6px;
     font-weight: bold;
-    color: white;
+    color: #111827;
     cursor: pointer;
 }
 
 body .btn-reservar:hover {
-    background: #2563eb !important;
+    background: #FFE81F !important;
 }
 
 body .reserva-item {

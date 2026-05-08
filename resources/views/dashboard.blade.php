@@ -67,7 +67,7 @@
                     <div class="contenido-promo">
                         <h3 data-i18n="dashboard.promo_ciclo_titulo">Ciclo Indoor</h3>
                         <p data-i18n="dashboard.promo_ciclo_desc">Pon a prueba tu resistencia sobre la bici con nuestras sesiones de alta intensidad y la mejor música.</p>
-                        <a href="{{ route('actividades') }}" class="btn-promo" data-i18n="dashboard.btn_apuntarme">Apuntarme</a>
+                        <a href="{{ route('actividades') }}" class="btn-primario" data-i18n="dashboard.btn_apuntarme">Apuntarme</a>
                     </div>
                 </div>
 
@@ -76,7 +76,7 @@
                     <div class="contenido-promo">
                         <h3 data-i18n="dashboard.promo_yoga_titulo">Cuerpo y Mente</h3>
                         <p data-i18n="dashboard.promo_yoga_desc">Encuentra tu equilibrio y mejora tu flexibilidad en nuestras sesiones de Yoga y Pilates.</p>
-                        <a href="{{ route('actividades') }}" class="btn-promo" data-i18n="dashboard.btn_saber_mas">Saber más</a>
+                        <a href="{{ route('actividades') }}" class="btn-primario" data-i18n="dashboard.btn_saber_mas">Saber más</a>
                     </div>
                 </div>
 
@@ -85,7 +85,7 @@
                     <div class="contenido-promo">
                         <h3 data-i18n="dashboard.promo_fuerza_titulo">Zona de Fuerza</h3>
                         <p data-i18n="dashboard.promo_fuerza_desc">¿Quieres ganar músculo? Entrena con las mejores máquinas y asesoramiento personalizado.</p>
-                        <a href="{{ route('planes.todos') }}" class="btn-promo" data-i18n="dashboard.btn_ver_planes">Ver Planes</a>
+                        <a href="{{ route('planes.todos') }}" class="btn-primario" data-i18n="dashboard.btn_ver_planes">Ver Planes</a>
                     </div>
                 </div>
 
@@ -135,7 +135,7 @@
                     <div class="contenido-promo">
                         <h3 data-i18n="dashboard.promo_ciclo_titulo">Ciclo Indoor</h3>
                         <p data-i18n="dashboard.promo_ciclo_desc">Pon a prueba tu resistencia sobre la bici con nuestras sesiones de alta intensidad y la mejor música.</p>
-                        <a href="{{ route('actividades') }}" class="btn-promo" data-i18n="dashboard.btn_apuntarme">Apuntarme</a>
+                        <a href="{{ route('actividades') }}" class="btn-primario" data-i18n="dashboard.btn_apuntarme">Apuntarme</a>
                     </div>
                 </div>
 
@@ -144,7 +144,7 @@
                     <div class="contenido-promo">
                         <h3 data-i18n="dashboard.promo_yoga_titulo">Cuerpo y Mente</h3>
                         <p data-i18n="dashboard.promo_yoga_desc">Encuentra tu equilibrio y mejora tu flexibilidad en nuestras sesiones de Yoga y Pilates.</p>
-                        <a href="{{ route('actividades') }}" class="btn-promo" data-i18n="dashboard.btn_saber_mas">Saber más</a>
+                        <a href="{{ route('actividades') }}" class="btn-primario" data-i18n="dashboard.btn_saber_mas">Saber más</a>
                     </div>
                 </div>
 
@@ -153,7 +153,7 @@
                     <div class="contenido-promo">
                         <h3 data-i18n="dashboard.promo_fuerza_titulo">Zona de Fuerza</h3>
                         <p data-i18n="dashboard.promo_fuerza_desc">¿Quieres ganar músculo? Entrena con las mejores máquinas y asesoramiento personalizado.</p>
-                        <a href="{{ route('planes.todos') }}" class="btn-promo" data-i18n="dashboard.btn_ver_planes">Ver Planes</a>
+                        <a href="{{ route('planes.todos') }}" class="btn-primario" data-i18n="dashboard.btn_ver_planes">Ver Planes</a>
                     </div>
                 </div>
 

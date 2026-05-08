@@ -5,41 +5,41 @@
         </div>
     @endif
 
-    <h1 class="titulo-login" style="font-size: 2.2rem;">INICIAR SESIÓN</h1>
+    <h1 class="titulo-login" style="font-size: 2.2rem;" data-i18n="login.titulo">INICIAR SESIÓN</h1>
     
-    <p class="texto-login">Accede a tu cuenta para continuar tu entrenamiento</p>
+    <p class="texto-login" data-i18n="login.subtitulo">Accede a tu cuenta para continuar tu entrenamiento</p>
 
     <form method="POST" action="{{ route('login') }}" class="formulario-auth">
         @csrf
 
         <div class="grupo-input">
-            <label for="email">Email</label>
+            <label for="email" data-i18n="login.email">Email</label>
             <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus autocomplete="username">
             @error('email') <span class="mensaje-error">{{ $message }}</span> @enderror
         </div>
 
         <div class="grupo-input">
-            <label for="password">Contraseña</label>
+            <label for="password" data-i18n="login.password">Contraseña</label>
             <input id="password" type="password" name="password" required autocomplete="current-password">
             @error('password') <span class="mensaje-error">{{ $message }}</span> @enderror
         </div>
 
         <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
             <input id="remember_me" type="checkbox" name="remember" style="width: auto; margin-right: 0.5rem; cursor: pointer;">
-            <label for="remember_me" style="color: #94a3b8; font-size: 0.9rem; cursor: pointer; text-transform: none; margin-bottom: 0;">Recuérdame</label>
+            <label for="remember_me" style="color: #94a3b8; font-size: 0.9rem; cursor: pointer; text-transform: none; margin-bottom: 0;" data-i18n="login.remember">Recuérdame</label>
         </div>
 
         <div class="botones-login">
-            <button type="submit" class="btn-primario">
+            <button type="submit" class="btn-primario" data-i18n="login.btn_entrar">
                 Entrar
             </button>
         </div>
 
         <div class="enlace-inferior" style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
             @if (Route::has('password.request'))
-                <a href="{{ route('password.request') }}">¿Olvidaste tu contraseña?</a>
+                <a href="{{ route('password.request') }}" data-i18n="login.forgot_password">¿Olvidaste tu contraseña?</a>
             @endif
-            <a href="{{ route('register') }}">¿No tienes cuenta? Regístrate</a>
+            <a href="{{ route('register') }}" data-i18n="login.register">¿No tienes cuenta? Regístrate</a>
         </div>
     </form>
 </x-guest-layout>

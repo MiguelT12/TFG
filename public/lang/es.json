@@ -261,5 +261,39 @@
         "modal_titulo": "Eliminar alumno",
         "btn_cancelar": "Cancelar",
         "btn_confirmar": "Eliminar"
+    },
+    "login": {
+        "titulo": "INICIAR SESIÓN",
+        "subtitulo": "Accede a tu cuenta para continuar tu entrenamiento",
+        "email": "Email",
+        "password": "Contraseña",
+        "remember": "Recuérdame",
+        "btn_entrar": "Entrar",
+        "forgot_password": "¿Olvidaste tu contraseña?",
+        "register": "¿No tienes cuenta? Regístrate"
+    },
+    "forgot_password": {
+        "titulo": "RECUPERAR CONTRASEÑA",
+        "texto": "¿Has olvidado tu contraseña? No hay problema. Indícanos tu email y te enviaremos un enlace para que puedas elegir una nueva.",
+        "email": "Email",
+        "btn_enviar": "ENVIAR ENLACE",
+        "volver": "Volver a Iniciar Sesión"
+    },
+    "reset_password": {
+        "titulo": "RESTABLECER CONTRASEÑA",
+        "email": "Email",
+        "password": "Nueva contraseña",
+        "confirm_password": "Confirmar contraseña",
+        "btn_reset": "Restablecer contraseña"
+    },
+    "register": {
+        "titulo": "REGISTRO",
+        "subtitulo": "Únete a la academia para comenzar tu entrenamiento",
+        "name": "Nombre",
+        "email": "Email",
+        "password": "Contraseña",
+        "confirm_password": "Confirmar Contraseña",
+        "btn_registrar": "Registrarse",
+        "already_registered": "¿Ya tienes una cuenta? Inicia sesión"
     }
 }

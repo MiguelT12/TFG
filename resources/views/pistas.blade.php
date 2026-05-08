@@ -1,6 +1,6 @@
 <x-app-layout>
     @php
-        $horas = ['10:00','12:00','14:00','16:00','18:00','20:00'];
+        $horas = ['10:00','12:30','16:00','18:30', '21:00'];
         $acceso = auth()->user()->cuota && in_array(strtolower(auth()->user()->cuota->nombre), ['plata', 'oro']);
     @endphp
 

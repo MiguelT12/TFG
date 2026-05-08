@@ -14,40 +14,42 @@ class CuotaSeeder extends Seeder
 
         Cuota::create([
             'nombre' => 'Bronce',
-            'lema' => 'Ideal para empezar tu transformación',
+            'lema' => 'Ideal para padawans novatos',
             'precio' => 21.99,
-            'descripcion' => 'Este plan está diseñado para aquellos que buscan libertad y equipamiento de alta gama sin complicaciones.',
+            'descripcion' => 'Este plan está diseñado para aquellos que acaban de aterrizar en Tatooine y quieran avanzar en su viaje Jedi.',
             'caracteristicas' => [
                 'Acceso 24/7 a sala fitness',
-                'Uso de vestuarios libres'
+                'Uso de vestuarios libres', 
+                'Acceso a clases grupales'
             ]
         ]);
 
         Cuota::create([
             'nombre' => 'Plata',
-            'lema' => 'Sube de nivel tu entrenamiento',
+            'lema' => 'Que el cardio te acompañe',
             'precio' => 29.99,
-            'descripcion' => 'Perfecto para quienes necesitan acceso a clases dirigidas y un seguimiento más estructurado.',
+            'descripcion' => 'Perfecto para quienes necesitan clases dirigidas por el mismísimo Maestro Yoda y un entrenamiento estructurado capaz de destruir la Estrella de la Muerte.',
             'caracteristicas' => [
                 'Acceso 24/7 a sala fitness',
                 'Uso de vestuarios libres',
-                'Acceso a clases grupales (Spinning, BodyPump)',
-                'Regalo de bienvenida (toalla y botella de agua)'
+                'Acceso a clases grupales',
+                'Regalo de bienvenida (toalla y botella de agua)',
+                'Acceso a piscina'
             ]
         ]);
 
         Cuota::create([
             'nombre' => 'Oro',
-            'lema' => 'Domina la galaxia',
+            'lema' => 'Únete al Lado Oscuro del fitness',
             'precio' => 36.99,
-            'descripcion' => 'El paquete definitivo. Acceso total a todas las instalaciones, pistas y asesoramiento personalizado.',
+            'descripcion' => 'El paquete definitivo del Imperio. Acceso total a todas las instalaciones, pistas para aparcar tu Halcón Milenario y ¡poder ilimitado! para tus bíceps.',
             'caracteristicas' => [
                 'Acceso 24/7 a sala fitness',
                 'Uso de vestuarios libres',
                 'Taquilla privada',
-                'Clases grupales ilimitadas',
+                'Acceso a piscina',
                 'Regalo de bienvenida (toalla, botella de agua y camiseta)',
-                'Acceso a piscina'
+                'Reserva de pistas sin coste adicional',
             ]
         ]);
     }

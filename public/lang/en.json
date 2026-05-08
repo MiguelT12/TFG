@@ -261,5 +261,39 @@
         "modal_titulo": "Remove student",
         "btn_cancelar": "Cancel",
         "btn_confirmar": "Remove"
+    },
+    "login": {
+        "titulo": "LOG IN",
+        "subtitulo": "Access your account to continue your training",
+        "email": "Email",
+        "password": "Password",
+        "remember": "Remember me",
+        "btn_entrar": "Log in",
+        "forgot_password": "Forgot your password?",
+        "register": "Don't have an account? Register"
+    },
+    "forgot_password": {
+        "titulo": "RECOVER PASSWORD",
+        "texto": "Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.",
+        "email": "Email",
+        "btn_enviar": "SEND LINK",
+        "volver": "Back to Login"
+    },
+    "reset_password": {
+        "titulo": "RESET PASSWORD",
+        "email": "Email",
+        "password": "New password",
+        "confirm_password": "Confirm password",
+        "btn_reset": "Reset password"
+    },
+    "register": {
+        "titulo": "REGISTER",
+        "subtitulo": "Join the academy to start your training",
+        "name": "Name",
+        "email": "Email",
+        "password": "Password",
+        "confirm_password": "Confirm Password",
+        "btn_registrar": "Register",
+        "already_registered": "Already have an account? Log in"
     }
 }

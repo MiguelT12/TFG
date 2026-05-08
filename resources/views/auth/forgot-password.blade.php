@@ -1,7 +1,7 @@
 <x-guest-layout>
-    <h1 class="titulo-login" style="font-size: 2.2rem;">RECUPERAR CONTRASEÑA</h1>
+    <h1 class="titulo-login" style="font-size: 2.2rem;" data-i18n="forgot_password.titulo">RECUPERAR CONTRASEÑA</h1>
 
-    <p class="texto-login" style="font-size: 0.95rem; margin-bottom: 1.5rem;">
+    <p class="texto-login" style="font-size: 0.95rem; margin-bottom: 1.5rem;" data-i18n="forgot_password.texto">
         ¿Has olvidado tu contraseña? No hay problema. Indícanos tu email y te enviaremos un enlace para que puedas elegir una nueva.
     </p>
 
@@ -15,19 +15,19 @@
         @csrf
 
         <div class="grupo-input">
-            <label for="email">Email</label>
+            <label for="email" data-i18n="forgot_password.email">Email</label>
             <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
             @error('email') <span class="mensaje-error">{{ $message }}</span> @enderror
         </div>
 
         <div class="botones-login" style="margin-top: 1.5rem;">
-            <button type="submit" class="btn-primario">
+            <button type="submit" class="btn-primario" data-i18n="forgot_password.btn_enviar">
                 Enviar enlace
             </button>
         </div>
 
         <div class="enlace-inferior">
-            <a href="{{ route('login') }}">Volver a Iniciar Sesión</a>
+            <a href="{{ route('login') }}" data-i18n="forgot_password.volver">Volver a Iniciar Sesión</a>
         </div>
     </form>
 </x-guest-layout>

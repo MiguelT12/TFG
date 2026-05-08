@@ -243,24 +243,6 @@ body {
     height: 60px; 
 }
 
-.btn-promo {
-    display: inline-block;
-    background-color: #3b82f6;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9rem;
-    transition: background-color 0.3s;
-    width: 100%;
-    text-align: center;
-}
-
-.btn-promo:hover {
-    background-color: #2563eb;
-}
-
 .seccion-sobre-nosotros {
     max-width: 1400px;
     margin: 40px auto;
@@ -511,4 +493,31 @@ body {
     outline: none;
     transition: all 0.2s ease;
     margin-right: 1rem;
+}
+
+.selector-idioma-guest {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 50;
+}
+
+.selector-idioma-guest select {
+    background-color: #1e293b;
+    color: #f8fafc;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.selector-idioma-guest select:hover,
+.selector-idioma-guest select:focus {
+    border-color: #3b82f6;
+    background-color: #0f172a;
 }

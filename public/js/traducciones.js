@@ -2,11 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let textos = {};
 
     async function cargarTraducciones() {
-        // Coge el idioma de Laravel, si no existe usa 'es' por defecto
-        const idioma = window.idiomaApp || 'es'; 
+        const idioma = localStorage.getItem('idioma') || window.idiomaApp || 'es'; 
         
         try {
-            const respuesta = await fetch(`/lang/${idioma}.json`);
+            const respuesta = await fetch(window.location.origin + `/lang/${idioma}.json`);
             if (!respuesta.ok) throw new Error('No se pudo cargar el archivo JSON');
             
             textos = await respuesta.json();
@@ -21,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function traducirDOM() {
-        // Traducir textos internos (etiquetas normales)
         document.querySelectorAll('[data-i18n]').forEach(elemento => {
             const rutaTraduccion = elemento.getAttribute('data-i18n');
             const textoTraducido = t(rutaTraduccion);
@@ -31,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Traducir placeholders de inputs
         document.querySelectorAll('[data-i18n-placeholder]').forEach(elemento => {
             const rutaTraduccion = elemento.getAttribute('data-i18n-placeholder');
             const textoTraducido = t(rutaTraduccion);

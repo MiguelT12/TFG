@@ -42,8 +42,8 @@
                     </div>
                 </div>
 
-                <div class="imagen-soldado">
-                    <img src="{{ asset('img/soldado' . $loop->iteration . '.png') }}" alt="Soldado">
+                <div class="imagen-soldado" style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 250px;">
+                    <img src="{{ asset('img/soldado' . $loop->iteration . '.png') }}" alt="Soldado" style="height: 350px; width: auto; object-fit: contain;">
                 </div>
 
             </div>
