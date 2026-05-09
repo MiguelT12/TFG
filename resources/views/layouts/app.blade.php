@@ -34,8 +34,9 @@
     <script src="{{ asset('js/pistas.js') }}"></script>
     <script src="{{ asset('js/monitor.js') }}"></script>
     <script src="{{ asset('js/alertas.js') }}"></script>
-    <script src="{{ asset('js/traducciones.js') }}"></script>
+    <script src="{{ asset('js/traducciones.js') }}?v={{ time() }}"></script>    
     <script>window.idiomaApp = "{{ app()->getLocale() }}";</script>
+    @include('layouts.config-traducciones')
 </head>
 
 <body class="font-sans antialiased">
