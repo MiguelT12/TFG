@@ -538,7 +538,7 @@ nav .relative > div > div {
 }
 
 .btn-inscribirse:hover {
-    filter: brightness(0.9);
+    background-color: #c4b428;
 }
 
 .sin-clases {

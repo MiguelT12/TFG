@@ -9,9 +9,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('css/bootoast.css') }}">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="{{ asset('js/bootoast.js') }}"></script>
 
     <!-- CSS GLOBAL -->
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
@@ -26,8 +24,6 @@
 
     @stack('styles')
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="{{ asset('js/bootoast.js') }}"></script>
     <script src="{{ asset('js/tarifas.js') }}"></script>
     <script src="{{ asset('js/calendario.js') }}"></script>
     <script src="{{ asset('js/admin.js') }}"></script>
