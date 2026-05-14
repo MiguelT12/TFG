@@ -53,6 +53,13 @@ class DatabaseSeeder extends Seeder
             'role' => 'monitor',
         ]);
 
+        User::factory()->create([
+            'name' => 'Guillermo Díaz',
+            'email' => 'guillermo@email.com',
+            'password' => Hash::make('12345678'),
+            'role' => 'monitor',
+        ]);
+
         // Usuario
         User::factory()->create([
             'name' => 'Test Cliente',
