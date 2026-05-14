@@ -82,7 +82,14 @@
         "titulo_pagina": "Reservar pistas",
         "btn_reservar": "Reservar",
         "error_cuota": "Debes tener la tarifa Plata u Oro para reservar pistas.",
-        "btn_tarifas": "Ver Tarifas"
+        "btn_tarifas": "Ver Tarifas",
+        "reserva_correcta": "Pista reservada correctamente",
+        "error": "Solo puedes reservar entre las 10:00 y las 20:00",
+        "error_ocupado": "Ese horario ya está ocupado",
+        "cancelada": "Reserva cancelada",
+        "anadida": "Pista añadida correctamente.",
+        "actualizada": "Pista actualizada correctamente.",
+        "eliminada": "Pista eliminada correctamente."
     },
     "tarifas": {
         "mes": "/ mes",

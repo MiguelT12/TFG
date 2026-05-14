@@ -62,7 +62,7 @@ class PistaController extends Controller
             'hora_fin' => $fin,
         ]);
 
-        return back()->with('success', 'Pista reservada correctamente');
+        return back()->with('success', 'reserva_correcta');
     }
 
     public function cancelar(\Illuminate\Http\Request $request, $id)

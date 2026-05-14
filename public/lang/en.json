@@ -82,7 +82,14 @@
         "titulo_pagina": "Book courts",
         "btn_reservar": "Book",
         "error_cuota": "You must have a Silver or Gold plan to book courts.",
-        "btn_tarifas": "View Rates"
+        "btn_tarifas": "View Rates",
+        "reserva_correcta": "Court booked successfully",
+        "error": "You can only book between 10:00 and 20:00",
+        "error_ocupado": "That time slot is already taken",
+        "cancelada": "Booking canceled",
+        "anadida": "Court added successfully.",
+        "actualizada": "Court updated successfully.",
+        "eliminada": "Court deleted successfully."
     },
     "tarifas": {
         "mes": "/ month",

@@ -44,9 +44,10 @@ Route::get('/', function (Illuminate\Http\Request $request) {
 
 })->name('dashboard'); 
 
+// Ruta simplificada: Solo guarda en sesión y recarga
 Route::get('lang/{locale}', function ($locale) {
     if (in_array($locale, ['es', 'en'])) {
-        Session::put('locale', $locale);
+        session(['locale' => $locale]);
     }
     return redirect()->back();
 })->name('lang.switch');

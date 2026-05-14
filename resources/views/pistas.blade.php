@@ -73,8 +73,8 @@
             @endif
 
             @if(session('success'))
-                <div class="reserva-item alerta-exito">
-                    {{ session('success') }}
+                <div class="reserva-item alerta-exito"
+                    data-i18n="pistas.reserva_correcta">
                 </div>
             @endif
 

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ session('locale', 'es') }}">
 <head>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <!-- Fonts -->
+    <!-- Fronts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="{{ asset('css/actividades.css') }}">
     <link rel="stylesheet" href="{{ asset('css/monitor.css') }}">
     <link rel="stylesheet" href="{{ asset('css/modales.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 
     @stack('styles')
     <script src="https://cdn.tailwindcss.com"></script>
@@ -31,7 +30,7 @@
     <script src="{{ asset('js/monitor.js') }}"></script>
     <script src="{{ asset('js/alertas.js') }}"></script>
     <script src="{{ asset('js/traducciones.js') }}?v={{ time() }}"></script>    
-    <script>window.idiomaApp = "{{ app()->getLocale() }}";</script>
+    <script>window.idiomaApp = "{{ session('locale', 'es') }}";</script>
     @include('layouts.config-traducciones')
 </head>
 

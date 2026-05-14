@@ -53,9 +53,9 @@
             </div>
 
             <div class="flex items-center">
-                <select onchange="window.location.href=this.value" class="select-idioma">
-                    <option value="{{ route('lang.switch', 'es') }}" {{ app()->getLocale() === 'es' ? 'selected' : '' }}>🇪🇸 Español</option>
-                    <option value="{{ route('lang.switch', 'en') }}" {{ app()->getLocale() === 'en' ? 'selected' : '' }}>🇬🇧 English</option>
+                <select id="selector-idioma" class="select-idioma">
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="en">🇬🇧 English</option>
                 </select>
                 @auth
                     <div class="menu-usuario-nav">
