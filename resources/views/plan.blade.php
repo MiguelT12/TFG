@@ -50,7 +50,7 @@
         @endforeach
         
         <div id="modal-confirmacion-tarifa" class="modal-oculto">
-            <div class="modal-contenido">
+            <div class="modal-content">
                 <h2 class="modal-titulo" data-i18n="tarifas.modal_titulo">Confirmar tarifa</h2>
                 <p class="modal-texto" data-i18n="tarifas.modal_texto">¿Estás seguro de que deseas contratar esta tarifa?</p>
                 <div class="modal-botones">

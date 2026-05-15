@@ -51,7 +51,7 @@
         </div>
 
         <div id="modal-confirmacion" class="modal-oculto">
-            <div class="modal-contenido">
+            <div class="modal-content">
                 <h2 class="modal-titulo" data-i18n="admin_panel.modal_titulo">¿Estás seguro?</h2>
                 <p class="modal-texto" data-i18n="admin_panel.modal_texto">Vas a eliminar a este usuario permanentemente.</p>
                 <div class="modal-botones">

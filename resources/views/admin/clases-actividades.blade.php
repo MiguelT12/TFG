@@ -38,10 +38,7 @@
                                 <td class="tabla-celda">{{ $actividad->descripcion }}</td>
                                 <td class="tabla-celda acciones-celda">
                                     <a href="{{ route('admin.actividades.edit', $actividad->id) }}" class="btn-accion btn-editar btn-enlace" data-i18n="admin_gestion.btn_editar">Editar</a>
-                                    <form action="{{ route('admin.actividades.destroy', $actividad->id) }}" method="POST" onsubmit="return confirm('¿Eliminar esta actividad?')">
-                                        @csrf @method('DELETE')
-                                        <button class="btn-accion btn-eliminar" data-i18n="admin_gestion.btn_eliminar">Eliminar</button>
-                                    </form>
+                                    <button type="button" class="btn-accion btn-eliminar btn-abrir-eliminar" data-action="{{ route('admin.actividades.destroy', $actividad->id) }}" data-i18n="admin_gestion.btn_eliminar">Eliminar</button>
                                 </td>
                             </tr>
                         @endforeach
@@ -75,10 +72,7 @@
                                 <td class="tabla-celda text-center">{{ $clase->capacidad }}</td>
                                 <td class="tabla-celda acciones-celda">
                                     <a href="{{ route('admin.clases.edit', $clase->id) }}" class="btn-accion btn-editar btn-enlace" data-i18n="admin_gestion.btn_editar">Editar</a>
-                                    <form action="{{ route('admin.clases.destroy', $clase->id) }}" method="POST" onsubmit="return confirm('¿Eliminar esta clase?')">
-                                        @csrf @method('DELETE')
-                                        <button class="btn-accion btn-eliminar" data-i18n="admin_gestion.btn_eliminar">Eliminar</button>
-                                    </form>
+                                    <button type="button" class="btn-accion btn-eliminar btn-abrir-eliminar" data-action="{{ route('admin.clases.destroy', $clase->id) }}" data-i18n="admin_gestion.btn_eliminar">Eliminar</button>
                                 </td>
                             </tr>
                         @endforeach
@@ -105,7 +99,7 @@
                 </div>
                 
                 <div class="form-actions">
-                    <button type="button" id="btn-cerrar-actividad" class="btn-cancelar" data-i18n="admin_gestion.btn_cancelar">Cancelar</button>
+                    <button type="button" id="btn-cerrar-actividad" class="btn-admin btn-admin btn-cancelar" data-i18n="admin_gestion.btn_cancelar">Cancelar</button>
                     <button type="submit" class="btn-admin btn-verde" data-i18n="admin_gestion.btn_guardar">Guardar</button>
                 </div>
             </form>
@@ -160,10 +154,26 @@
                 </div>
 
                 <div class="form-actions">
-                    <button type="button" id="btn-cerrar-clase" class="btn-cancelar" data-i18n="admin_gestion.btn_cancelar">Cancelar</button>
+                    <button type="button" id="btn-cerrar-clase" class="btn-admin btn-admin btn-cancelar" data-i18n="admin_gestion.btn_cancelar">Cancelar</button>
                     <button type="submit" class="btn-admin btn-morado" data-i18n="admin_gestion.btn_programar">Programar</button>
                 </div>
             </form>
+        </div>
+    </div>
+
+    <div id="modal-confirmar-eliminar" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <h2 class="subtitulo-nosotros modal-title">Confirmar Eliminación</h2>
+            <p class="mb-20">¿Estás seguro de que deseas eliminar este elemento? Esta acción no se puede deshacer.</p>
+            
+            <div class="form-actions">
+                <button type="button" id="btn-cerrar-eliminar" class="btn-admin btn-cancelar" data-i18n="admin_gestion.btn_cancelar">Cancelar</button>
+                <form id="form-delete-confirm" method="POST" action="">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn-admin btn-eliminar">Sí, eliminar</button>
+                </form>
+            </div>
         </div>
     </div>
 </x-app-layout>

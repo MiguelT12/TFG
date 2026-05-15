@@ -792,7 +792,7 @@ body .reserva-item {
 
 body .btn-cancelar {
     margin-left:10px;
-    background:red;
+    background:#7e7e7e;
     color:white;
     border:none;
     padding:5px 10px;
@@ -912,15 +912,6 @@ body .btn-cancelar {
     justify-content: center;
     align-items: center;
     z-index: 999;
-}
-
-.modal-contenido {
-    background: #1e293b;
-    padding: 30px;
-    border-radius: 12px;
-    text-align: center;
-    width: 300px;
-    color: white;
 }
 
 .modal-botones {

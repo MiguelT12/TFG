@@ -69,13 +69,13 @@
 
     {{-- Tarjeta de confirmacion para eliminar alumno --}}
     <div id="modalEliminar" class="modal-overlay" style="display: none;">
-        <div class="modal-contenido">
+        <div class="modal-content">
 
             {{-- titulo del modal --}}
-            <h2 data-i18n="monitor_alumnos.modal_titulo">Eliminar alumno</h2>
+            <h2 data-i18n="monitor_alumnos.modal_titulo" class="modal-titulo">Eliminar alumno</h2>
 
             {{-- texto dinamico que se rellena con javascript --}}
-            <p id="textoModal"></p>
+            <p id="textoModal" class="modal-texto"></p>
 
             <div class="modal-botones">
 
@@ -90,7 +90,7 @@
                     @method('DELETE')
 
                     {{-- boton de confirmacion --}}
-                    <button type="submit" class="btn-confirmar" data-i18n="monitor_alumnos.btn_confirmar">
+                    <button type="submit" class="btn-admin btn-eliminar" data-i18n="monitor_alumnos.btn_confirmar">
                         Eliminar
                     </button>
                 </form>

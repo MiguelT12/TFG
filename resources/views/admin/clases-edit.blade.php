@@ -53,7 +53,7 @@
                 </div>
                 
                 <div class="flex justify-end gap-4 mt-6">
-                    <a href="{{ route('clases-actividades') }}" class="btn-cancelar" style="text-decoration: none; padding: 10px 15px; display: inline-block;" data-i18n="admin_clases_edit.cancelar">Cancelar</a>
+                    <a href="{{ route('clases-actividades') }}" class="btn-admin btn-cancelar" style="text-decoration: none; padding: 10px 15px; display: inline-block;" data-i18n="admin_clases_edit.cancelar">Cancelar</a>
                     <button type="submit" class="btn-admin btn-morado" data-i18n="admin_clases_edit.actualizar">Actualizar</button>
                 </div>
             </form>
